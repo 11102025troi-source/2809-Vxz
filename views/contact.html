@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liên Hệ &amp; Hệ Thống Chi Nhánh - shopkiet76</title>
+  <meta name="description" content="Hệ thống 2 chi nhánh cửa hàng giày thể thao chính hãng shopkiet76 tại Quảng Ngãi và TP.HCM. Bản đồ Google Maps, số điện thoại, giờ mở cửa." />
+  <meta property="og:title" content="Hệ Thống Chi Nhánh - shopkiet76" />
+  <meta property="og:description" content="Danh sách 2 chi nhánh chính hãng shopkiet76 tại Quảng Ngãi và TP.HCM. Bản đồ chỉ đường và hotline hỗ trợ." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="/images/shopkiet76_avatar.jpg" />
+
+  <!-- Custom Theme Stylesheet -->
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <!-- 1. TOP ANNOUNCEMENT BAR -->
+  <div class="top-bar">
+    <div class="container d-flex justify-content-between align-items-center">
+      <!-- Bên trái giữ Hotline / menu trái -->
+      <div class="d-flex align-items-center gap-2 gap-md-3">
+        <span><i class="fas fa-phone-alt text-info me-1"></i> Hotline: <a href="tel:19008888" class="fw-bold text-white text-decoration-none">1900 8888</a></span>
+        <span class="d-none d-md-inline text-white-50">|</span>
+        <span class="d-none d-md-inline"><i class="fas fa-store text-info me-1"></i> 2 chi nhánh: Quảng Ngãi &amp; TP.HCM</span>
+        <span class="d-none d-lg-inline text-white-50">|</span>
+        <span class="d-none d-lg-inline"><i class="fas fa-shipping-fast text-info me-1"></i> Freeship đơn từ 1.000.000₫</span>
+      </div>
+
+      <!-- Phía PHẢI thanh trên cùng: sát nút Quản Trị có nút 🎁 Ưu Đãi -->
+      <div class="d-flex align-items-center gap-2 gap-sm-3 ms-auto">
+        <a href="/register" class="text-white text-decoration-none fw-semibold d-none d-sm-inline">
+          <i class="fas fa-id-card me-1 text-warning"></i> Hội Viên (+50đ)
+        </a>
+        <span class="text-white-50 d-none d-sm-inline">|</span>
+        <a href="/admin" class="text-white text-decoration-none fw-semibold d-flex align-items-center gap-1" title="Quản Trị Hệ Thống">
+          <i class="fas fa-user-shield text-info"></i> <span>Quản Trị</span>
+        </a>
+        <!-- Nút nhỏ gọn: "🎁 Ưu Đãi" sát nút Quản Trị -->
+        <button type="button" class="btn-topbar-promo" onclick="openPromoModal(event)" title="Xem ưu đãi & mã giảm giá 1.000.000đ">
+          <span>🎁</span> <span>Ưu Đãi</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. MAIN NAVBAR -->
+  <nav class="navbar navbar-expand-lg main-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <div class="brand-icon-box">
+          <img src="/images/shopkiet76_avatar.jpg" alt="Shopkiet76" />
+        </div>
+        <span class="brand-name">shopkiet<span class="brand-accent">76</span></span>
+      </a>
+
+      <!-- Mobile Controls -->
+      <div class="d-flex align-items-center gap-2 d-lg-none order-lg-last">
+        <a href="/cart" class="btn-cart" title="Xem giỏ hàng">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count-badge">0</span>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContact" aria-controls="navbarContact" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars fs-4 text-dark"></i>
+        </button>
+      </div>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarContact">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+          <li class="nav-item">
+            <a class="nav-link" href="/"><i class="fas fa-home me-1"></i> Trang Chủ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/#products-section">Sản Phẩm</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-danger fw-bold" href="/#flash-sale"><i class="fas fa-bolt text-warning me-1"></i> Khuyến Mãi</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-primary fw-bold" href="/register"><i class="fas fa-user-plus me-1 text-warning"></i> Đăng Ký Hội Viên</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active text-info fw-bold" href="/contact"><i class="fas fa-map-marker-alt me-1 text-danger"></i> Hệ Thống Chi Nhánh</a>
+          </li>
+        </ul>
+
+        <div class="d-flex align-items-center gap-2">
+          <a href="tel:19008888" class="btn btn-outline-primary btn-sm rounded-pill px-3 fw-bold">
+            <i class="fas fa-headset me-1"></i> 1900 8888
+          </a>
+          <a href="/cart" class="btn-cart d-none d-lg-flex" title="Giỏ hàng">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-count-badge">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 3. HERO BANNER LIÊN HỆ -->
+  <header class="py-5 text-white" style="background: linear-gradient(135deg, #0b1329 0%, #1e3a8a 50%, #0369a1 100%); position: relative; overflow: hidden;">
+    <div class="container py-4 text-center">
+      <span class="badge bg-white bg-opacity-20 text-white px-3 py-2 rounded-pill fw-bold text-uppercase mb-3" style="letter-spacing: 1px;">
+        <i class="fas fa-map-marked-alt text-warning me-1"></i> Hệ Thống Cửa Hàng Toàn Quốc
+      </span>
+      <h1 class="fw-extrabold display-5 mb-3">HỆ THỐNG CHI NHÁNH &amp; LIÊN HỆ</h1>
+      <p class="lead mx-auto text-white-50" style="max-width: 680px; font-size: 1.05rem;">
+        Trải nghiệm trực tiếp hàng ngàn mẫu giày sneaker chuẩn Auth 100% tại 2 chi nhánh chính hãng của <strong>shopkiet76</strong> tại Quảng Ngãi và TP. Hồ Chí Minh.
+      </p>
+      <div class="d-flex justify-content-center flex-wrap gap-3 mt-4">
+        <a href="#branch-1" class="btn btn-primary px-4 py-2 rounded-pill fw-bold shadow-sm">
+          <i class="fas fa-map-marker-alt me-1"></i> Chi Nhánh Chính (Quảng Ngãi)
+        </a>
+        <a href="#branch-2" class="btn btn-success px-4 py-2 rounded-pill fw-bold shadow-sm">
+          <i class="fas fa-store-alt me-1"></i> Chi Nhánh TP.HCM (MỚI)
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 4. DANH SÁCH 2 CHI NHÁNH TÁCH BIỆT -->
+  <main class="py-5" style="background-color: #f8fafc;">
+    <div class="container">
+
+      <!-- ======================================================== -->
+      <!-- CHI NHÁNH 1 (CŨ / CHÍNH - QUẢNG NGÃI) -->
+      <!-- ======================================================== -->
+      <section id="branch-1" class="branch-card mb-5">
+        <div class="branch-header">
+          <div class="d-flex align-items-center gap-3">
+            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 44px; height: 44px; font-size: 1.25rem;">
+              <i class="fas fa-store"></i>
+            </div>
+            <div>
+              <span class="badge bg-primary text-white px-3 py-1 rounded-pill small fw-bold">CHI NHÁNH 1 (CŨ / CHÍNH)</span>
+              <h3 class="fw-bold text-slate-900 mb-0 mt-1" style="font-size: 1.45rem;">Chi Nhánh Chính</h3>
+            </div>
+          </div>
+          <span class="badge bg-primary-subtle text-primary fw-bold px-3 py-2 rounded-pill">
+            <i class="fas fa-check-circle me-1"></i> Trụ Sở Trưng Bày Đầy Đủ Size
+          </span>
+        </div>
+
+        <div class="branch-body">
+          <div class="row g-4 align-items-center">
+            <!-- Thông tin chi nhánh 1 -->
+            <div class="col-lg-5">
+              <div class="d-flex flex-column gap-3">
+                <div class="d-flex align-items-start gap-3 p-3 rounded-3 bg-light border">
+                  <div class="text-primary fs-4 mt-1"><i class="fas fa-map-marker-alt"></i></div>
+                  <div>
+                    <strong class="d-block text-slate-900 mb-1">Địa chỉ cửa hàng:</strong>
+                    <p class="mb-0 text-slate-700 fw-semibold" style="line-height: 1.5;">
+                      172 Quang Trung Phường Trương Quang Trọng Tỉnh Quảng Ngãi
+                    </p>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-start gap-3 p-3 rounded-3 bg-light border">
+                  <div class="text-primary fs-4 mt-1"><i class="fas fa-phone-alt"></i></div>
+                  <div>
+                    <strong class="d-block text-slate-900 mb-1">Điện thoại liên hệ:</strong>
+                    <div class="d-flex flex-wrap gap-2 align-items-center">
+                      <a href="tel:19008888" class="badge bg-primary text-white text-decoration-none fs-6 px-3 py-1">1900 8888</a>
+                      <span class="text-muted">hoặc</span>
+                      <a href="tel:0912345678" class="text-slate-800 fw-bold text-decoration-none">0912 345 678</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-start gap-3 p-3 rounded-3 bg-light border">
+                  <div class="text-primary fs-4 mt-1"><i class="fas fa-clock"></i></div>
+                  <div>
+                    <strong class="d-block text-slate-900 mb-1">Giờ mở cửa:</strong>
+                    <span class="text-slate-800 fw-semibold">Thứ 2 – Chủ Nhật, 8:00 – 22:00</span>
+                    <small class="d-block text-success mt-1"><i class="fas fa-circle fa-xs me-1"></i> Đang mở cửa đón khách</small>
+                  </div>
+                </div>
+
+                <div class="d-flex gap-2 mt-2">
+                  <a href="https://maps.google.com/maps?q=172+Quang+Trung+Ph%C6%B0%E1%BB%9Dng+Tr%C6%B0%C6%A1ng+Quang+Tr%E1%BB%8Dng+Qu%E1%BA%A3ng+Ng%C3%A3i" target="_blank" rel="noopener noreferrer" class="btn btn-primary flex-grow-1 fw-bold py-2">
+                    <i class="fas fa-directions me-1"></i> Chỉ Đường Google Maps
+                  </a>
+                  <a href="tel:19008888" class="btn btn-outline-primary fw-bold py-2 px-3">
+                    <i class="fas fa-phone"></i> Gọi Ngay
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bản đồ Google Maps Chi nhánh 1 -->
+            <div class="col-lg-7">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="small fw-bold text-slate-700">
+                  <i class="fas fa-map text-primary me-1"></i> Bản đồ định vị Chi Nhánh Chính (Quảng Ngãi)
+                </span>
+                <span class="badge bg-light text-secondary border">Interactive Map</span>
+              </div>
+              <div class="branch-map-container" style="height: 320px;">
+                <iframe
+                  class="branch-map-frame"
+                  src="https://maps.google.com/maps?q=172+Quang+Trung+Ph%C6%B0%E1%BB%9Dng+Tr%C6%B0%C6%A1ng+Quang+Tr%E1%BB%8Dng+Qu%E1%BA%A3ng+Ng%C3%A3i&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  loading="lazy"
+                  allowfullscreen
+                  referrerpolicy="no-referrer-when-downgrade"
+                  title="Bản đồ Chi Nhánh Chính 172 Quang Trung Quảng Ngãi">
+                </iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================== -->
+      <!-- ĐƯỜNG KẺ NGĂN CÁCH TÁCH BIỆT RÕ RÀNG 2 CHI NHÁNH -->
+      <!-- ======================================================== -->
+      <div class="branch-divider-custom">
+        <span class="branch-divider-badge">
+          <i class="fas fa-store-alt text-primary"></i>
+          <span>HỆ THỐNG PHÂN PHỐI SHOPKIET76</span>
+          <i class="fas fa-chevron-down text-primary"></i>
+        </span>
+      </div>
+
+      <!-- ======================================================== -->
+      <!-- CHI NHÁNH 2 (MỚI - TP. HỒ CHÍ MINH) -->
+      <!-- ======================================================== -->
+      <section id="branch-2" class="branch-card mb-5" style="border-color: #86efac;">
+        <div class="branch-header" style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border-bottom-color: #bbf7d0;">
+          <div class="d-flex align-items-center gap-3">
+            <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 44px; height: 44px; font-size: 1.25rem;">
+              <i class="fas fa-city"></i>
+            </div>
+            <div>
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-success text-white px-3 py-1 rounded-pill small fw-bold">CHI NHÁNH 2 (MỚI)</span>
+                <span class="badge bg-danger text-white px-2 py-1 rounded-pill small fw-bold" style="animation: pulse 1.5s infinite;">MỚI KHAI TRƯƠNG</span>
+              </div>
+              <h3 class="fw-bold text-slate-900 mb-0 mt-1" style="font-size: 1.45rem;">Chi Nhánh TP.HCM</h3>
+            </div>
+          </div>
+          <span class="badge bg-success-subtle text-success fw-bold px-3 py-2 rounded-pill">
+            <i class="fas fa-gift me-1"></i> Ưu Đãi 10% Cho Khách Đến Trực Tiếp
+          </span>
+        </div>
+
+        <div class="branch-body">
+          <div class="row g-4 align-items-center">
+            <!-- Thông tin chi nhánh 2 -->
+            <div class="col-lg-5">
+              <div class="d-flex flex-column gap-3">
+                <div class="d-flex align-items-start gap-3 p-3 rounded-3 bg-light border">
+                  <div class="text-success fs-4 mt-1"><i class="fas fa-map-marker-alt"></i></div>
+                  <div>
+                    <strong class="d-block text-slate-900 mb-1">Địa chỉ cửa hàng:</strong>
+                    <p class="mb-0 text-slate-700 fw-semibold" style="line-height: 1.5;">
+                      456 Đường Số 7, Quận 12, TP.HCM
+                    </p>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-start gap-3 p-3 rounded-3 bg-light border">
+                  <div class="text-success fs-4 mt-1"><i class="fas fa-phone-alt"></i></div>
+                  <div>
+                    <strong class="d-block text-slate-900 mb-1">Điện thoại liên hệ:</strong>
+                    <div class="d-flex flex-wrap gap-2 align-items-center">
+                      <a href="tel:19008888" class="badge bg-success text-white text-decoration-none fs-6 px-3 py-1">1900 8888</a>
+                      <span class="text-muted">hoặc</span>
+                      <a href="tel:0988777999" class="text-slate-800 fw-bold text-decoration-none">0988 777 999</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-start gap-3 p-3 rounded-3 bg-light border">
+                  <div class="text-success fs-4 mt-1"><i class="fas fa-clock"></i></div>
+                  <div>
+                    <strong class="d-block text-slate-900 mb-1">Giờ mở cửa:</strong>
+                    <span class="text-slate-800 fw-semibold">Thứ 2 – Chủ Nhật, 8:00 – 21:00</span>
+                    <small class="d-block text-success mt-1"><i class="fas fa-circle fa-xs me-1"></i> Sẵn sàng phục vụ bạn</small>
+                  </div>
+                </div>
+
+                <div class="d-flex gap-2 mt-2">
+                  <a href="https://maps.google.com/maps?q=456+%C4%90%C6%B0%E1%BB%9Dng+S%E1%BB%91+7+Qu%E1%BA%ADn+12+TP.HCM" target="_blank" rel="noopener noreferrer" class="btn btn-success flex-grow-1 fw-bold py-2">
+                    <i class="fas fa-directions me-1"></i> Chỉ Đường Google Maps
+                  </a>
+                  <a href="tel:19008888" class="btn btn-outline-success fw-bold py-2 px-3">
+                    <i class="fas fa-phone"></i> Gọi Ngay
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bản đồ Google Maps Chi nhánh 2 -->
+            <div class="col-lg-7">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="small fw-bold text-slate-700">
+                  <i class="fas fa-map text-success me-1"></i> Bản đồ định vị Chi Nhánh TP.HCM
+                </span>
+                <span class="badge bg-light text-secondary border">Interactive Map</span>
+              </div>
+              <div class="branch-map-container" style="height: 320px;">
+                <iframe
+                  class="branch-map-frame"
+                  src="https://maps.google.com/maps?q=456+%C4%90%C6%B0%E1%BB%9Dng+S%E1%BB%91+7+Qu%E1%BA%ADn+12+TP.HCM&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  loading="lazy"
+                  allowfullscreen
+                  referrerpolicy="no-referrer-when-downgrade"
+                  title="Bản đồ Chi Nhánh 2 456 Đường Số 7 Quận 12 TP.HCM">
+                </iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================== -->
+      <!-- BIỂU MẪU GỬI TIN NHẮN LIÊN HỆ & TƯ VẤN TRỰC TUYẾN -->
+      <!-- ======================================================== -->
+      <section class="card border-0 shadow-sm rounded-4 p-4 p-md-5 bg-white mt-5">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-5">
+            <span class="badge bg-primary-subtle text-primary fw-bold text-uppercase px-3 py-1 rounded-pill mb-2">Hỗ Trợ Nhanh 24/7</span>
+            <h3 class="fw-bold text-slate-900 mb-2">Gửi Tin Nhắn Cho shopkiet76</h3>
+            <p class="text-muted small mb-4">
+              Bạn cần tư vấn chọn size, kiểm tra tồn kho tại chi nhánh hoặc muốn hợp tác? Hãy gửi tin nhắn cho chúng tôi, đội ngũ hỗ trợ sẽ phản hồi trong 15 phút.
+            </p>
+
+            <div class="d-flex flex-column gap-3 small text-slate-700">
+              <div class="d-flex align-items-center gap-3">
+                <i class="fas fa-envelope text-primary fs-5"></i>
+                <span>Email hỗ trợ: <strong>support@shopkiet76.vn</strong></span>
+              </div>
+              <div class="d-flex align-items-center gap-3">
+                <i class="fas fa-headset text-primary fs-5"></i>
+                <span>Tổng đài miễn phí: <strong>1900 8888</strong></span>
+              </div>
+              <div class="d-flex align-items-center gap-3">
+                <i class="fas fa-shield-alt text-primary fs-5"></i>
+                <span>Cam kết bảo mật 100% thông tin cá nhân khách hàng</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <form onsubmit="handleContactSubmit(event)" class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label small fw-bold text-slate-700">Họ và tên <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="contact-name" placeholder="Nguyễn Văn A" required />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-bold text-slate-700">Số điện thoại <span class="text-danger">*</span></label>
+                <input type="tel" class="form-control" id="contact-phone" placeholder="0912 345 678" required />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-bold text-slate-700">Địa chỉ Email</label>
+                <input type="email" class="form-control" id="contact-email" placeholder="example@gmail.com" />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-bold text-slate-700">Chọn chi nhánh muốn liên hệ <span class="text-danger">*</span></label>
+                <select class="form-select" id="contact-branch" required>
+                  <option value="Chi Nhánh 1 (Quảng Ngãi)">Chi Nhánh 1: 172 Quang Trung, Quảng Ngãi</option>
+                  <option value="Chi Nhánh 2 (TP.HCM)">Chi Nhánh 2: 456 Đường Số 7, Quận 12, TP.HCM</option>
+                  <option value="Cả 2 Chi Nhánh">Tất cả chi nhánh</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label small fw-bold text-slate-700">Nội dung tin nhắn / Câu hỏi cần tư vấn <span class="text-danger">*</span></label>
+                <textarea class="form-control" id="contact-message" rows="3" placeholder="Ví dụ: Em muốn hỏi chi nhánh TP.HCM có sẵn mẫu Vans Old Skool size 41 không..." required></textarea>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary fw-bold py-2 px-4 rounded-pill">
+                  <i class="fas fa-paper-plane me-1"></i> Gửi Tin Nhắn Ngay
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- 5. CHÂN TRANG (FOOTER) -->
+  <footer class="shop-footer site-footer py-5 mt-5" id="store-locations">
+    <div class="container footer-content">
+      <!-- CỘT 1: [Menu Chính] (kèm Hội viên lồng) -->
+      <div>
+        <h4>[Menu Chính]</h4>
+        <ul class="list-unstyled">
+          <li><a href="/">🏠 Trang Chủ</a></li>
+          <li><a href="/#products-section">👟 Sản Phẩm</a></li>
+          <li><a href="javascript:void(0)" onclick="openPromoModal(event)">🎁 Khuyến Mãi</a></li>
+          <li>
+            <a href="/member">👑 Trung Tâm Hội Viên</a>
+            <ul class="list-unstyled">
+              <li><a href="/member#account">├─ Thông Tin Tài Khoản</a></li>
+              <li><a href="/member#tiers">├─ Cấp Bậc: VIP0 → VIP10</a></li>
+              <li><a href="/member#benefits">├─ Ưu Đãi &amp; Voucher</a></li>
+              <li><a href="/member#upgrade">└─ Nâng Cấp VIP Tự Động</a></li>
+            </ul>
+          </li>
+          <li><a href="/cart">🛒 Giỏ Hàng</a></li>
+        </ul>
+      </div>
+
+      <!-- CỘT 2: Hệ Thống Cửa Hàng & CSKH VIP -->
+      <div>
+        <h4>Hệ Thống Cửa Hàng &amp; Hỗ Trợ VIP</h4>
+        <div class="footer-branch-item pb-3 mb-2">
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <span class="badge bg-primary text-white fw-bold">CHI NHÁNH 1 (CHÍNH)</span>
+            <span class="small text-white-50">Quảng Ngãi</span>
+          </div>
+          <p class="mb-1">
+            <i class="fas fa-map-marker-alt text-primary me-2"></i> 172 Quang Trung, Phường Trương Quang Trọng, Tỉnh Quảng Ngãi
+          </p>
+          <p class="mb-1">
+            <i class="fas fa-phone-alt text-primary me-2"></i> Hotline: <a href="tel:19008888">1900 8888</a> - 0912 345 678
+          </p>
+          <p class="mb-0">
+            <i class="fas fa-clock text-primary me-2"></i> Thứ 2–Chủ Nhật: 8:00 – 22:00
+          </p>
+        </div>
+
+        <div class="footer-branch-divider my-2"></div>
+
+        <div class="footer-branch-item pt-2">
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <span class="badge bg-success text-white fw-bold">CHI NHÁNH 2 (TP.HCM)</span>
+            <span class="badge bg-danger text-white">MỚI</span>
+          </div>
+          <p class="mb-1">
+            <i class="fas fa-map-marker-alt text-success me-2"></i> 456 Đường Số 7, Quận 12, TP.HCM
+          </p>
+          <p class="mb-1">
+            <i class="fas fa-phone-alt text-success me-2"></i> Hotline: <a href="tel:19008888">1900 8888</a> - 0988 777 999
+          </p>
+          <p class="mb-0">
+            <i class="fas fa-clock text-success me-2"></i> Thứ 2–Chủ Nhật: 8:00 – 21:00
+          </p>
+        </div>
+      </div>
+
+      <div class="border-top border-secondary pt-3 text-center small text-muted w-100 mt-3" style="flex: 1 1 100% !important; min-width: 100% !important;">
+        <p class="mb-0">&copy; 2026 shopkiet76 Sneaker Store. All rights reserved. Chi nhánh 1: 172 Quang Trung, Quảng Ngãi | Chi nhánh 2: 456 Đường Số 7, Quận 12, TP.HCM.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 6. MOBILE BOTTOM NAVIGATION - ĐỦ 5 MỤC THEO YÊU CẦU:
+       🏠 Trang Chủ | 👟 Sản Phẩm | 🎁 Khuyến Mãi | 👑 Trung Tâm Hội Viên | 🛒 Giỏ Hàng -->
+  <nav class="mobile-bottom-nav" aria-label="Điều hướng di động">
+    <a href="/" class="bottom-nav-item">
+      <i class="fas fa-home"></i>
+      <span>Trang Chủ</span>
+    </a>
+    <a href="/#products-section" class="bottom-nav-item">
+      <i class="fas fa-shoe-prints"></i>
+      <span>Sản Phẩm</span>
+    </a>
+    <a href="javascript:void(0)" onclick="openPromoModal(event)" class="bottom-nav-item">
+      <i class="fas fa-gift text-warning"></i>
+      <span>Khuyến Mãi</span>
+    </a>
+    <a href="/member" class="bottom-nav-item">
+      <i class="fas fa-crown text-warning"></i>
+      <span>Hội Viên</span>
+    </a>
+    <a href="/cart" class="bottom-nav-item position-relative">
+      <i class="fas fa-shopping-cart"></i>
+      <span class="bottom-nav-badge cart-count-badge">0</span>
+      <span>Giỏ Hàng</span>
+    </a>
+  </nav>
+
+  <!-- ======================================================== -->
+  <!-- HÌNH MÃ GIẢM GIÁ NỔI CỐ ĐỊNH Ở GÓC TRÁI GIỮA MÀN HÌNH -->
+  <!-- ======================================================== -->
+  <div class="shopkiet-floating-voucher-img" onclick="openPromoModal(event)" role="button" tabindex="0" title="Nhấn xem mã giảm giá 1.000.000đ GIAY76VIPP" aria-label="Mã giảm giá GIAY76VIPP">
+    <img src="/images/voucher_coupon_icon.jpg" alt="Mã Giảm Giá GIAY76VIPP Shopkiet76" class="floating-voucher-pic" onerror="this.onerror=null; this.src='https://cdn-icons-png.flaticon.com/512/879/879757.png';" />
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL QUẢNG CÁO MÃ GIẢM GIÁ (CĂN GIỮA, NỀN TỐI NHẸ) -->
+  <!-- ======================================================== -->
+  <div id="shopkietPromoModal" class="shopkiet-promo-modal-backdrop" onclick="handlePromoModalBackdropClick(event)">
+    <div class="shopkiet-promo-modal-dialog" onclick="event.stopPropagation()">
+      <!-- Nút đóng X góc trên bên phải -->
+      <button type="button" class="promo-modal-close-btn" onclick="closePromoModal(event)" aria-label="Đóng" title="Đóng">&times;</button>
+      
+      <!-- Nội dung modal: Nền trắng, bo góc 16px, bóng nhẹ -->
+      <div class="promo-modal-content">
+        <!-- Huy hiệu & Tiêu đề -->
+        <div class="promo-modal-header text-center mb-3">
+          <div class="promo-modal-badge">
+            <span>⚡ KHÁCH HÀNG MỚI</span>
+          </div>
+          <h4 class="promo-modal-title">
+            GIẢM THÊM <span class="highlight-discount">1 TRIỆU</span>
+          </h4>
+          <p class="promo-modal-subtitle mb-0">Ưu đãi chào mừng thành viên mới shopkiet76</p>
+        </div>
+
+        <!-- Khung hiển thị mã GIAY76VIPP to nhất, nổi bật -->
+        <div class="promo-code-card">
+          <div class="promo-code-label">MÃ GIẢM GIÁ ĐỘC QUYỀN</div>
+          <div class="promo-code-box">
+            <span class="promo-code-text" id="voucherCodeVal">GIAY76VIPP</span>
+          </div>
+          <div class="promo-condition-text">
+            <i class="fas fa-check-circle text-success me-1"></i> Áp dụng cho đơn hàng từ <strong>5.000.000đ</strong>
+          </div>
+        </div>
+
+        <!-- Nút: [📋 Sao chép mã] & [Mua Sắm Ngay] -->
+        <div class="promo-modal-actions">
+          <button type="button" id="copyVoucherBtn" class="btn-copy-promo-voucher" onclick="copyVoucherCode(event)">
+            <i class="fas fa-copy"></i>
+            <span id="copyBtnLabel">Sao chép mã</span>
+          </button>
+          <a href="/#products-section" class="btn-use-promo-now" onclick="closePromoModal(event)">
+            <span>Mua Sắm Ngay</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Ghi chú chân modal -->
+        <div class="promo-modal-footer text-center">
+          <small class="text-muted">
+            <i class="fas fa-shield-alt text-primary me-1"></i> Giảm trực tiếp 1.000.000đ khi điền mã tại trang Thanh Toán.
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast-container" class="toast-container-custom"></div>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Core Script -->
+  <script src="/js/script.js"></script>
+
+  <script>
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('contact-name').value;
+      const phone = document.getElementById('contact-phone').value;
+      const branch = document.getElementById('contact-branch').value;
+
+      showToast(
+        "Gửi tin nhắn thành công!",
+        `Cảm ơn ${name} (${phone})! Nhân viên ${branch} sẽ gọi hỗ trợ bạn trong giây lát.`,
+        "success"
+      );
+
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>

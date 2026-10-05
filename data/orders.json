@@ -1,0 +1,47 @@
+[
+  {
+    "id": "BS-849201",
+    "customerName": "Nguyễn Văn Hùng",
+    "phone": "0912 345 678",
+    "address": "15 Lê Duẩn, Q. Hoàn Kiếm, Hà Nội",
+    "paymentMethod": "Tiền mặt khi nhận hàng (COD)",
+    "items": [
+      {
+        "id": 1,
+        "name": "Nike Air Zoom Pegasus 40 Electric Blue",
+        "size": 42,
+        "quantity": 1,
+        "price": 2850000
+      }
+    ],
+    "total": 2850000,
+    "status": "Chờ xác nhận",
+    "createdAt": "27/09/2026 14:30"
+  },
+  {
+    "id": "BS-592810",
+    "customerName": "Trần Thị Mai",
+    "phone": "0988 777 999",
+    "address": "240 Nguyễn Thị Minh Khai, Quận 3, TP.HCM",
+    "paymentMethod": "Chuyển khoản ngân hàng (VietQR 24/7)",
+    "items": [
+      {
+        "id": 2,
+        "name": "Adidas Ultraboost Light Royal Cyan",
+        "size": 39,
+        "quantity": 1,
+        "price": 3200000
+      },
+      {
+        "id": 4,
+        "name": "Vans Old Skool Classic Navy Blue",
+        "size": 39,
+        "quantity": 1,
+        "price": 1750000
+      }
+    ],
+    "total": 4950000,
+    "status": "Đang giao",
+    "createdAt": "27/09/2026 10:15"
+  }
+]

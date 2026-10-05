@@ -1,0 +1,6 @@
+{
+  "name": "BlueStep - Cửa Hàng Giày Thể Thao Cao Cấp",
+  "description": "Website thương mại điện tử bán giày thể thao cao cấp với giao diện tông màu xanh dương chủ đạo, tích hợp giỏ hàng và đặt hàng trực tuyến.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

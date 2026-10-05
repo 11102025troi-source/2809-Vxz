@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+  <title>Trung Tâm Hội Viên VIP - Cấp Bậc VIP0 Đến VIP10 | shopkiet76</title>
+  <meta name="description" content="Trung tâm Hội viên VIP shopkiet76: Quản lý thông tin tài khoản, cấp bậc VIP0 đến VIP10, kho ưu đãi độc quyền và đặc quyền nâng cấp hội viên." />
+  <meta property="og:title" content="Trung Tâm Hội Viên VIP - Cấp Bậc VIP0 Đến VIP10 | shopkiet76" />
+  <meta property="og:description" content="Đặc quyền thành viên VIP shopkiet76: Chiết khấu đến 20%, voucher 1 triệu, freeship toàn quốc." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="/images/shopkiet76_avatar.jpg" />
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <style>
+    /* MEMBER CENTER CUSTOM STYLING */
+    .member-hero-banner {
+      background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #2563eb 100%);
+      color: #ffffff;
+      padding: 3rem 0 2rem;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 3px solid #f59e0b;
+    }
+    .member-hero-banner::after {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(245, 158, 11, 0.25) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .member-avatar-box {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 3px solid #f59e0b;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+      object-fit: cover;
+      background: #ffffff;
+    }
+    .current-vip-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      text-transform: uppercase;
+    }
+    .badge-vip0 { background: #64748b; color: #fff; }
+    .badge-vip1 { background: #b45309; color: #fff; }
+    .badge-vip2 { background: #94a3b8; color: #0f172a; }
+    .badge-vip3 { background: #eab308; color: #713f12; }
+    .badge-vip4 { background: #0284c7; color: #fff; }
+    .badge-vip5 { background: #06b6d4; color: #083344; }
+    .badge-vip6 { background: #7c3aed; color: #fff; }
+    .badge-vip7 { background: #ea580c; color: #fff; }
+    .badge-vip8 { background: #dc2626; color: #fff; }
+    .badge-vip9 { background: linear-gradient(135deg, #f59e0b, #d97706); color: #fff; border: 1px solid #fef08a; }
+    .badge-vip10 { background: linear-gradient(135deg, #1e1b4b, #4338ca, #ea580c); color: #fef08a; border: 1.5px solid #facc15; box-shadow: 0 0 15px rgba(234, 88, 12, 0.6); }
+
+    .member-tab-nav {
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.08);
+      border: 1px solid #e2e8f0;
+      padding: 6px;
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      margin-bottom: 2rem;
+    }
+    .member-tab-btn {
+      flex: 1;
+      min-width: 160px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: none;
+      background: transparent;
+      color: #475569;
+      font-weight: 700;
+      font-size: 0.92rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .member-tab-btn:hover {
+      background: #eff6ff;
+      color: #1d4ed8;
+    }
+    .member-tab-btn.active {
+      background: #1d4ed8;
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(29, 78, 216, 0.3);
+    }
+    .member-card-box {
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      padding: 1.75rem;
+      margin-bottom: 1.75rem;
+    }
+    .vip-tier-card {
+      border: 1.5px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 1.25rem;
+      background: #ffffff;
+      transition: all 0.25s ease;
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .vip-tier-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.12);
+      border-color: #3b82f6;
+    }
+    .vip-tier-card.is-current {
+      border: 2px solid #f59e0b;
+      background: #fffdf5;
+      box-shadow: 0 8px 24px rgba(245, 158, 11, 0.2);
+    }
+    .vip-current-pill {
+      position: absolute;
+      top: -12px;
+      right: 14px;
+      background: #f59e0b;
+      color: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 20px;
+      box-shadow: 0 2px 6px rgba(245, 158, 11, 0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .voucher-perk-card {
+      border: 1.5px dashed #bfdbfe;
+      background: #eff6ff;
+      border-radius: 12px;
+      padding: 1rem;
+      position: relative;
+    }
+    .voucher-perk-card.highlight {
+      border-color: #f59e0b;
+      background: #fffbeb;
+    }
+    .btn-simulator-tier {
+      padding: 6px 12px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: #334155;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-simulator-tier:hover, .btn-simulator-tier.active {
+      background: #1d4ed8;
+      color: #ffffff;
+      border-color: #1d4ed8;
+    }
+  </style>
+</head>
+<body class="bg-light">
+
+  <!-- 1. TOP UTILITY BAR -->
+  <div class="top-bar">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center gap-3">
+        <span class="d-none d-sm-inline"><i class="fas fa-bolt text-warning me-1"></i> shopkiet76 - Vương Quốc Sneaker Chính Hãng</span>
+        <span class="d-none d-md-inline"><i class="fas fa-truck-fast text-info me-1"></i> Giao Hỏa Tốc 2H TP.HCM</span>
+      </div>
+      <div class="d-flex align-items-center gap-3">
+        <a href="tel:0909767676" class="text-white text-decoration-none small">
+          <i class="fas fa-phone-volume text-warning me-1"></i> <span class="d-none d-sm-inline">Hotline:</span> 0909.76.76.76
+        </a>
+        <a href="/admin" class="btn-topbar-admin">
+          <i class="fas fa-user-shield text-info"></i> <span>Quản Trị</span>
+        </a>
+        <button type="button" class="btn-topbar-promo" onclick="openPromoModal(event)" title="Xem mã giảm giá 1.000.000đ GIAY76VIPP">
+          <span>🎁</span> <span>Mã 1 Triệu</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. MAIN NAVBAR - CHUẨN MENU THEO YÊU CẦU:
+       🏠 Trang chủ | 📦 Sản phẩm | 🎁 Khuyến mãi | 👤 Trung tâm Hội viên | 🛒 Giỏ hàng -->
+  <nav class="navbar navbar-expand-lg main-navbar sticky-top">
+    <div class="container">
+      <!-- Brand Logo -->
+      <a class="navbar-brand" href="/">
+        <div class="brand-icon-box">
+          <img src="/images/shopkiet76_avatar.jpg" alt="Shopkiet76 VIP" />
+        </div>
+        <span class="brand-name">shopkiet<span class="brand-accent">76</span></span>
+      </a>
+
+      <!-- Mobile Right Controls (Cart & Toggler) -->
+      <div class="d-flex align-items-center gap-2 d-lg-none order-lg-last">
+        <a href="/cart" class="btn-cart" title="Xem giỏ hàng">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count-badge">0</span>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Mở menu">
+          <i class="fas fa-bars fs-4 text-dark"></i>
+        </button>
+      </div>
+
+      <!-- Nav Links -->
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+          <!-- 🏠 Trang Chủ -->
+          <li class="nav-item">
+            <a class="nav-link" href="/"><span class="me-1">🏠</span> Trang Chủ</a>
+          </li>
+          <!-- 👟 Sản Phẩm -->
+          <li class="nav-item">
+            <a class="nav-link" href="/#products-section"><span class="me-1">👟</span> Sản Phẩm</a>
+          </li>
+          <!-- 🎁 Khuyến Mãi -->
+          <li class="nav-item">
+            <a class="nav-link text-danger fw-bold" href="javascript:void(0)" onclick="openPromoModal(event)">
+              <span class="me-1">🎁</span> Khuyến Mãi <span class="badge bg-danger ms-1">-1Tr</span>
+            </a>
+          </li>
+          <!-- 👑 Trung Tâm Hội Viên -->
+          <li class="nav-item dropdown">
+            <a class="nav-link active dropdown-toggle fw-bold text-primary" href="/member" id="memberCenterDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="me-1">👑</span> Trung Tâm Hội Viên
+            </a>
+            <ul class="dropdown-menu shadow border-0 rounded-3" aria-labelledby="memberCenterDropdown">
+              <li>
+                <a class="dropdown-item menu-item-hv py-2 fw-semibold" href="javascript:void(0)" onclick="switchMemberTab('account')">
+                  ├─ Thông Tin Tài Khoản
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item menu-item-hv py-2 fw-semibold cap-bac-vip" href="javascript:void(0)" onclick="switchMemberTab('tiers')">
+                  ├─ Cấp Bậc: VIP0 → VIP10
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item menu-item-hv py-2 fw-semibold" href="javascript:void(0)" onclick="switchMemberTab('benefits')">
+                  ├─ Ưu Đãi &amp; Voucher
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item menu-item-hv py-2 fw-semibold text-danger" href="javascript:void(0)" onclick="switchMemberTab('upgrade')">
+                  └─ Nâng Cấp VIP Tự Động
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <!-- Desktop Cart Link -->
+        <div class="d-none d-lg-flex align-items-center gap-3">
+          <a href="/cart" class="btn btn-outline-primary d-flex align-items-center gap-2 px-3 py-2 rounded-pill fw-bold">
+            <span class="me-1">🛒</span>
+            <span>Giỏ Hàng</span>
+            <span class="badge bg-danger rounded-pill cart-count-badge">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 3. MEMBER HERO HEADER: Thông tin cấp hiện tại & tổng quan -->
+  <section class="member-hero-banner">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-md-7 d-flex align-items-center gap-3 gap-md-4">
+          <img src="/images/shopkiet76_avatar.jpg" alt="Avatar Hội Viên" class="member-avatar-box" />
+          <div>
+            <div class="d-flex align-items-center gap-2 flex-wrap mb-1">
+              <h2 class="fw-bold mb-0 text-white" id="memberHeroName">Nguyễn Văn Kiệt</h2>
+              <span id="memberCurrentBadge" class="current-vip-badge badge-vip2">
+                <i class="fas fa-crown"></i> <span id="memberBadgeText">VIP2 - Bạc</span>
+              </span>
+            </div>
+            <p class="mb-2 text-white-50 small">
+              <i class="fas fa-envelope me-1"></i> <span id="memberHeroEmail">kiet76.vip@gmail.com</span> &bull; 
+              <i class="fas fa-phone me-1 ms-1"></i> <span id="memberHeroPhone">0909.76.76.76</span>
+            </p>
+            <div class="d-flex align-items-center gap-3 flex-wrap">
+              <div class="badge bg-white bg-opacity-20 text-white px-3 py-1 rounded-pill small">
+                <i class="fas fa-coins text-warning me-1"></i> Điểm tích lũy: <strong id="memberPoints">350</strong> điểm
+              </div>
+              <div class="badge bg-white bg-opacity-20 text-white px-3 py-1 rounded-pill small">
+                <i class="fas fa-wallet text-success me-1"></i> Tổng chi tiêu: <strong id="memberTotalSpent">3.500.000₫</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="bg-white bg-opacity-10 p-3 rounded-4 border border-white border-opacity-20 shadow-sm" style="backdrop-filter: blur(10px);">
+            <div class="d-flex justify-content-between align-items-center mb-1 text-white small">
+              <span>Tiến độ lên <strong id="nextVipLabel">VIP3 - Vàng</strong></span>
+              <span id="vipProgressRatio">3.500.000₫ / 6.000.000₫</span>
+            </div>
+            <div class="progress" style="height: 10px; background-color: rgba(255,255,255,0.25);">
+              <div id="vipProgressBar" class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: 58%;" aria-valuenow="58" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-2 text-white-50 small">
+              <span>Cần thêm: <strong class="text-warning" id="needMoreToUpgrade">2.500.000₫</strong></span>
+              <button class="btn btn-warning btn-sm fw-bold px-2 py-0 text-dark" onclick="switchMemberTab('upgrade')">
+                <i class="fas fa-arrow-up me-1"></i> Nâng cấp ngay
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. CHÍNH SÁCH 4 MỤC MENU HỘI VIÊN -->
+  <main class="container my-4">
+    <!-- Tabs Bar -->
+    <div class="member-tab-nav">
+      <button class="member-tab-btn active" id="tabBtn-account" onclick="switchMemberTab('account')">
+        <i class="fas fa-id-card"></i> <span>Thông Tin Tài Khoản</span>
+      </button>
+      <button class="member-tab-btn" id="tabBtn-tiers" onclick="switchMemberTab('tiers')">
+        <i class="fas fa-layer-group"></i> <span>Cấp Bậc: VIP0 → VIP10</span>
+      </button>
+      <button class="member-tab-btn" id="tabBtn-benefits" onclick="switchMemberTab('benefits')">
+        <i class="fas fa-gift"></i> <span>Ưu Đãi &amp; Voucher</span>
+      </button>
+      <button class="member-tab-btn" id="tabBtn-upgrade" onclick="switchMemberTab('upgrade')">
+        <i class="fas fa-arrow-up-right-dots"></i> <span>Nâng Cấp VIP Tự Động</span>
+      </button>
+    </div>
+
+    <!-- TAB 1: THÔNG TIN TÀI KHOẢN -->
+    <section id="tabContent-account" class="tab-pane-section">
+      <div class="row g-4">
+        <div class="col-lg-7">
+          <div class="member-card-box">
+            <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+              <h5 class="fw-bold text-slate-900 mb-0">
+                <i class="fas fa-user-edit text-primary me-2"></i> Hồ Sơ Thành Viên
+              </h5>
+              <span class="badge bg-success-subtle text-success border border-success small">Đang Hoạt Động</span>
+            </div>
+
+            <form id="memberProfileForm" onsubmit="handleSaveProfile(event)">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label small fw-bold text-muted">Họ và tên:</label>
+                  <input type="text" id="profName" class="form-control" value="Nguyễn Văn Kiệt" required />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label small fw-bold text-muted">Số điện thoại:</label>
+                  <input type="tel" id="profPhone" class="form-control" value="0909.76.76.76" required />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label small fw-bold text-muted">Email liên hệ:</label>
+                  <input type="email" id="profEmail" class="form-control" value="kiet76.vip@gmail.com" required />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label small fw-bold text-muted">Ngày sinh:</label>
+                  <input type="date" id="profDob" class="form-control" value="2000-01-01" />
+                </div>
+                <div class="col-12">
+                  <label class="form-label small fw-bold text-muted">Địa chỉ nhận hàng mặc định:</label>
+                  <input type="text" id="profAddress" class="form-control" value="Số 76 Đường Giày VIP, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh" />
+                </div>
+                <div class="col-12 text-end mt-3">
+                  <button type="submit" class="btn btn-primary px-4 fw-bold">
+                    <i class="fas fa-save me-1"></i> Cập Nhật Thông Tin
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="member-card-box">
+            <h5 class="fw-bold text-slate-900 mb-3 pb-2 border-bottom">
+              <i class="fas fa-chart-line text-warning me-2"></i> Tóm Tắt Hoạt Động
+            </h5>
+            <ul class="list-group list-group-flush small">
+              <li class="list-group-item d-flex justify-content-between align-items-center px-0 py-2">
+                <span class="text-muted"><i class="fas fa-calendar-alt text-primary me-2"></i>Ngày gia nhập:</span>
+                <strong class="text-slate-800">15/01/2026</strong>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center px-0 py-2">
+                <span class="text-muted"><i class="fas fa-shopping-bag text-success me-2"></i>Tổng đơn hàng:</span>
+                <strong class="text-slate-800">4 đơn hàng</strong>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center px-0 py-2">
+                <span class="text-muted"><i class="fas fa-crown text-warning me-2"></i>Cấp bậc hiện tại:</span>
+                <span class="badge bg-warning text-dark fw-bold" id="cardSummaryVip">VIP2 (Bạc)</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center px-0 py-2">
+                <span class="text-muted"><i class="fas fa-percentage text-danger me-2"></i>Chiết khấu đơn hàng:</span>
+                <strong class="text-danger" id="cardSummaryDiscount">Giảm 4% trực tiếp</strong>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center px-0 py-2">
+                <span class="text-muted"><i class="fas fa-truck text-info me-2"></i>Ưu đãi vận chuyển:</span>
+                <strong class="text-success">Freeship toàn bộ đơn hàng</strong>
+              </li>
+            </ul>
+
+            <div class="alert alert-primary mt-3 mb-0 small border-0 bg-primary-subtle text-primary">
+              <i class="fas fa-info-circle me-1"></i> Điểm thưởng của bạn không bao giờ hết hạn. Cứ mỗi 10.000₫ thanh toán bạn được cộng 1 điểm thưởng.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: CẤP BẬC: VIP0 / VIP1 ... VIP10 (HIỂN THỊ CẤP HIỆN TẠI) -->
+    <section id="tabContent-tiers" class="tab-pane-section d-none">
+      <div class="member-card-box mb-4">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+          <div>
+            <h5 class="fw-bold text-slate-900 mb-1">
+              <i class="fas fa-layer-group text-warning me-2"></i> Hệ Thống 11 Cấp Bậc VIP (VIP0 → VIP10)
+            </h5>
+            <p class="text-muted small mb-0">Cấp bậc càng cao, quyền lợi chiết khấu và quà tặng càng vượt trội.</p>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <span class="small text-muted fw-bold">Thử nghiệm cấp:</span>
+            <select class="form-select form-select-sm" id="simulatorVipSelect" onchange="applyTierSimulator(this.value)">
+              <option value="0">VIP0 - Thành Viên Mới</option>
+              <option value="1">VIP1 - Đồng</option>
+              <option value="2" selected>VIP2 - Bạc (Hiện tại)</option>
+              <option value="3">VIP3 - Vàng</option>
+              <option value="4">VIP4 - Bạch Kim</option>
+              <option value="5">VIP5 - Kim Cương</option>
+              <option value="6">VIP6 - Tinh Anh</option>
+              <option value="7">VIP7 - Huyền Thoại</option>
+              <option value="8">VIP8 - Tối Thượng</option>
+              <option value="9">VIP9 - Hoàng Kim</option>
+              <option value="10">VIP10 - Vua Giày (Supreme King)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Lưới 11 Cấp VIP -->
+        <div class="row g-3" id="vipTiersGrid">
+          <!-- Rendered by JS below -->
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: ƯU ĐÃI CỦA TÔI -->
+    <section id="tabContent-benefits" class="tab-pane-section d-none">
+      <div class="member-card-box">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4 pb-2 border-bottom">
+          <div>
+            <h5 class="fw-bold text-slate-900 mb-1">
+              <i class="fas fa-ticket-alt text-success me-2"></i> Kho Voucher &amp; Đặc Quyền Của Bạn
+            </h5>
+            <p class="text-muted small mb-0">Các mã ưu đãi độc quyền dành riêng cho cấp bậc <strong id="benefitCurrentVipText" class="text-primary">VIP2 - Bạc</strong>.</p>
+          </div>
+          <button class="btn btn-outline-primary btn-sm fw-bold" onclick="openPromoModal(event)">
+            <i class="fas fa-gift me-1"></i> Nhận Mã 1.000.000₫ GIAY76VIPP
+          </button>
+        </div>
+
+        <div class="row g-3" id="myVouchersGrid">
+          <!-- Rendered dynamically based on current VIP level -->
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: NÂNG CẤP VIP -->
+    <section id="tabContent-upgrade" class="tab-pane-section d-none">
+      <div class="row g-4">
+        <div class="col-lg-7">
+          <div class="member-card-box">
+            <h5 class="fw-bold text-slate-900 mb-3 pb-2 border-bottom">
+              <i class="fas fa-rocket text-danger me-2"></i> Cách Thức Tích Lũy &amp; Nâng Cấp VIP
+            </h5>
+
+            <div class="d-flex gap-3 mb-3 p-3 bg-light rounded-3">
+              <div class="auth-icon-badge text-primary bg-primary-subtle fs-4">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+              <div>
+                <h6 class="fw-bold mb-1">1. Mua sắm tích luỹ tự động</h6>
+                <p class="text-muted small mb-0">Mỗi đơn hàng thanh toán thành công tự động cộng dồn 100% giá trị vào tổng chi tiêu. Đạt đủ mốc là hệ thống tự động thăng hạng tức thì.</p>
+              </div>
+            </div>
+
+            <div class="d-flex gap-3 mb-3 p-3 bg-light rounded-3">
+              <div class="auth-icon-badge text-warning bg-warning-subtle fs-4">
+                <i class="fas fa-calendar-check"></i>
+              </div>
+              <div>
+                <h6 class="fw-bold mb-1">2. Điểm danh mỗi ngày</h6>
+                <p class="text-muted small mb-0">Mỗi ngày ghé thăm shopkiet76 và bấm nút điểm danh được tặng ngay +5 điểm thưởng và cơ hội nhận mã Freeship 0đ.</p>
+                <button class="btn btn-sm btn-outline-warning mt-2 fw-bold text-dark" onclick="handleDailyCheckin(this)">
+                  <i class="fas fa-check-circle me-1"></i> Điểm danh nhận +5 điểm hôm nay
+                </button>
+              </div>
+            </div>
+
+            <div class="d-flex gap-3 mb-3 p-3 bg-light rounded-3">
+              <div class="auth-icon-badge text-success bg-success-subtle fs-4">
+                <i class="fas fa-camera"></i>
+              </div>
+              <div>
+                <h6 class="fw-bold mb-1">3. Đánh giá sản phẩm kèm ảnh thực tế</h6>
+                <p class="text-muted small mb-0">Mỗi đánh giá 5 sao kèm hình ảnh trên đơn hàng đã mua tặng ngay +20 điểm thưởng.</p>
+              </div>
+            </div>
+
+            <div class="d-flex gap-3 p-3 bg-light rounded-3">
+              <div class="auth-icon-badge text-danger bg-danger-subtle fs-4">
+                <i class="fas fa-user-friends"></i>
+              </div>
+              <div>
+                <h6 class="fw-bold mb-1">4. Giới thiệu bạn bè</h6>
+                <p class="text-muted small mb-0">Chia sẻ mã giới thiệu của bạn. Khi bạn bè đặt đơn hàng đầu tiên, cả 2 cùng nhận mã giảm 100.000₫.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="member-card-box">
+            <h5 class="fw-bold text-slate-900 mb-3 pb-2 border-bottom">
+              <i class="fas fa-wand-magic-sparkles text-primary me-2"></i> Trình Mô Phỏng Nâng Hạng VIP
+            </h5>
+            <p class="text-muted small mb-3">Bạn có thể mô phỏng nạp tích lũy hoặc thăng cấp trực tiếp để kiểm tra đặc quyền của các cấp VIP cao hơn:</p>
+
+            <div class="mb-3">
+              <label class="form-label small fw-bold text-muted">Nhập số tiền tích lũy thêm:</label>
+              <div class="input-group">
+                <input type="number" id="simAddAmount" class="form-control" placeholder="Ví dụ: 3000000" value="2500000" />
+                <span class="input-group-text">₫</span>
+                <button class="btn btn-primary fw-bold" onclick="simulateAddSpending()">
+                  <i class="fas fa-plus me-1"></i> Tích Lũy
+                </button>
+              </div>
+              <small class="text-muted">Nhập số tiền để tự động tính toán cấp VIP mới tương ứng.</small>
+            </div>
+
+            <hr class="my-3 text-secondary-subtle">
+
+            <div class="mb-2">
+              <label class="form-label small fw-bold text-muted">Hoặc chọn nhanh cấp VIP mong muốn:</label>
+              <div class="d-flex flex-wrap gap-2">
+                <button class="btn-simulator-tier" onclick="applyTierSimulator(0)">VIP0</button>
+                <button class="btn-simulator-tier" onclick="applyTierSimulator(1)">VIP1</button>
+                <button class="btn-simulator-tier" onclick="applyTierSimulator(2)">VIP2</button>
+                <button class="btn-simulator-tier" onclick="applyTierSimulator(3)">VIP3</button>
+                <button class="btn-simulator-tier" onclick="applyTierSimulator(4)">VIP4</button>
+                <button class="btn-simulator-tier" onclick="applyTierSimulator(5)">VIP5</button>
+                <button class="btn-simulator-tier" onclick="applyTierSimulator(6)">VIP6</button>
+                <button class="btn-simulator-tier" onclick="applyTierSimulator(7)">VIP7</button>
+                <button class="btn-simulator-tier" onclick="applyTierSimulator(8)">VIP8</button>
+                <button class="btn-simulator-tier" onclick="applyTierSimulator(9)">VIP9</button>
+                <button class="btn-simulator-tier active" onclick="applyTierSimulator(10)">VIP10 👑</button>
+              </div>
+            </div>
+
+            <div class="alert alert-warning mt-3 mb-0 small">
+              <i class="fas fa-crown text-warning me-1"></i> Khi nâng cấp lên <strong>VIP10 (Supreme King)</strong>, bạn nhận ngay đặc quyền giảm 20% vĩnh viễn trên mọi hóa đơn và voucher VIP 2.000.000₫!
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 5. FOOTER -->
+  <footer class="shop-footer site-footer footer py-5 mt-5">
+    <div class="container footer-content">
+      <!-- CỘT 1: [Menu Chính] (kèm Hội viên lồng) -->
+      <div>
+        <h4>[Menu Chính]</h4>
+        <ul class="list-unstyled">
+          <li><a href="/">🏠 Trang Chủ</a></li>
+          <li><a href="/#products-section">👟 Sản Phẩm</a></li>
+          <li><a href="javascript:void(0)" onclick="openPromoModal(event)">🎁 Khuyến Mãi</a></li>
+          <li>
+            <a href="/member">👑 Trung Tâm Hội Viên</a>
+            <ul class="list-unstyled">
+              <li><a href="/member#account">├─ Thông Tin Tài Khoản</a></li>
+              <li><a href="/member#tiers">├─ Cấp Bậc: VIP0 → VIP10</a></li>
+              <li><a href="/member#benefits">├─ Ưu Đãi &amp; Voucher</a></li>
+              <li><a href="/member#upgrade">└─ Nâng Cấp VIP Tự Động</a></li>
+            </ul>
+          </li>
+          <li><a href="/cart">🛒 Giỏ Hàng</a></li>
+        </ul>
+      </div>
+
+      <!-- CỘT 2: Hệ Thống Cửa Hàng & CSKH VIP -->
+      <div>
+        <h4>Hệ Thống Cửa Hàng &amp; Hỗ Trợ VIP</h4>
+        <div class="footer-branch-item pb-3 mb-2">
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <span class="badge bg-primary text-white fw-bold">CHI NHÁNH 1 (CHÍNH)</span>
+            <span class="small text-white-50">Quảng Ngãi</span>
+          </div>
+          <p class="mb-1">
+            <i class="fas fa-map-marker-alt text-primary me-2"></i> 172 Quang Trung, Phường Trương Quang Trọng, Tỉnh Quảng Ngãi
+          </p>
+          <p class="mb-1">
+            <i class="fas fa-phone-alt text-primary me-2"></i> Hotline VIP: <strong>0909.76.76.76</strong> - 1900 8888
+          </p>
+          <p class="mb-0">
+            <i class="fas fa-clock text-primary me-2"></i> Thứ 2–Chủ Nhật: 8:00 – 22:00
+          </p>
+        </div>
+
+        <div class="footer-branch-divider my-2"></div>
+
+        <div class="footer-branch-item pt-2">
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <span class="badge bg-success text-white fw-bold">CHI NHÁNH 2 (TP.HCM)</span>
+            <span class="badge bg-danger text-white">MỚI</span>
+          </div>
+          <p class="mb-1">
+            <i class="fas fa-map-marker-alt text-success me-2"></i> 456 Đường Số 7, Quận 12, TP.HCM
+          </p>
+          <p class="mb-1">
+            <i class="fas fa-envelope text-info me-2"></i> Email VIP: cskh@shopkiet76.vn
+          </p>
+          <p class="mb-0">
+            <i class="fas fa-clock text-success me-2"></i> Thứ 2–Chủ Nhật: 8:00 – 21:00
+          </p>
+        </div>
+      </div>
+
+      <div class="border-top border-secondary pt-3 text-center small text-muted w-100 mt-3" style="flex: 1 1 100% !important; min-width: 100% !important;">
+        <p class="mb-0">&copy; 2026 shopkiet76 VIP. Bản quyền thuộc về shopkiet76.vn. Chi nhánh 1: 172 Quang Trung, Quảng Ngãi | Chi nhánh 2: 456 Đường Số 7, Quận 12, TP.HCM.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================================================== -->
+  <!-- MOBILE BOTTOM BAR - ĐỦ 5 MỤC THEO YÊU CẦU:
+       🏠 Trang Chủ | 👟 Sản Phẩm | 🎁 Khuyến Mãi | 👑 Trung Tâm Hội Viên | 🛒 Giỏ Hàng -->
+  <!-- ======================================================== -->
+  <nav class="bottom-nav">
+    <a href="/" class="bottom-nav-item">
+      <i class="fas fa-home"></i>
+      <span>Trang Chủ</span>
+    </a>
+    <a href="/#products-section" class="bottom-nav-item">
+      <i class="fas fa-shoe-prints"></i>
+      <span>Sản Phẩm</span>
+    </a>
+    <a href="javascript:void(0)" onclick="openPromoModal(event)" class="bottom-nav-item">
+      <i class="fas fa-gift text-warning"></i>
+      <span>Khuyến Mãi</span>
+    </a>
+    <a href="/member" class="bottom-nav-item active">
+      <i class="fas fa-crown text-warning"></i>
+      <span>Hội Viên</span>
+    </a>
+    <a href="/cart" class="bottom-nav-item position-relative">
+      <i class="fas fa-shopping-cart"></i>
+      <span class="badge bg-danger rounded-pill position-absolute top-0 start-50 translate-middle-x cart-count-badge" style="font-size: 0.65rem;">0</span>
+      <span>Giỏ Hàng</span>
+    </a>
+  </nav>
+
+  <!-- ======================================================== -->
+  <!-- HÌNH MÃ GIẢM GIÁ NỔI CỐ ĐỊNH Ở GÓC TRÁI GIỮA MÀN HÌNH -->
+  <!-- ======================================================== -->
+  <div class="shopkiet-floating-voucher-img" onclick="openPromoModal(event)" role="button" tabindex="0" title="Nhấn xem mã giảm giá 1.000.000đ GIAY76VIPP" aria-label="Mã giảm giá GIAY76VIPP">
+    <img src="/images/voucher_coupon_icon.jpg" alt="Mã Giảm Giá GIAY76VIPP Shopkiet76" class="floating-voucher-pic" onerror="this.onerror=null; this.src='https://cdn-icons-png.flaticon.com/512/879/879757.png';" />
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL QUẢNG CÁO MÃ GIẢM GIÁ (CĂN GIỮA, NỀN TỐI NHẸ) -->
+  <!-- ======================================================== -->
+  <div id="shopkietPromoModal" class="shopkiet-promo-modal-backdrop" onclick="handlePromoModalBackdropClick(event)">
+    <div class="shopkiet-promo-modal-dialog" onclick="event.stopPropagation()">
+      <!-- Nút đóng X góc trên bên phải -->
+      <button type="button" class="promo-modal-close-btn" onclick="closePromoModal(event)" aria-label="Đóng" title="Đóng">&times;</button>
+      
+      <!-- Nội dung modal: Nền trắng, bo góc 16px, bóng nhẹ -->
+      <div class="promo-modal-content">
+        <!-- Huy hiệu & Tiêu đề -->
+        <div class="promo-modal-header text-center mb-3">
+          <div class="promo-modal-badge">
+            <span>⚡ KHÁCH HÀNG MỚI &amp; VIP</span>
+          </div>
+          <h3 class="promo-modal-title">GIẢM THÊM 1.000.000₫</h3>
+          <p class="promo-modal-subtitle">Đặc quyền giảm giá độc quyền shopkiet76</p>
+        </div>
+
+        <!-- Khung hiển thị mã GIAY76VIPP to nhất, nổi bật -->
+        <div class="promo-code-card">
+          <div class="promo-code-label">MÃ GIẢM GIÁ ĐỘC QUYỀN</div>
+          <div class="promo-code-box">
+            <span class="promo-code-text" id="voucherCodeVal">GIAY76VIPP</span>
+          </div>
+          <div class="promo-condition-text">
+            <i class="fas fa-check-circle text-success me-1"></i> Áp dụng cho đơn hàng từ <strong>5.000.000₫</strong>
+          </div>
+        </div>
+
+        <!-- Nút bấm sao chép mã -->
+        <button type="button" class="btn-copy-promo-voucher w-100 mb-3" id="btnCopyPromoModal" onclick="copyVoucherPromoModal(event)">
+          <i class="fas fa-copy me-2"></i>
+          <span class="btn-copy-text">Sao Chép Mã Ngay</span>
+        </button>
+
+        <!-- Nút mua sắm ngay -->
+        <div class="text-center">
+          <a href="/#products-section" class="btn-use-promo-now" onclick="closePromoModal(event)">
+            <span>Khám phá sản phẩm &amp; Mua sắm ngay</span>
+            <i class="fas fa-arrow-right ms-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Thông Báo -->
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11000">
+    <div id="appToast" class="toast align-items-center text-white bg-dark border-0 shadow-lg rounded-3" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body d-flex align-items-center gap-2" id="toastMessage">
+          <i class="fas fa-check-circle text-success"></i> Đã thực hiện thao tác
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Đóng"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+  <!-- MEMBER CENTER SCRIPT & VIP LOGIC -->
+  <script>
+    // Dữ liệu 11 Cấp bậc VIP (VIP0 -> VIP10)
+    const VIP_TIERS = [
+      {
+        level: 0,
+        name: 'VIP0 - Mới',
+        title: 'Thành Viên Mới',
+        minSpend: 0,
+        discountPct: 0,
+        badgeClass: 'badge-vip0',
+        perks: ['Tích điểm 1% giá trị đơn', 'Freeship đơn từ 500k', 'Quà chào mừng 50k'],
+        voucher: 'CHAOBAN50K (Giảm 50k)'
+      },
+      {
+        level: 1,
+        name: 'VIP1 - Đồng',
+        title: 'Hội Viên Đồng',
+        minSpend: 1000000,
+        discountPct: 2,
+        badgeClass: 'badge-vip1',
+        perks: ['Chiết khấu 2% mọi đơn', 'Freeship đơn từ 400k', 'Tặng mã voucher 50k'],
+        voucher: 'VIP1BRONZE (Giảm 50k)'
+      },
+      {
+        level: 2,
+        name: 'VIP2 - Bạc',
+        title: 'Hội Viên Bạc',
+        minSpend: 3000000,
+        discountPct: 4,
+        badgeClass: 'badge-vip2',
+        perks: ['Chiết khấu 4% mọi đơn', 'Freeship toàn bộ đơn hàng', 'Tặng mã voucher 100k', 'Hỗ trợ đổi size 15 ngày'],
+        voucher: 'VIP2SILVER (Giảm 100k)'
+      },
+      {
+        level: 3,
+        name: 'VIP3 - Vàng',
+        title: 'Hội Viên Vàng',
+        minSpend: 6000000,
+        discountPct: 6,
+        badgeClass: 'badge-vip3',
+        perks: ['Chiết khấu 6% mọi đơn', 'Freeship toàn quốc', 'Quà sinh nhật 150k', 'Tặng mã voucher 200k'],
+        voucher: 'VIP3GOLD (Giảm 200k)'
+      },
+      {
+        level: 4,
+        name: 'VIP4 - Bạch Kim',
+        title: 'Hội Viên Bạch Kim',
+        minSpend: 10000000,
+        discountPct: 8,
+        badgeClass: 'badge-vip4',
+        perks: ['Chiết khấu 8% mọi đơn', 'Ưu tiên CSKH 1-1', 'Đổi size miễn phí tại nhà', 'Tặng mã voucher 300k'],
+        voucher: 'VIP4PLATINUM (Giảm 300k)'
+      },
+      {
+        level: 5,
+        name: 'VIP5 - Kim Cương',
+        title: 'Hội Viên Kim Cương',
+        minSpend: 15000000,
+        discountPct: 10,
+        badgeClass: 'badge-vip5',
+        perks: ['Chiết khấu 10% trọn đời', 'Tặng voucher 500k', 'Quà sinh nhật cao cấp', 'Đổi trả miễn phí 30 ngày'],
+        voucher: 'VIP5DIAMOND (Giảm 500k)'
+      },
+      {
+        level: 6,
+        name: 'VIP6 - Tinh Anh',
+        title: 'Hội Viên Tinh Anh',
+        minSpend: 22000000,
+        discountPct: 12,
+        badgeClass: 'badge-vip6',
+        perks: ['Chiết khấu 12% mọi đơn', 'Tặng mã voucher 700k', 'Đổi trả 45 ngày', 'Giao hàng hỏa tốc ưu tiên'],
+        voucher: 'VIP6ELITE (Giảm 700k)'
+      },
+      {
+        level: 7,
+        name: 'VIP7 - Huyền Thoại',
+        title: 'Hội Viên Huyền Thoại',
+        minSpend: 30000000,
+        discountPct: 14,
+        badgeClass: 'badge-vip7',
+        perks: ['Chiết khấu 14% mọi đơn', 'Tặng mã VIP 1.000.000₫ (GIAY76VIPP)', 'Bảo hành keo chỉ 12 tháng', 'Đặc quyền mua trước hàng hot'],
+        voucher: 'GIAY76VIPP (Giảm 1.000.000₫)'
+      },
+      {
+        level: 8,
+        name: 'VIP8 - Tối Thượng',
+        title: 'Hội Viên Tối Thượng',
+        minSpend: 40000000,
+        discountPct: 16,
+        badgeClass: 'badge-vip8',
+        perks: ['Chiết khấu 16% mọi đơn', 'Tặng mã VIP 1.500.000₫', 'Hộp quà sneaker giới hạn', 'Đổi trả trọn đời 60 ngày'],
+        voucher: 'VIP8SUPREME (Giảm 1.500.000₫)'
+      },
+      {
+        level: 9,
+        name: 'VIP9 - Hoàng Kim',
+        title: 'Hội Viên Hoàng Kim',
+        minSpend: 55000000,
+        discountPct: 18,
+        badgeClass: 'badge-vip9',
+        perks: ['Chiết khấu 18% mọi đơn', 'Tặng mã VIP 2.000.000₫', 'Đặt trước mẫu hiếm quốc tế', 'Quà tặng lễ tết đặc biệt'],
+        voucher: 'VIP9GOLDEN (Giảm 2.000.000₫)'
+      },
+      {
+        level: 10,
+        name: 'VIP10 - Vua Giày',
+        title: 'Supreme King (Vua Giày)',
+        minSpend: 75000000,
+        discountPct: 20,
+        badgeClass: 'badge-vip10',
+        perks: ['Chiết khấu 20% VĨNH VIỄN', 'Tặng voucher 3.000.000₫', 'Trợ lý cá nhân 24/7', 'Vé mời VIP Sneaker Fest', 'Khắc tên riêng lên giày'],
+        voucher: 'VIP10KING (Giảm 3.000.000₫)'
+      }
+    ];
+
+    // Trạng thái hội viên hiện tại
+    let currentVipLevel = parseInt(localStorage.getItem('shopkiet76_vip_level') || '2', 10);
+    let memberData = JSON.parse(localStorage.getItem('shopkiet76_member') || JSON.stringify({
+      name: 'Nguyễn Văn Kiệt',
+      email: 'kiet76.vip@gmail.com',
+      phone: '0909.76.76.76',
+      totalSpent: 3500000,
+      points: 350
+    }));
+
+    function formatVND(amount) {
+      return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(amount).replace('₫', '₫');
+    }
+
+    // Chuyển Tab
+    function switchMemberTab(tabKey) {
+      document.querySelectorAll('.member-tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-pane-section').forEach(p => p.classList.add('d-none'));
+
+      const activeBtn = document.getElementById(`tabBtn-${tabKey}`);
+      const activePane = document.getElementById(`tabContent-${tabKey}`);
+      if (activeBtn) activeBtn.classList.add('active');
+      if (activePane) activePane.classList.remove('d-none');
+
+      // Cuộn nhẹ tới tab nếu cần
+      if (window.innerWidth < 768) {
+        document.querySelector('.member-tab-nav').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    // Cập nhật giao diện theo cấp VIP hiện tại
+    function updateMemberUI() {
+      const tier = VIP_TIERS.find(t => t.level === currentVipLevel) || VIP_TIERS[2];
+      const nextTier = VIP_TIERS.find(t => t.level === currentVipLevel + 1) || tier;
+
+      // Hero Elements
+      document.getElementById('memberHeroName').textContent = memberData.name;
+      document.getElementById('memberHeroEmail').textContent = memberData.email;
+      document.getElementById('memberHeroPhone').textContent = memberData.phone;
+      document.getElementById('memberPoints').textContent = memberData.points;
+      document.getElementById('memberTotalSpent').textContent = formatVND(memberData.totalSpent);
+
+      const badgeEl = document.getElementById('memberCurrentBadge');
+      badgeEl.className = `current-vip-badge ${tier.badgeClass}`;
+      document.getElementById('memberBadgeText').textContent = tier.name;
+
+      // Next tier progress
+      if (currentVipLevel < 10) {
+        document.getElementById('nextVipLabel').textContent = nextTier.name;
+        document.getElementById('vipProgressRatio').textContent = `${formatVND(memberData.totalSpent)} / ${formatVND(nextTier.minSpend)}`;
+        const needMore = Math.max(0, nextTier.minSpend - memberData.totalSpent);
+        document.getElementById('needMoreToUpgrade').textContent = formatVND(needMore);
+        const pct = Math.min(100, Math.round((memberData.totalSpent / nextTier.minSpend) * 100));
+        document.getElementById('vipProgressBar').style.width = `${pct}%`;
+        document.getElementById('vipProgressBar').setAttribute('aria-valuenow', pct);
+      } else {
+        document.getElementById('nextVipLabel').textContent = 'ĐÃ ĐẠT CẤP TỐI ĐA (VIP10)';
+        document.getElementById('vipProgressRatio').textContent = '75.000.000₫+ (MAX)';
+        document.getElementById('needMoreToUpgrade').textContent = '0₫ (Đỉnh Cao)';
+        document.getElementById('vipProgressBar').style.width = '100%';
+      }
+
+      // Summary Card
+      document.getElementById('cardSummaryVip').textContent = tier.name;
+      document.getElementById('cardSummaryDiscount').textContent = `Giảm ${tier.discountPct}% trực tiếp`;
+      document.getElementById('benefitCurrentVipText').textContent = tier.name;
+
+      renderVipTiersGrid();
+      renderMyVouchersGrid(tier);
+    }
+
+    // Render danh sách 11 cấp bậc VIP
+    function renderVipTiersGrid() {
+      const container = document.getElementById('vipTiersGrid');
+      if (!container) return;
+
+      container.innerHTML = VIP_TIERS.map(t => {
+        const isCurrent = t.level === currentVipLevel;
+        return `
+          <div class="col-md-6 col-lg-4">
+            <div class="vip-tier-card ${isCurrent ? 'is-current' : ''}">
+              ${isCurrent ? '<div class="vip-current-pill"><i class="fas fa-check-circle me-1"></i>Cấp Hiện Tại</div>' : ''}
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <span class="badge ${t.badgeClass} px-3 py-1 fs-6 fw-bold">
+                  <i class="fas fa-crown me-1"></i> ${t.name}
+                </span>
+                <span class="text-danger fw-bold fs-6">-${t.discountPct}%</span>
+              </div>
+              <h6 class="fw-bold text-slate-800 mb-1">${t.title}</h6>
+              <div class="text-muted small mb-2">
+                Mốc tích lũy: <strong>${t.minSpend === 0 ? '0₫ (Đăng ký mới)' : formatVND(t.minSpend)}</strong>
+              </div>
+              <div class="border-top pt-2 mt-auto">
+                <div class="small fw-semibold text-slate-700 mb-1">Đặc quyền cấp:</div>
+                <ul class="list-unstyled small mb-2 text-muted">
+                  ${t.perks.map(p => `<li><i class="fas fa-check text-success me-1"></i>${p}</li>`).join('')}
+                </ul>
+                <div class="p-2 bg-light rounded text-center small">
+                  <span class="text-muted">Mã thưởng:</span> <strong class="text-primary">${t.voucher}</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Render Ưu Đãi Của Tôi
+    function renderMyVouchersGrid(tier) {
+      const container = document.getElementById('myVouchersGrid');
+      if (!container) return;
+
+      container.innerHTML = `
+        <div class="col-md-6">
+          <div class="voucher-perk-card highlight">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <div>
+                <span class="badge bg-warning text-dark fw-bold mb-1">ĐẶC QUYỀN ${tier.name}</span>
+                <h5 class="fw-bold text-slate-900 mb-0">Chiết khấu trực tiếp ${tier.discountPct}%</h5>
+              </div>
+              <i class="fas fa-crown text-warning fs-3"></i>
+            </div>
+            <p class="text-muted small mb-3">Tự động áp dụng giảm ngay <strong>${tier.discountPct}%</strong> vào tổng giá trị mỗi hóa đơn khi bạn đăng nhập tài khoản.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="text-success fw-bold small"><i class="fas fa-check-circle me-1"></i>Đang kích hoạt</span>
+              <a href="/#products-section" class="btn btn-sm btn-warning text-dark fw-bold px-3">
+                <i class="fas fa-shopping-cart me-1"></i> Dùng Ngay
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="voucher-perk-card">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <div>
+                <span class="badge bg-primary text-white fw-bold mb-1">VOUCHER CẤP BẬC</span>
+                <h5 class="fw-bold text-slate-900 mb-0">${tier.voucher}</h5>
+              </div>
+              <i class="fas fa-ticket-alt text-primary fs-3"></i>
+            </div>
+            <p class="text-muted small mb-3">Mã giảm giá độc quyền dành tặng riêng cho thành viên đạt mốc ${tier.name}. Hạn sử dụng: Vô thời hạn.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="font-monospace fw-bold text-primary">${tier.voucher.split(' ')[0]}</span>
+              <button class="btn btn-sm btn-outline-primary fw-bold" onclick="copyVoucherText('${tier.voucher.split(' ')[0]}')">
+                <i class="fas fa-copy me-1"></i> Sao Chép
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="voucher-perk-card">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <div>
+                <span class="badge bg-danger text-white fw-bold mb-1">SIÊU ƯU ĐÃI KHỦNG</span>
+                <h5 class="fw-bold text-slate-900 mb-0">Giảm 1.000.000₫: GIAY76VIPP</h5>
+              </div>
+              <i class="fas fa-fire text-danger fs-3"></i>
+            </div>
+            <p class="text-muted small mb-3">Áp dụng cho đơn hàng từ 5.000.000₫. Mã có hiệu lực cho tất cả các dòng giày cao cấp tại shopkiet76.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="font-monospace fw-bold text-danger">GIAY76VIPP</span>
+              <button class="btn btn-sm btn-danger fw-bold" onclick="copyVoucherText('GIAY76VIPP')">
+                <i class="fas fa-copy me-1"></i> Sao Chép Mã
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="voucher-perk-card">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <div>
+                <span class="badge bg-success text-white fw-bold mb-1">MIỄN PHÍ VẬN CHUYỂN</span>
+                <h5 class="fw-bold text-slate-900 mb-0">Freeship Toàn Quốc 0₫</h5>
+              </div>
+              <i class="fas fa-truck-fast text-success fs-3"></i>
+            </div>
+            <p class="text-muted small mb-3">Tự động miễn phí ship cho tất cả thành viên từ VIP2 trở lên. Giao hỏa tốc nhận hàng nhanh chóng.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="text-success fw-bold small"><i class="fas fa-check-circle me-1"></i>Tự động áp dụng</span>
+              <a href="/cart" class="btn btn-sm btn-outline-success fw-bold">
+                <i class="fas fa-arrow-right me-1"></i> Tới Giỏ Hàng
+              </a>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Trình mô phỏng / Thử nghiệm cấp VIP
+    function applyTierSimulator(level) {
+      currentVipLevel = parseInt(level, 10);
+      localStorage.setItem('shopkiet76_vip_level', currentVipLevel);
+
+      const targetTier = VIP_TIERS.find(t => t.level === currentVipLevel) || VIP_TIERS[0];
+      memberData.totalSpent = targetTier.minSpend;
+      memberData.points = Math.round(targetTier.minSpend / 10000);
+      localStorage.setItem('shopkiet76_member', JSON.stringify(memberData));
+
+      // Cập nhật selector
+      const sel = document.getElementById('simulatorVipSelect');
+      if (sel) sel.value = currentVipLevel;
+
+      updateMemberUI();
+      showToast(`Đã chuyển đổi cấp bậc sang: ${targetTier.name}! Các quyền lợi đã được cập nhật.`);
+    }
+
+    function simulateAddSpending() {
+      const input = document.getElementById('simAddAmount');
+      const addVal = parseInt(input.value, 10) || 0;
+      if (addVal <= 0) return;
+
+      memberData.totalSpent += addVal;
+      memberData.points += Math.round(addVal / 10000);
+
+      // Tự động tìm cấp mới tương ứng
+      for (let i = VIP_TIERS.length - 1; i >= 0; i--) {
+        if (memberData.totalSpent >= VIP_TIERS[i].minSpend) {
+          currentVipLevel = VIP_TIERS[i].level;
+          break;
+        }
+      }
+
+      localStorage.setItem('shopkiet76_vip_level', currentVipLevel);
+      localStorage.setItem('shopkiet76_member', JSON.stringify(memberData));
+
+      updateMemberUI();
+      showToast(`Đã tích luỹ thêm +${formatVND(addVal)}. Cấp hiện tại: VIP${currentVipLevel}!`);
+    }
+
+    function handleDailyCheckin(btn) {
+      memberData.points += 5;
+      localStorage.setItem('shopkiet76_member', JSON.stringify(memberData));
+      document.getElementById('memberPoints').textContent = memberData.points;
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fas fa-check text-success me-1"></i> Đã điểm danh thành công (+5 điểm)';
+      btn.classList.replace('btn-outline-warning', 'btn-success');
+      showToast('Chúc mừng bạn đã điểm danh thành công và nhận +5 điểm thưởng!');
+    }
+
+    function handleSaveProfile(e) {
+      e.preventDefault();
+      memberData.name = document.getElementById('profName').value;
+      memberData.phone = document.getElementById('profPhone').value;
+      memberData.email = document.getElementById('profEmail').value;
+      localStorage.setItem('shopkiet76_member', JSON.stringify(memberData));
+      updateMemberUI();
+      showToast('Đã lưu thông tin hồ sơ hội viên thành công!');
+    }
+
+    function copyVoucherText(code) {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(code).then(() => {
+          showToast(`Đã sao chép mã [${code}] vào clipboard!`);
+        });
+      } else {
+        showToast(`Mã giảm giá: ${code}`);
+      }
+    }
+
+    function showToast(msg) {
+      const toastEl = document.getElementById('appToast');
+      document.getElementById('toastMessage').innerHTML = `<i class="fas fa-info-circle text-info"></i> ${msg}`;
+      if (window.bootstrap && bootstrap.Toast) {
+        const t = new bootstrap.Toast(toastEl, { delay: 3000 });
+        t.show();
+      }
+    }
+
+    // Modal mã giảm giá GIAY76VIPP
+    function openPromoModal(event) {
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      const modal = document.getElementById('shopkietPromoModal');
+      if (modal) {
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closePromoModal(event) {
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      const modal = document.getElementById('shopkietPromoModal');
+      if (modal) {
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function handlePromoModalBackdropClick(event) {
+      if (event.target === document.getElementById('shopkietPromoModal')) {
+        closePromoModal(event);
+      }
+    }
+
+    function copyVoucherPromoModal(event) {
+      if (event) event.preventDefault();
+      const code = 'GIAY76VIPP';
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(code).then(() => {
+          const btn = document.getElementById('btnCopyPromoModal');
+          if (btn) {
+            btn.innerHTML = '<i class="fas fa-check me-2"></i> Đã Sao Chép GIAY76VIPP';
+            btn.classList.add('copied');
+            setTimeout(() => {
+              btn.innerHTML = '<i class="fas fa-copy me-2"></i> Sao Chép Mã Ngay';
+              btn.classList.remove('copied');
+            }, 3000);
+          }
+          showToast('Đã sao chép mã 1.000.000₫ GIAY76VIPP vào clipboard!');
+        });
+      }
+    }
+
+    // Khởi tạo
+    document.addEventListener('DOMContentLoaded', () => {
+      // Cập nhật số lượng giỏ hàng
+      try {
+        const cart = JSON.parse(localStorage.getItem('shopkiet76_cart') || '[]');
+        const count = cart.reduce((acc, item) => acc + (item.quantity || 1), 0);
+        document.querySelectorAll('.cart-count-badge').forEach(b => b.textContent = count);
+      } catch (e) {}
+
+      // Kiểm tra hash trên URL để mở tab tương ứng (ví dụ: /member#tiers)
+      const hash = window.location.hash.replace('#', '');
+      if (hash && ['account', 'tiers', 'benefits', 'upgrade'].includes(hash)) {
+        switchMemberTab(hash);
+      } else {
+        switchMemberTab('account');
+      }
+
+      updateMemberUI();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1758 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>shopkiet76 - Cửa Hàng Giày Thể Thao Cao Cấp &amp; Chính Hãng</title>
+  <meta name="description" content="shopkiet76 - Thương hiệu phân phối giày thể thao, sneaker chính hãng từ Nike, Adidas, Jordan, Vans, Puma. Giao hàng toàn quốc, đổi size 30 ngày." />
+  <meta property="og:title" content="shopkiet76 - Giày Thể Thao Cao Cấp Chính Hãng" />
+  <meta property="og:description" content="Khám phá bộ sưu tập giày thể thao chính hãng mới nhất tại shopkiet76. Đặt mua nhanh, giao hàng hỏa tốc." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="/images/shopkiet76_avatar.jpg" />
+
+  <!-- Custom Blue Theme Stylesheet -->
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <!-- 1. TOP ANNOUNCEMENT BAR (THANH TRÊN CÙNG) -->
+  <div class="top-bar">
+    <div class="container d-flex justify-content-between align-items-center">
+      <!-- Bên trái giữ Hotline / menu trái -->
+      <div class="d-flex align-items-center gap-2 gap-md-3">
+        <span><i class="fas fa-phone-alt text-info me-1"></i> Hotline: <a href="tel:19008888" class="fw-bold text-white text-decoration-none">1900 8888</a></span>
+        <span class="d-none d-md-inline text-white-50">|</span>
+        <span class="d-none d-md-inline"><i class="fas fa-store text-info me-1"></i> 2 chi nhánh: Quảng Ngãi &amp; TP.HCM</span>
+        <span class="d-none d-lg-inline text-white-50">|</span>
+        <span class="d-none d-lg-inline"><i class="fas fa-shipping-fast text-info me-1"></i> Freeship đơn từ 1.000.000₫</span>
+      </div>
+
+      <!-- Phía PHẢI thanh trên cùng: sát nút Quản Trị có nút 🎁 Ưu Đãi -->
+      <div class="d-flex align-items-center gap-2 gap-sm-3 ms-auto">
+        <a href="/register" class="text-white text-decoration-none fw-semibold d-none d-sm-inline">
+          <i class="fas fa-id-card me-1 text-warning"></i> Hội Viên (+50đ)
+        </a>
+        <span class="text-white-50 d-none d-sm-inline">|</span>
+        <a href="/admin" class="text-white text-decoration-none fw-semibold d-flex align-items-center gap-1" title="Quản Trị Hệ Thống">
+          <i class="fas fa-user-shield text-info"></i> <span>Quản Trị</span>
+        </a>
+        <!-- Nút nhỏ gọn: "🎁 Ưu Đãi" sát nút Quản Trị -->
+        <button type="button" class="btn-topbar-promo" onclick="openPromoModal(event)" title="Xem ưu đãi & mã giảm giá 1.000.000đ">
+          <span>🎁</span> <span>Ưu Đãi</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. MAIN NAVBAR -->
+  <nav class="navbar navbar-expand-lg main-navbar">
+    <div class="container">
+      <!-- Brand Logo -->
+      <a class="navbar-brand" href="/">
+        <div class="brand-icon-box">
+          <img src="/images/shopkiet76_avatar.jpg" alt="Shopkiet76 VIP" />
+        </div>
+        <span class="brand-name">shopkiet<span class="brand-accent">76</span></span>
+      </a>
+
+      <!-- Mobile Right Controls (Cart & Toggler) -->
+      <div class="d-flex align-items-center gap-2 d-lg-none order-lg-last">
+        <a href="/cart" class="btn-cart" title="Xem giỏ hàng">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count-badge">0</span>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars fs-4 text-dark"></i>
+        </button>
+      </div>
+
+      <!-- Nav Links & Search -->
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+          <!-- 🏠 Trang Chủ -->
+          <li class="nav-item">
+            <a class="nav-link active" href="/"><span class="me-1">🏠</span> Trang Chủ</a>
+          </li>
+          <!-- 👟 Sản Phẩm -->
+          <li class="nav-item">
+            <a class="nav-link" href="#products-section"><span class="me-1">👟</span> Sản Phẩm</a>
+          </li>
+          <!-- 🎁 Khuyến Mãi -->
+          <li class="nav-item">
+            <a class="nav-link text-danger fw-bold" href="javascript:void(0)" onclick="openPromoModal(event)">
+              <span class="me-1">🎁</span> Khuyến Mãi <span class="badge bg-danger ms-1">-1Tr</span>
+            </a>
+          </li>
+          <!-- 👑 Trung Tâm Hội Viên -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle fw-bold text-primary" href="/member" id="navMemberDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="me-1">👑</span> Trung Tâm Hội Viên
+            </a>
+            <ul class="dropdown-menu shadow border-0 rounded-3" aria-labelledby="navMemberDropdown">
+              <li>
+                <a class="dropdown-item menu-item-hv py-2 fw-semibold" href="/member#account">
+                  ├─ Thông Tin Tài Khoản
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item menu-item-hv py-2 fw-semibold cap-bac-vip" href="/member#tiers">
+                  ├─ Cấp Bậc: VIP0 → VIP10
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item menu-item-hv py-2 fw-semibold" href="/member#benefits">
+                  ├─ Ưu Đãi &amp; Voucher
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item menu-item-hv py-2 fw-semibold text-danger" href="/member#upgrade">
+                  └─ Nâng Cấp VIP Tự Động
+                </a>
+              </li>
+            </ul>
+          </li>
+          <!-- 🛒 Giỏ Hàng -->
+          <li class="nav-item">
+            <a class="nav-link fw-bold text-success" href="/cart">
+              <span class="me-1">🛒</span> Giỏ Hàng <span class="badge bg-danger rounded-pill cart-count-badge">0</span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Search Bar with Live Filter -->
+        <div class="search-form-wrapper me-lg-3 my-2 my-lg-0">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" id="search-input" class="form-control search-input" placeholder="Tìm giày Nike, Adidas, New Balance, Vans..." />
+        </div>
+
+        <!-- Desktop Cart Button & Assistant Button -->
+        <div class="d-none d-lg-flex align-items-center gap-2">
+          <!-- Cặp 2 nút kề nhau: Đăng Ký Hội Viên | Đăng Nhập Quản Trị -->
+          <div class="shopkiet-auth-btn-group position-relative" id="desktopAuthBtnGroup">
+            <button type="button" class="btn-shopkiet-auth btn-auth-member" onclick="toggleShopkietAuthMenu('member', this, event)" title="Xem quyền lợi & Đăng ký hội viên">
+              <i class="fas fa-id-card"></i>
+              <span>Đăng Ký Hội Viên</span>
+              <i class="fas fa-chevron-down auth-btn-chevron ms-1"></i>
+            </button>
+            <button type="button" class="btn-shopkiet-auth btn-auth-admin" onclick="toggleShopkietAuthMenu('admin', this, event)" title="Đăng nhập tài khoản Quản trị">
+              <i class="fas fa-user-shield"></i>
+              <span>Đăng Nhập Quản Trị</span>
+              <i class="fas fa-chevron-down auth-btn-chevron ms-1"></i>
+            </button>
+
+            <!-- Dropdown Menu 1: Hội Viên (Nền trắng, viền xanh, bóng nhẹ) -->
+            <div class="shopkiet-auth-dropdown dropdown-member">
+              <div class="auth-dropdown-head">
+                <div class="d-flex align-items-center gap-2">
+                  <div class="auth-icon-badge">
+                    <i class="fas fa-crown text-warning"></i>
+                  </div>
+                  <div>
+                    <h6 class="fw-bold text-slate-900 mb-0">QUYỀN LỢI HỘI VIÊN VIP</h6>
+                    <small class="text-muted">Đặc quyền tích điểm &amp; ưu đãi trọn đời</small>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="auth-benefit-item">
+                <i class="fas fa-gift text-primary"></i>
+                <span><strong>Tặng ngay 50.000₫ (+50 điểm)</strong> vào ví khi hoàn tất đăng ký tài khoản.</span>
+              </div>
+              <div class="auth-benefit-item">
+                <i class="fas fa-percentage text-danger"></i>
+                <span><strong>Giảm thêm 5% - 10%</strong> cho mọi đơn hàng tiếp theo không giới hạn.</span>
+              </div>
+              <div class="auth-benefit-item">
+                <i class="fas fa-shipping-fast text-success"></i>
+                <span><strong>Miễn phí vận chuyển</strong> toàn quốc cho tất cả thành viên shopkiet76.</span>
+              </div>
+              <div class="auth-benefit-item mb-3">
+                <i class="fas fa-ticket-alt text-warning"></i>
+                <span>Nhận sớm quyền dùng mã <strong>GIAY76VIPP</strong> giảm 1.000.000đ &amp; Flash Sale.</span>
+              </div>
+
+              <a href="/register" class="auth-action-btn-primary">
+                <i class="fas fa-user-plus me-1"></i>
+                <span>Đăng Ký Ngay</span>
+              </a>
+              <div class="text-center mt-2">
+                <small class="text-muted">Đã có tài khoản? <a href="/register" class="text-primary fw-semibold text-decoration-none">Đăng nhập ngay</a></small>
+              </div>
+            </div>
+
+            <!-- Dropdown Menu 2: Quản Trị (Nền trắng, viền xanh, bóng nhẹ) -->
+            <div class="shopkiet-auth-dropdown dropdown-admin">
+              <div class="auth-dropdown-head">
+                <div class="d-flex align-items-center gap-2">
+                  <div class="auth-icon-badge">
+                    <i class="fas fa-shield-alt text-primary"></i>
+                  </div>
+                  <div>
+                    <h6 class="fw-bold text-slate-900 mb-0">ĐĂNG NHẬP QUẢN TRỊ</h6>
+                    <small class="text-muted">Hệ thống quản trị bán hàng shopkiet76</small>
+                  </div>
+                </div>
+              </div>
+
+              <form onsubmit="handleQuickAdminLogin(event, this)" class="mb-1">
+                <div class="mb-2">
+                  <label class="form-label small fw-semibold text-slate-700 mb-1">
+                    <i class="fas fa-user text-primary me-1"></i> Tài khoản / Email
+                  </label>
+                  <input type="text" class="form-control form-control-sm quick-admin-user" placeholder="admin@shopkiet76.vn hoặc admin" value="admin" required />
+                </div>
+                <div class="mb-2">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <label class="form-label small fw-semibold text-slate-700 mb-0">
+                      <i class="fas fa-lock text-primary me-1"></i> Mật khẩu
+                    </label>
+                    <span class="small text-muted" role="button" onclick="togglePassView(this)" style="cursor: pointer;">
+                      <i class="fas fa-eye"></i> Hiện
+                    </span>
+                  </div>
+                  <input type="password" class="form-control form-control-sm quick-admin-pass" placeholder="••••••••" value="admin123" required />
+                </div>
+
+                <div class="bg-light p-2 rounded-2 mb-3 border small text-muted">
+                  <i class="fas fa-key text-warning me-1"></i> Mặc định: <strong>admin</strong> / <strong>admin123</strong>
+                </div>
+
+                <button type="submit" class="auth-action-btn-primary">
+                  <i class="fas fa-sign-in-alt me-1"></i>
+                  <span>Đăng Nhập</span>
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <button class="btn btn-outline-primary d-flex align-items-center gap-2" onclick="toggleGeminiChat(true)" title="Trò chuyện với Trợ lý Shopkiet76">
+            <i class="fas fa-sparkles text-primary"></i>
+            <span>Trợ Lý Shopkiet76</span>
+          </button>
+          <a href="/cart" class="btn-cart" title="Xem giỏ hàng">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count-badge">0</span>
+          </a>
+          <a href="/checkout" class="btn btn-primary d-flex align-items-center gap-2">
+            <i class="fas fa-credit-card"></i>
+            <span>Thanh Toán</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BAR 2 NÚT HỘI VIÊN & QUẢN TRỊ DÀNH CHO DI ĐỘNG (HIỂN THỊ ĐẸP TRÊN ĐIỆN THOẠI) -->
+  <div class="d-lg-none bg-white border-bottom py-2 px-3 shadow-xs">
+    <div class="container p-0">
+      <div class="shopkiet-auth-btn-group mobile-responsive position-relative">
+        <button type="button" class="btn-shopkiet-auth btn-auth-member" onclick="toggleShopkietAuthMenu('member', this, event)" title="Xem quyền lợi & Đăng ký hội viên">
+          <i class="fas fa-id-card"></i>
+          <span>Đăng Ký Hội Viên</span>
+          <i class="fas fa-chevron-down auth-btn-chevron ms-1"></i>
+        </button>
+        <button type="button" class="btn-shopkiet-auth btn-auth-admin" onclick="toggleShopkietAuthMenu('admin', this, event)" title="Đăng nhập tài khoản Quản trị">
+          <i class="fas fa-user-shield"></i>
+          <span>Đăng Nhập Quản Trị</span>
+          <i class="fas fa-chevron-down auth-btn-chevron ms-1"></i>
+        </button>
+
+        <!-- Dropdown Menu 1: Hội Viên Mobile -->
+        <div class="shopkiet-auth-dropdown dropdown-member">
+          <div class="auth-dropdown-head">
+            <div class="d-flex align-items-center gap-2">
+              <div class="auth-icon-badge">
+                <i class="fas fa-crown text-warning"></i>
+              </div>
+              <div>
+                <h6 class="fw-bold text-slate-900 mb-0">QUYỀN LỢI HỘI VIÊN VIP</h6>
+                <small class="text-muted">Đặc quyền tích điểm &amp; ưu đãi trọn đời</small>
+              </div>
+            </div>
+          </div>
+          
+          <div class="auth-benefit-item">
+            <i class="fas fa-gift text-primary"></i>
+            <span><strong>Tặng ngay 50.000₫ (+50 điểm)</strong> vào ví khi hoàn tất đăng ký.</span>
+          </div>
+          <div class="auth-benefit-item">
+            <i class="fas fa-percentage text-danger"></i>
+            <span><strong>Giảm thêm 5% - 10%</strong> cho mọi đơn hàng tiếp theo không giới hạn.</span>
+          </div>
+          <div class="auth-benefit-item">
+            <i class="fas fa-shipping-fast text-success"></i>
+            <span><strong>Miễn phí vận chuyển</strong> toàn quốc cho hội viên thân thiết.</span>
+          </div>
+          <div class="auth-benefit-item mb-3">
+            <i class="fas fa-ticket-alt text-warning"></i>
+            <span>Nhận sớm quyền dùng mã <strong>GIAY76VIPP</strong> giảm 1.000.000đ &amp; Flash Sale.</span>
+          </div>
+
+          <a href="/register" class="auth-action-btn-primary">
+            <i class="fas fa-user-plus me-1"></i>
+            <span>Đăng Ký Ngay</span>
+          </a>
+          <div class="text-center mt-2">
+            <small class="text-muted">Đã có tài khoản? <a href="/register" class="text-primary fw-semibold text-decoration-none">Đăng nhập ngay</a></small>
+          </div>
+        </div>
+
+        <!-- Dropdown Menu 2: Quản Trị Mobile -->
+        <div class="shopkiet-auth-dropdown dropdown-admin">
+          <div class="auth-dropdown-head">
+            <div class="d-flex align-items-center gap-2">
+              <div class="auth-icon-badge">
+                <i class="fas fa-shield-alt text-primary"></i>
+              </div>
+              <div>
+                <h6 class="fw-bold text-slate-900 mb-0">ĐĂNG NHẬP QUẢN TRỊ</h6>
+                <small class="text-muted">Hệ thống quản trị bán hàng shopkiet76</small>
+              </div>
+            </div>
+          </div>
+
+          <form onsubmit="handleQuickAdminLogin(event, this)" class="mb-1">
+            <div class="mb-2">
+              <label class="form-label small fw-semibold text-slate-700 mb-1">
+                <i class="fas fa-user text-primary me-1"></i> Tài khoản / Email
+              </label>
+              <input type="text" class="form-control form-control-sm quick-admin-user" placeholder="admin@shopkiet76.vn hoặc admin" value="admin" required />
+            </div>
+            <div class="mb-2">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <label class="form-label small fw-semibold text-slate-700 mb-0">
+                  <i class="fas fa-lock text-primary me-1"></i> Mật khẩu
+                </label>
+                <span class="small text-muted" role="button" onclick="togglePassView(this)" style="cursor: pointer;">
+                  <i class="fas fa-eye"></i> Hiện
+                </span>
+              </div>
+              <input type="password" class="form-control form-control-sm quick-admin-pass" placeholder="••••••••" value="admin123" required />
+            </div>
+
+            <div class="bg-light p-2 rounded-2 mb-3 border small text-muted">
+              <i class="fas fa-key text-warning me-1"></i> Mặc định: <strong>admin</strong> / <strong>admin123</strong>
+            </div>
+
+            <button type="submit" class="auth-action-btn-primary">
+              <i class="fas fa-sign-in-alt me-1"></i>
+              <span>Đăng Nhập</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="hero-section" style="background: linear-gradient(135deg, #07192f 0%, #0A2342 50%, #1E40AF 100%); min-height: 640px; display: flex; align-items: center; padding: 4.5rem 0 5rem; overflow: hidden; position: relative;">
+    <div class="container position-relative">
+      <div class="row align-items-center g-4">
+        <!-- Chữ bên trái -->
+        <div class="col-lg-5 mb-4 mb-lg-0 banner-content">
+          <div class="hero-tag" style="display: inline-block; background: rgba(255,255,255,0.15); color: #fff; padding: 8px 22px; border-radius: 50px; font-size: 14px; font-weight: 700; margin-bottom: 1.25rem;">
+            <i class="fas fa-fire text-warning me-1"></i> SẢN PHẨM NỔI BẬT &bull; VANS CLASSIC
+          </div>
+          <h1 class="hero-title" style="color: #fff; font-size: clamp(2.6rem, 5vw, 3.8rem); font-weight: 800; line-height: 1.15; margin-bottom: 1.2rem;">
+            Vans Old Skool Classic<br>
+            <span style="color: #FBBF24;">Navy Blue</span>
+          </h1>
+          <p class="hero-subtitle" style="color: #E0E7FF; font-size: 1.12rem; line-height: 1.75; margin-bottom: 1.75rem; max-width: 520px;">
+            Biểu tượng phong cách đường phố từ 1977 — dải Sidestripe lượn sóng đặc trưng, chất liệu vải Canvas bền bỉ kết hợp da lộn cao cấp, đế bánh quế Waffle chống trượt hoàn hảo cùng sắc xanh Navy thời thượng.
+          </p>
+          
+          <!-- Thông số sản phẩm nổi bật -->
+          <div class="d-flex gap-4 mb-4 flex-wrap">
+            <div>
+              <div style="color: #93C5FD; font-size: 0.85rem; text-transform: uppercase; font-weight: 600;">Mã SP</div>
+              <div style="color: #fff; font-weight: 700; font-size: 1.05rem;">VN0A4BV8V3X</div>
+            </div>
+            <div class="border-start border-white-50 ps-4">
+              <div style="color: #93C5FD; font-size: 0.85rem; text-transform: uppercase; font-weight: 600;">Chất liệu</div>
+              <div style="color: #fff; font-weight: 700; font-size: 1.05rem;">Canvas + Da lộn</div>
+            </div>
+            <div class="border-start border-white-50 ps-4">
+              <div style="color: #93C5FD; font-size: 0.85rem; text-transform: uppercase; font-weight: 600;">Giá ưu đãi</div>
+              <div style="color: #FBBF24; font-weight: 800; font-size: 1.35rem;">1.750.000₫</div>
+            </div>
+          </div>
+
+          <div class="d-flex flex-wrap gap-3">
+            <a href="#ai-video-section" class="btn btn-warning px-4 py-3 fs-6 fw-bold shadow-lg d-inline-flex align-items-center gap-2" style="color: #0A2342; background: #FBBF24; border-color: #FBBF24; font-size: 1.05rem !important;">
+              <i class="fas fa-play-circle text-danger fs-5"></i> Xem Video AI Giới Thiệu (30s)
+            </a>
+            <a href="#products-section" class="btn btn-outline-light px-4 py-3 fs-6 fw-semibold" style="border: 2px solid rgba(255,255,255,0.4); font-size: 1.05rem !important;">
+              <i class="fas fa-shopping-bag me-2"></i> Khám Phá Sản Phẩm
+            </a>
+          </div>
+
+          <div class="mt-4 pt-2 d-flex align-items-center gap-4 text-white-50 small">
+            <div><strong class="text-white fs-5">15.000+</strong><br>Khách hàng hài lòng</div>
+            <div class="border-start border-white-50 ps-4"><strong class="text-white fs-5">100%</strong><br>Cam kết chính hãng</div>
+            <div class="border-start border-white-50 ps-4"><strong class="text-white fs-5">30 Ngày</strong><br>Đổi size tận nơi</div>
+          </div>
+        </div>
+
+        <!-- Ảnh bên phải: chiếm 7 cột, kích thước to nổi bật -->
+        <div class="col-lg-7 banner-image">
+          <div class="hero-shoe-image-wrapper position-relative text-center d-flex justify-content-center align-items-center" style="min-height: 480px;">
+            <div class="hero-glow-ring" style="width: min(540px, 90vw); height: min(540px, 90vw);"></div>
+            <img 
+              src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=1200&q=85" 
+              alt="Vans Old Skool Classic Navy Blue" 
+              class="hero-shoe-img img-fluid"
+              style="width: 100%; max-width: 680px; max-height: 520px; object-fit: contain; filter: drop-shadow(0 25px 45px rgba(0,0,0,0.5)); transform: scale(1.12) rotate(-5deg); transition: transform 0.4s ease;"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+              onerror="this.onerror=null; this.src='https://images.vans.com/is/image/VansEU/VN0A4BV8V3X-HERO?wid=800&hei=800&fmt=jpg';"
+            />
+            <div class="hero-float-badge" style="bottom: 10px; left: 10px; z-index: 5;">
+              <div class="d-flex align-items-center gap-3">
+                <i class="fas fa-check-circle text-primary fs-3"></i>
+                <div class="text-start">
+                  <div class="text-white fw-bold" style="font-size: 1rem;">Vans Old Skool Classic</div>
+                  <div class="text-info small fw-semibold">1.750.000₫ &bull; <span class="badge bg-warning text-dark fw-bold">ƯA CHUỘNG</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. SERVICE PERKS / VALUE PROPOSITIONS -->
+  <section class="perks-section">
+    <div class="container">
+      <div class="row g-3">
+        <div class="col-lg-3 col-sm-6">
+          <div class="perk-card">
+            <div class="perk-icon"><i class="fas fa-truck-fast"></i></div>
+            <div>
+              <h6 class="fw-bold mb-1">Giao Hàng Miễn Phí</h6>
+              <p class="text-muted small mb-0">Đơn từ 1.000.000₫ toàn quốc</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="perk-card">
+            <div class="perk-icon"><i class="fas fa-shield-halved"></i></div>
+            <div>
+              <h6 class="fw-bold mb-1">100% Chính Hãng</h6>
+              <p class="text-muted small mb-0">Cam kết đền gấp 10 nếu giả</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="perk-card">
+            <div class="perk-icon"><i class="fas fa-rotate"></i></div>
+            <div>
+              <h6 class="fw-bold mb-1">Đổi Size 30 Ngày</h6>
+              <p class="text-muted small mb-0">Hỗ trợ đổi tận nơi tiện lợi</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="perk-card" style="cursor: pointer; transition: all 0.2s ease;" onclick="toggleGeminiChat(true)" title="Bấm để chat trực tiếp với Trợ lý Shopkiet76">
+            <div class="perk-icon" style="background: linear-gradient(135deg, #1d4ed8, #0284c7); color: white;"><i class="fas fa-sparkles"></i></div>
+            <div>
+              <h6 class="fw-bold mb-1 d-flex align-items-center gap-1">
+                <span>Trợ Lý Shopkiet76</span>
+                <span class="badge bg-primary text-white" style="font-size: 0.65rem;">AI 24/7</span>
+              </h6>
+              <p class="text-primary small mb-0 fw-semibold"><i class="fas fa-comments me-1"></i> Bấm để chat tư vấn ngay</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4.1 AI VIDEO SHOWCASE: BOTV1 / BOTV2 / BOTV3 (30 GIÂY) -->
+  <section class="py-5" id="ai-video-section" style="background: linear-gradient(180deg, #f8fafc 0%, #eff6ff 100%);">
+    <div class="container">
+      <div class="text-center mb-4">
+        <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill bg-danger bg-opacity-10 text-danger fw-bold small mb-2 border border-danger border-opacity-25">
+          <i class="fas fa-play-circle text-danger"></i> VIDEO GIỚI THIỆU 30 GIÂY BỞI NHÂN VẬT AI MAI LAN
+        </div>
+        <h2 class="display-6 fw-extrabold text-slate-900 mb-2">Bộ 3 Siêu Phẩm Giày Độc Quyền: BotV1 • BotV2 • BotV3</h2>
+        <p class="text-muted fs-6 mb-0 mx-auto" style="max-width: 680px;">
+          Lắng nghe lời mời gọi chân thành, ấm áp từ nhân vật AI. Thiết kế độc quyền, chất liệu cao cấp, giảm đến 20% và giá chỉ từ <strong>590k</strong>!
+        </p>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-xl-10 col-lg-11">
+          <!-- Video Card Player -->
+          <div class="ai-video-card" id="ai-video-player-container">
+            
+            <!-- Video Top Bar -->
+            <div class="ai-video-header-bar">
+              <div class="d-flex align-items-center gap-2">
+                <span class="d-inline-block rounded-circle bg-danger" style="width: 10px; height: 10px; animation: pulse 1.5s infinite;"></span>
+                <span class="fw-bold tracking-wider text-uppercase">AI Presenter Studio &bull; 1080p Full HD</span>
+              </div>
+              <div class="d-flex align-items-center gap-2 gap-md-3">
+                <span class="badge bg-warning text-dark fw-bold"><i class="fas fa-clock me-1"></i> 30 Giây Siêu Tốc</span>
+                <span class="badge bg-primary text-white d-none d-sm-inline"><i class="fas fa-volume-up me-1"></i> Giọng Nói Tiếng Việt AI</span>
+              </div>
+            </div>
+
+            <!-- Video Screen: Left = AI Female Presenter, Right = Shoes Showcase -->
+            <div class="ai-video-screen p-3 p-md-4">
+              <div class="row g-3 g-md-4 align-items-stretch">
+                
+                <!-- Left: AI Female Presenter -->
+                <div class="col-lg-5 col-md-5">
+                  <div class="ai-presenter-col h-100 shadow-sm">
+                    <img 
+                      src="/images/ai_female_presenter.jpg" 
+                      alt="Nhân vật AI Mai Lan" 
+                      class="ai-presenter-bg-img" 
+                      id="ai-presenter-img"
+                    />
+                    <div class="ai-presenter-overlay">
+                      <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="badge bg-primary px-3 py-1 rounded-pill fw-bold">
+                          <i class="fas fa-user-tie me-1"></i> AI Presenter
+                        </span>
+                        <!-- Sound wave animation -->
+                        <div class="ai-sound-waves paused" id="ai-sound-waves" title="Tần số giọng nói AI">
+                          <span class="ai-wave-bar"></span>
+                          <span class="ai-wave-bar"></span>
+                          <span class="ai-wave-bar"></span>
+                          <span class="ai-wave-bar"></span>
+                          <span class="ai-wave-bar"></span>
+                        </div>
+                      </div>
+                      <h5 class="fw-bold text-white mb-0">Mai Lan</h5>
+                      <small class="text-white-50">Tư vấn viên AI &bull; Giọng nói ấm áp, nhiệt tình</small>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Right: Dynamic Shoe Showcase (BotV1 / BotV2 / BotV3) -->
+                <div class="col-lg-7 col-md-7">
+                  <div class="ai-shoe-stage">
+                    
+                    <!-- Top badge & quick selector -->
+                    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2">
+                      <div class="d-flex gap-2" id="shoe-quick-tabs">
+                        <button type="button" class="shoe-chip-btn active" id="chip-shoe-0" onclick="switchVideoShoe(0)">
+                          👟 BotV1 (590k)
+                        </button>
+                        <button type="button" class="shoe-chip-btn" id="chip-shoe-1" onclick="switchVideoShoe(1)">
+                          👟 BotV2 (650k)
+                        </button>
+                        <button type="button" class="shoe-chip-btn" id="chip-shoe-2" onclick="switchVideoShoe(2)">
+                          👟 BotV3 (690k)
+                        </button>
+                      </div>
+                      <span class="badge bg-danger rounded-pill px-3 py-1 fw-bold" id="stage-badge-tag">
+                        GIẢM ĐẾN 20%
+                      </span>
+                    </div>
+
+                    <!-- Main Shoe Image with smooth transition -->
+                    <div class="ai-shoe-img-container text-center my-auto py-2">
+                      <img 
+                        src="/images/botv1_shoe.jpg" 
+                        alt="Giày thể thao BotV1" 
+                        class="ai-shoe-main-img img-fluid" 
+                        id="video-shoe-img"
+                      />
+                    </div>
+
+                    <!-- Shoe Specs Info -->
+                    <div class="pt-2 border-top">
+                      <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2">
+                        <div>
+                          <h5 class="fw-bold text-slate-900 mb-0" id="video-shoe-title">BotV1 - Sneaker Sport Pro Navy White</h5>
+                          <span class="text-muted small" id="video-shoe-feature">Thiết kế độc quyền &bull; Đệm khí êm ái &bull; Vải dệt Mesh thoáng khí</span>
+                        </div>
+                        <div class="text-end">
+                          <span class="text-muted text-decoration-line-through small" id="video-shoe-orig-price">750.000₫</span>
+                          <div class="fs-4 fw-extrabold text-danger" id="video-shoe-price">590.000₫</div>
+                        </div>
+                      </div>
+
+                      <!-- Value perks banner inside video -->
+                      <div class="d-flex align-items-center justify-content-between p-2 rounded-3 bg-light text-slate-700 small flex-wrap gap-1">
+                        <span><i class="fas fa-shipping-fast text-primary me-1"></i> Miễn ship toàn quốc</span>
+                        <span><i class="fas fa-tags text-danger me-1"></i> Giảm 20% hôm nay</span>
+                        <span class="text-danger fw-bold"><i class="fas fa-fire me-1"></i> Còn giới hạn 15 đôi!</span>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Dynamic Synced Subtitles (Khung chữ chạy đồng bộ theo lời nói) -->
+            <div class="ai-subtitles-container">
+              <div class="d-flex align-items-center gap-2 justify-content-center">
+                <i class="fas fa-closed-captioning text-warning fs-5"></i>
+                <span class="ai-subtitles-text" id="ai-subtitles-text">
+                  "Chào bạn! 👋 Bạn đang tìm đôi giày đẹp, bền, giá tốt?"
+                </span>
+              </div>
+            </div>
+
+            <!-- Video Player Controls Bar -->
+            <div class="ai-video-controls">
+              <!-- Play / Pause Button -->
+              <button type="button" class="ai-play-btn" id="ai-video-play-btn" onclick="toggleAiVideoPlay()" title="Bắt đầu phát video và giọng nói AI">
+                <i class="fas fa-play" id="ai-video-play-icon"></i>
+              </button>
+
+              <!-- Progress bar -->
+              <div class="ai-progress-bar-container" id="ai-progress-container" onclick="seekAiVideo(event)">
+                <div class="ai-progress-fill" id="ai-progress-fill"></div>
+              </div>
+
+              <!-- Time Counter (0:00 / 0:30) -->
+              <div class="ai-time-counter" id="ai-time-counter">
+                0:00 / 0:30
+              </div>
+
+              <!-- Mute / Unmute Button -->
+              <button type="button" class="btn btn-sm text-white border-0" id="ai-voice-toggle-btn" onclick="toggleAiVoice()" title="Bật/Tắt âm thanh">
+                <i class="fas fa-volume-up" id="ai-voice-icon"></i>
+              </button>
+
+              <!-- Replay Button -->
+              <button type="button" class="btn btn-sm text-white border-0" onclick="restartAiVideo()" title="Phát lại từ đầu">
+                <i class="fas fa-redo-alt"></i>
+              </button>
+            </div>
+
+            <!-- Bottom CTA Actions Row -->
+            <div class="p-3 bg-white border-top d-flex flex-wrap align-items-center justify-content-between gap-3">
+              <div class="small text-muted">
+                <i class="fas fa-info-circle text-primary me-1"></i>
+                <strong>Khuyến mãi bùng nổ:</strong> Giảm 20% cho BotV1, BotV2, BotV3. Miễn phí vận chuyển toàn quốc!
+              </div>
+              <div class="d-flex gap-2 flex-wrap">
+                <button type="button" class="btn btn-primary px-4 py-2 fw-bold d-flex align-items-center gap-2 shadow-sm" onclick="addCurrentVideoShoeToCart()" id="btn-video-add-cart">
+                  <i class="fas fa-shopping-bag"></i>
+                  <span>CHỌN MUA NGAY - TỪ 590K</span>
+                </button>
+                <a href="#products-section" class="btn btn-outline-secondary px-3 py-2 fw-semibold">
+                  Xem Tất Cả Sản Phẩm
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4.5: SIÊU PHẨM GIÀY SẮP BÁN (MỞ CỔNG ĐẶT TRƯỚC) -->
+  <section class="container mt-5 mb-3" id="preorder-showcase">
+    <div class="preorder-showcase-section">
+      <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+        <div>
+          <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill bg-danger text-white fw-bold small mb-2 shadow-sm">
+            <i class="fas fa-fire"></i> SẮP RA MẮT &bull; MỞ CỔNG ĐẶT TRƯỚC HÔM NAY
+          </div>
+          <h3 class="fw-bold text-white mb-1">Siêu Phẩm Sneaker Sắp Cập Bến Shopkiet76</h3>
+          <p class="text-white-50 small mb-0">Đặt trước 0đ giữ suất ưu tiên &bull; Tiết kiệm đến 850.000₫ &bull; Tặng phụ kiện VIP khi nhận hàng</p>
+        </div>
+        <div class="text-end">
+          <span class="badge bg-warning text-dark fw-bold px-3 py-2 fs-6">
+            <i class="fas fa-shield-alt me-1"></i> 100% Auth &bull; Đúng Hẹn Hoàn Tiền
+          </span>
+        </div>
+      </div>
+
+      <!-- Lưới 4 mẫu giày sắp bán -->
+      <div class="row g-3">
+        <!-- Mẫu 1 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="preorder-showcase-card">
+            <div>
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <span class="badge bg-danger rounded-pill"><i class="fas fa-fire me-1"></i>Sắp Mở Bán</span>
+                <span class="badge bg-white text-dark fw-bold">Nike</span>
+              </div>
+              <div class="text-center my-3">
+                <img src="/images/af1_low_se_rainbow.jpg" alt="Nike Travis Scott 2026" class="preorder-card-img" />
+              </div>
+              <h6 class="fw-bold text-white mb-1" style="font-size: 0.95rem;">Air Jordan 1 'Travis Scott Reverse Mocha' 2026</h6>
+              <div class="d-flex align-items-baseline gap-2 mb-2">
+                <span class="fs-5 fw-extrabold text-warning">4.650.000₫</span>
+                <span class="text-white-50 text-decoration-line-through small">5.500.000₫</span>
+              </div>
+              <div class="small text-white-50 mb-1"><i class="fas fa-calendar-alt text-warning me-1"></i>Ra mắt: <strong>20/10/2026</strong></div>
+              <div class="small text-danger fw-semibold d-flex justify-content-between">
+                <span>Số lượng đặt:</span>
+                <span>Còn 18/50 đôi</span>
+              </div>
+              <div class="preorder-slot-progress">
+                <div class="preorder-slot-bar" style="width: 64%;"></div>
+              </div>
+            </div>
+            <div class="mt-3">
+              <button type="button" class="btn btn-danger w-100 py-2 fw-bold d-flex align-items-center justify-content-center gap-2 shadow-sm" onclick="openPreOrderModal(18)">
+                <i class="fas fa-calendar-check"></i>
+                <span>Đặt Trước Ngay (0đ)</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mẫu 2 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="preorder-showcase-card">
+            <div>
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <span class="badge bg-danger rounded-pill"><i class="fas fa-clock me-1"></i>Đặt Trước -15%</span>
+                <span class="badge bg-white text-dark fw-bold">Adidas</span>
+              </div>
+              <div class="text-center my-3">
+                <img src="/images/botv2_shoe.jpg" alt="Yeezy Boost 350 V2 Carbon Beluga" class="preorder-card-img" />
+              </div>
+              <h6 class="fw-bold text-white mb-1" style="font-size: 0.95rem;">Yeezy Boost 350 V2 'Carbon Beluga Ultra' 2026</h6>
+              <div class="d-flex align-items-baseline gap-2 mb-2">
+                <span class="fs-5 fw-extrabold text-warning">4.990.000₫</span>
+                <span class="text-white-50 text-decoration-line-through small">5.900.000₫</span>
+              </div>
+              <div class="small text-white-50 mb-1"><i class="fas fa-calendar-alt text-warning me-1"></i>Ra mắt: <strong>28/10/2026</strong></div>
+              <div class="small text-danger fw-semibold d-flex justify-content-between">
+                <span>Số lượng đặt:</span>
+                <span>Còn 12/40 đôi</span>
+              </div>
+              <div class="preorder-slot-progress">
+                <div class="preorder-slot-bar" style="width: 70%;"></div>
+              </div>
+            </div>
+            <div class="mt-3">
+              <button type="button" class="btn btn-danger w-100 py-2 fw-bold d-flex align-items-center justify-content-center gap-2 shadow-sm" onclick="openPreOrderModal(19)">
+                <i class="fas fa-calendar-check"></i>
+                <span>Đặt Trước Ngay (0đ)</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mẫu 3 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="preorder-showcase-card">
+            <div>
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <span class="badge bg-danger rounded-pill"><i class="fas fa-star me-1"></i>Bản Giới Hạn</span>
+                <span class="badge bg-white text-dark fw-bold">New Balance</span>
+              </div>
+              <div class="text-center my-3">
+                <img src="/images/botv3_shoe.jpg" alt="New Balance 9060 Sea Salt" class="preorder-card-img" />
+              </div>
+              <h6 class="fw-bold text-white mb-1" style="font-size: 0.95rem;">New Balance 9060 'Sea Salt Moonbeam Vintage'</h6>
+              <div class="d-flex align-items-baseline gap-2 mb-2">
+                <span class="fs-5 fw-extrabold text-warning">3.550.000₫</span>
+                <span class="text-white-50 text-decoration-line-through small">4.200.000₫</span>
+              </div>
+              <div class="small text-white-50 mb-1"><i class="fas fa-calendar-alt text-warning me-1"></i>Ra mắt: <strong>05/11/2026</strong></div>
+              <div class="small text-danger fw-semibold d-flex justify-content-between">
+                <span>Số lượng đặt:</span>
+                <span>Còn 25/60 đôi</span>
+              </div>
+              <div class="preorder-slot-progress">
+                <div class="preorder-slot-bar" style="width: 58%;"></div>
+              </div>
+            </div>
+            <div class="mt-3">
+              <button type="button" class="btn btn-danger w-100 py-2 fw-bold d-flex align-items-center justify-content-center gap-2 shadow-sm" onclick="openPreOrderModal(20)">
+                <i class="fas fa-calendar-check"></i>
+                <span>Đặt Trước Ngay (0đ)</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mẫu 4 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="preorder-showcase-card">
+            <div>
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <span class="badge bg-danger rounded-pill"><i class="fas fa-tint me-1"></i>Gore-Tex Chống Nước</span>
+                <span class="badge bg-white text-dark fw-bold">Nike</span>
+              </div>
+              <div class="text-center my-3">
+                <img src="/images/nike_acg_black_pink.jpg" alt="Nike ACG Mountain Fly Low" class="preorder-card-img" />
+              </div>
+              <h6 class="fw-bold text-white mb-1" style="font-size: 0.95rem;">Nike ACG Mountain Fly Low Gore-Tex 'Black Pink'</h6>
+              <div class="d-flex align-items-baseline gap-2 mb-2">
+                <span class="fs-5 fw-extrabold text-warning">3.890.000₫</span>
+                <span class="text-white-50 text-decoration-line-through small">4.500.000₫</span>
+              </div>
+              <div class="small text-white-50 mb-1"><i class="fas fa-calendar-alt text-warning me-1"></i>Ra mắt: <strong>15/11/2026</strong></div>
+              <div class="small text-danger fw-semibold d-flex justify-content-between">
+                <span>Số lượng đặt:</span>
+                <span>Còn 15/45 đôi</span>
+              </div>
+              <div class="preorder-slot-progress">
+                <div class="preorder-slot-bar" style="width: 66%;"></div>
+              </div>
+            </div>
+            <div class="mt-3">
+              <button type="button" class="btn btn-danger w-100 py-2 fw-bold d-flex align-items-center justify-content-center gap-2 shadow-sm" onclick="openPreOrderModal(21)">
+                <i class="fas fa-calendar-check"></i>
+                <span>Đặt Trước Ngay (0đ)</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mẫu 5: Nike Kobe 8 Protro 'Halo Triple White' 2026 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="preorder-showcase-card">
+            <div>
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <span class="badge bg-danger rounded-pill"><i class="fas fa-fire me-1"></i>Sắp Ra Mắt 2026</span>
+                <span class="badge bg-white text-dark fw-bold">Nike</span>
+              </div>
+              <div class="text-center my-3">
+                <img src="/images/kobe8_protro_white.jpg" alt="Nike Kobe 8 Protro Halo Triple White" class="preorder-card-img" />
+              </div>
+              <h6 class="fw-bold text-white mb-1" style="font-size: 0.95rem;">Nike Kobe 8 Protro 'Halo Triple White' 2026</h6>
+              <div class="d-flex align-items-baseline gap-2 mb-2">
+                <span class="fs-5 fw-extrabold text-warning">4.850.000₫</span>
+                <span class="text-white-50 text-decoration-line-through small">5.600.000₫</span>
+              </div>
+              <div class="small text-white-50 mb-1"><i class="fas fa-calendar-alt text-warning me-1"></i>Ra mắt: <strong>20/11/2026</strong></div>
+              <div class="small text-danger fw-semibold d-flex justify-content-between">
+                <span>Số lượng đặt:</span>
+                <span>Còn 10/40 đôi</span>
+              </div>
+              <div class="preorder-slot-progress">
+                <div class="preorder-slot-bar" style="width: 75%;"></div>
+              </div>
+            </div>
+            <div class="mt-3">
+              <button type="button" class="btn btn-danger w-100 py-2 fw-bold d-flex align-items-center justify-content-center gap-2 shadow-sm" onclick="openPreOrderModal(22)">
+                <i class="fas fa-calendar-check"></i>
+                <span>Đặt Trước Ngay (0đ)</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mẫu 6: Adidas Predator Elite FT 2026 'Solar Red' -->
+        <div class="col-lg-3 col-md-6">
+          <div class="preorder-showcase-card">
+            <div>
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <span class="badge bg-danger rounded-pill"><i class="fas fa-clock me-1"></i>Đặt Trước -15%</span>
+                <span class="badge bg-white text-dark fw-bold">Adidas</span>
+              </div>
+              <div class="text-center my-3">
+                <img src="/images/predator_elite_red.jpg" alt="Adidas Predator Elite FT 2026" class="preorder-card-img" />
+              </div>
+              <h6 class="fw-bold text-white mb-1" style="font-size: 0.95rem;">Adidas Predator Elite FT 2026 'Solar Red'</h6>
+              <div class="d-flex align-items-baseline gap-2 mb-2">
+                <span class="fs-5 fw-extrabold text-warning">5.200.000₫</span>
+                <span class="text-white-50 text-decoration-line-through small">6.100.000₫</span>
+              </div>
+              <div class="small text-white-50 mb-1"><i class="fas fa-calendar-alt text-warning me-1"></i>Ra mắt: <strong>25/11/2026</strong></div>
+              <div class="small text-danger fw-semibold d-flex justify-content-between">
+                <span>Số lượng đặt:</span>
+                <span>Còn 14/45 đôi</span>
+              </div>
+              <div class="preorder-slot-progress">
+                <div class="preorder-slot-bar" style="width: 68%;"></div>
+              </div>
+            </div>
+            <div class="mt-3">
+              <button type="button" class="btn btn-danger w-100 py-2 fw-bold d-flex align-items-center justify-content-center gap-2 shadow-sm" onclick="openPreOrderModal(23)">
+                <i class="fas fa-calendar-check"></i>
+                <span>Đặt Trước Ngay (0đ)</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mẫu 7: Puma MB.04 LaMelo Ball 'Iridescent Galaxy' -->
+        <div class="col-lg-3 col-md-6">
+          <div class="preorder-showcase-card">
+            <div>
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <span class="badge bg-danger rounded-pill"><i class="fas fa-sparkles me-1"></i>Độc Quyền 2026</span>
+                <span class="badge bg-white text-dark fw-bold">Puma</span>
+              </div>
+              <div class="text-center my-3">
+                <img src="/images/lamelo_mb04_galaxy.jpg" alt="Puma MB.04 LaMelo Ball Galaxy" class="preorder-card-img" />
+              </div>
+              <h6 class="fw-bold text-white mb-1" style="font-size: 0.95rem;">Puma MB.04 LaMelo Ball 'Iridescent Galaxy' 2026</h6>
+              <div class="d-flex align-items-baseline gap-2 mb-2">
+                <span class="fs-5 fw-extrabold text-warning">3.450.000₫</span>
+                <span class="text-white-50 text-decoration-line-through small">4.100.000₫</span>
+              </div>
+              <div class="small text-white-50 mb-1"><i class="fas fa-calendar-alt text-warning me-1"></i>Ra mắt: <strong>02/12/2026</strong></div>
+              <div class="small text-danger fw-semibold d-flex justify-content-between">
+                <span>Số lượng đặt:</span>
+                <span>Còn 20/50 đôi</span>
+              </div>
+              <div class="preorder-slot-progress">
+                <div class="preorder-slot-bar" style="width: 60%;"></div>
+              </div>
+            </div>
+            <div class="mt-3">
+              <button type="button" class="btn btn-danger w-100 py-2 fw-bold d-flex align-items-center justify-content-center gap-2 shadow-sm" onclick="openPreOrderModal(24)">
+                <i class="fas fa-calendar-check"></i>
+                <span>Đặt Trước Ngay (0đ)</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mẫu 8: Salomon XT-6 Gore-Tex 'Desert Safari Phantom' -->
+        <div class="col-lg-3 col-md-6">
+          <div class="preorder-showcase-card">
+            <div>
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <span class="badge bg-danger rounded-pill"><i class="fas fa-tint me-1"></i>Gore-Tex Siêu Bền</span>
+                <span class="badge bg-white text-dark fw-bold">Salomon</span>
+              </div>
+              <div class="text-center my-3">
+                <img src="/images/salomon_xt6_phantom.jpg" alt="Salomon XT-6 Gore-Tex Desert Safari" class="preorder-card-img" />
+              </div>
+              <h6 class="fw-bold text-white mb-1" style="font-size: 0.95rem;">Salomon XT-6 Gore-Tex 'Desert Safari' 2026</h6>
+              <div class="d-flex align-items-baseline gap-2 mb-2">
+                <span class="fs-5 fw-extrabold text-warning">4.250.000₫</span>
+                <span class="text-white-50 text-decoration-line-through small">4.950.000₫</span>
+              </div>
+              <div class="small text-white-50 mb-1"><i class="fas fa-calendar-alt text-warning me-1"></i>Ra mắt: <strong>10/12/2026</strong></div>
+              <div class="small text-danger fw-semibold d-flex justify-content-between">
+                <span>Số lượng đặt:</span>
+                <span>Còn 16/45 đôi</span>
+              </div>
+              <div class="preorder-slot-progress">
+                <div class="preorder-slot-bar" style="width: 64%;"></div>
+              </div>
+            </div>
+            <div class="mt-3">
+              <button type="button" class="btn btn-danger w-100 py-2 fw-bold d-flex align-items-center justify-content-center gap-2 shadow-sm" onclick="openPreOrderModal(25)">
+                <i class="fas fa-calendar-check"></i>
+                <span>Đặt Trước Ngay (0đ)</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. PRODUCTS SECTION WITH FILTERS -->
+  <section class="py-5" id="products-section">
+    <div class="container mt-4">
+      <div class="text-center mb-4">
+        <span class="text-primary fw-bold text-uppercase tracking-wider small">Danh Mục Nổi Bật</span>
+        <h2 class="fw-bold mt-1" style="color: #0f172a;">Bộ Sưu Tập Giày Thể Thao Mới Nhất</h2>
+        <p class="text-muted">Chọn kích cỡ phù hợp và bấm "Thêm Vào Giỏ" hoặc "Đặt Trước" để sở hữu ngay</p>
+      </div>
+
+      <!-- Filters & Sort Controls Bar -->
+      <div class="card border-0 shadow-sm p-4 mb-4 rounded-4 bg-white">
+        <!-- Search & Quick Category Row -->
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-lg-4 col-md-12">
+            <div class="position-relative">
+              <i class="fas fa-search position-absolute top-50 start-0 translate-middle-y ms-3 text-primary"></i>
+              <input 
+                type="text" 
+                id="product-search-input" 
+                class="form-control rounded-pill ps-5 py-2 border-primary-subtle shadow-none" 
+                placeholder="Tìm tên sản phẩm (gõ để xem ngay)..." 
+              />
+              <button 
+                id="clear-search-btn" 
+                class="btn btn-sm position-absolute top-50 end-0 translate-middle-y me-2 text-muted d-none border-0" 
+                type="button" 
+                title="Xóa tìm kiếm"
+              >
+                <i class="fas fa-times-circle"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="col-lg-8 col-md-12">
+            <div class="d-flex flex-wrap gap-2 justify-content-lg-end">
+              <button class="category-pill active" data-category="all">
+                <i class="fas fa-th-large"></i> Tất Cả
+              </button>
+              <button class="category-pill text-danger fw-bold border-danger-subtle" data-category="preorder">
+                <i class="fas fa-fire text-danger"></i> Sắp Bán (Đặt Trước)
+              </button>
+              <button class="category-pill" data-category="running">
+                <i class="fas fa-running"></i> Chạy Bộ
+              </button>
+              <button class="category-pill" data-category="sneaker">
+                <i class="fas fa-shoe-prints"></i> Sneaker
+              </button>
+              <button class="category-pill" data-category="lifestyle">
+                <i class="fas fa-star"></i> Thời Trang
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-3 text-secondary-subtle">
+
+        <!-- Advanced Filters & Sorting Row -->
+        <div class="row g-3 align-items-center">
+          <div class="col-lg-3 col-sm-6">
+            <label class="form-label small fw-semibold text-muted mb-1">
+              <i class="fas fa-tags text-primary me-1"></i> Thương hiệu:
+            </label>
+            <select id="brand-filter" class="form-select form-select-sm py-2">
+              <option value="all">Tất cả thương hiệu</option>
+              <option value="Nike">Nike</option>
+              <option value="Adidas">Adidas</option>
+              <option value="New Balance">New Balance</option>
+              <option value="Vans">Vans</option>
+              <option value="Puma">Puma</option>
+              <option value="Salomon">Salomon</option>
+            </select>
+          </div>
+
+          <div class="col-lg-3 col-sm-6">
+            <label class="form-label small fw-semibold text-muted mb-1">
+              <i class="fas fa-dollar-sign text-primary me-1"></i> Khoảng giá:
+            </label>
+            <select id="price-filter" class="form-select form-select-sm py-2">
+              <option value="all">Tất cả mức giá</option>
+              <option value="under-2m">Dưới 2.000.000₫</option>
+              <option value="2m-3m">2.000.000₫ - 3.000.000₫</option>
+              <option value="above-3m">Trên 3.000.000₫</option>
+            </select>
+          </div>
+
+          <div class="col-lg-3 col-sm-6">
+            <label class="form-label small fw-semibold text-muted mb-1">
+              <i class="fas fa-sort text-primary me-1"></i> Sắp xếp theo:
+            </label>
+            <select id="sort-select" class="form-select form-select-sm py-2">
+              <option value="default">Mặc định</option>
+              <option value="price-asc">Giá: Thấp đến Cao &uarr;</option>
+              <option value="price-desc">Giá: Cao đến Thấp &darr;</option>
+              <option value="name-az">Tên: A - Z</option>
+              <option value="rating">Đánh giá cao nhất</option>
+            </select>
+          </div>
+
+          <div class="col-lg-3 col-sm-6">
+            <div class="d-flex justify-content-between align-items-center mb-1">
+              <label class="form-label small fw-semibold text-muted mb-0">
+                <i class="fas fa-ruler-horizontal text-primary me-1"></i> Lọc kích thước (Size):
+              </label>
+              <button class="btn btn-link btn-sm p-0 text-decoration-none small text-danger" onclick="resetFilters()">
+                <i class="fas fa-rotate-left"></i> Đặt lại
+              </button>
+            </div>
+            <div class="d-flex flex-wrap gap-1" id="filter-size-chips">
+              <button type="button" class="btn btn-sm btn-outline-primary active py-1 px-2 size-filter-btn" data-size="all">Tất cả</button>
+              <button type="button" class="btn btn-sm btn-outline-primary py-1 px-2 size-filter-btn" data-size="38">38</button>
+              <button type="button" class="btn btn-sm btn-outline-primary py-1 px-2 size-filter-btn" data-size="39">39</button>
+              <button type="button" class="btn btn-sm btn-outline-primary py-1 px-2 size-filter-btn" data-size="40">40</button>
+              <button type="button" class="btn btn-sm btn-outline-primary py-1 px-2 size-filter-btn" data-size="41">41</button>
+              <button type="button" class="btn btn-sm btn-outline-primary py-1 px-2 size-filter-btn" data-size="42">42</button>
+              <button type="button" class="btn btn-sm btn-outline-primary py-1 px-2 size-filter-btn" data-size="43">43</button>
+              <button type="button" class="btn btn-sm btn-outline-primary py-1 px-2 size-filter-btn" data-size="44">44</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top small text-muted">
+          <div id="filter-summary">
+            Hiển thị: <strong class="text-primary" id="product-count-badge">10</strong> sản phẩm
+          </div>
+          <div id="active-filter-tags" class="d-flex gap-2 flex-wrap"></div>
+        </div>
+      </div>
+
+      <!-- Dynamic Product Grid -->
+      <div class="row" id="products-grid"></div>
+    </div>
+  </section>
+
+  <!-- 6. PROMOTIONAL FLASH SALE BANNER -->
+  <section class="container my-5" id="flash-sale">
+    <div class="promo-banner">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <div class="d-inline-block bg-danger text-white fw-bold px-3 py-1 rounded-pill small mb-3">
+            <i class="fas fa-fire me-1"></i> ƯU ĐÃI ĐẶC BIỆT
+          </div>
+          <h2 class="display-6 fw-bold mb-3">Tuần Lễ shopkiet76 Festival - Giảm Thêm 10%</h2>
+          <p class="text-light mb-4">
+            Nhập mã <strong class="text-warning bg-dark px-2 py-1 rounded font-monospace">SHOPKIET76</strong> tại trang Giỏ hàng để nhận ngay ưu đãi giảm 10% cho toàn bộ sản phẩm.
+          </p>
+          <div class="d-flex flex-wrap gap-3">
+            <button class="btn btn-warning text-dark fw-bold px-4 py-2" onclick="copyVoucher('SHOPKIET76')">
+              <i class="fas fa-copy me-1"></i> Sao Chép Mã: SHOPKIET76
+            </button>
+            <a href="/cart" class="btn btn-outline-light px-4 py-2">
+              <i class="fas fa-shopping-cart me-1"></i> Tới Giỏ Hàng
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-5 text-center mt-4 mt-lg-0">
+          <div class="bg-white bg-opacity-10 p-4 rounded-4 border border-white border-opacity-25 shadow-sm" style="backdrop-filter: blur(8px);">
+            <h6 class="text-uppercase tracking-wider fw-bold mb-3" style="color: #93C5FD; font-size: 0.95rem; letter-spacing: 1.5px;">
+              THỜI GIAN ƯU ĐÃI CÒN LẠI
+            </h6>
+            <div class="d-flex justify-content-center gap-2 gap-sm-3" id="deal-countdown-boxes">
+              <div class="countdown-box">
+                <div class="countdown-digit" id="countdown-days">00</div>
+                <div class="countdown-label">Ngày</div>
+              </div>
+              <div class="countdown-box">
+                <div class="countdown-digit" id="countdown-hours">00</div>
+                <div class="countdown-label">Giờ</div>
+              </div>
+              <div class="countdown-box">
+                <div class="countdown-digit" id="countdown-minutes">00</div>
+                <div class="countdown-label">Phút</div>
+              </div>
+              <div class="countdown-box">
+                <div class="countdown-digit" id="countdown-seconds">00</div>
+                <div class="countdown-label">Giây</div>
+              </div>
+            </div>
+            <div class="small text-white-50 mt-3 d-flex align-items-center justify-content-center gap-2" style="font-size: 0.8rem;">
+              <span class="d-inline-block rounded-circle bg-danger" style="width: 7px; height: 7px; animation: pulse 1.5s infinite;"></span>
+              <span>Áp dụng đến hết ngày <strong>05/10/2026 (23:59:59)</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. FOOTER -->
+  <footer class="shop-footer site-footer py-5 mt-5" id="store-locations">
+    <div class="container footer-content">
+      <!-- CỘT 1: [Menu Chính] (kèm Hội viên lồng) -->
+      <div>
+        <h4>[Menu Chính]</h4>
+        <ul class="list-unstyled">
+          <li><a href="/">🏠 Trang Chủ</a></li>
+          <li><a href="#products-section">👟 Sản Phẩm</a></li>
+          <li><a href="javascript:void(0)" onclick="openPromoModal(event)">🎁 Khuyến Mãi</a></li>
+          <li>
+            <a href="/member">👑 Trung Tâm Hội Viên</a>
+            <ul class="list-unstyled">
+              <li><a href="/member#account">├─ Thông Tin Tài Khoản</a></li>
+              <li><a href="/member#tiers">├─ Cấp Bậc: VIP0 → VIP10</a></li>
+              <li><a href="/member#benefits">├─ Ưu Đãi &amp; Voucher</a></li>
+              <li><a href="/member#upgrade">└─ Nâng Cấp VIP Tự Động</a></li>
+            </ul>
+          </li>
+          <li><a href="/cart">🛒 Giỏ Hàng</a></li>
+        </ul>
+      </div>
+
+      <!-- CỘT 2: Hệ Thống Cửa Hàng & CSKH VIP -->
+      <div>
+        <h4>Hệ Thống Cửa Hàng &amp; Hỗ Trợ VIP</h4>
+        <div class="footer-branch-item pb-3 mb-2">
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <span class="badge bg-primary text-white fw-bold">CHI NHÁNH 1 (CHÍNH)</span>
+            <span class="small text-white-50">Quảng Ngãi</span>
+          </div>
+          <p class="mb-1">
+            <i class="fas fa-map-marker-alt text-primary me-2"></i> 172 Quang Trung, Phường Trương Quang Trọng, Tỉnh Quảng Ngãi
+          </p>
+          <p class="mb-1">
+            <i class="fas fa-phone-alt text-primary me-2"></i> Hotline: <a href="tel:19008888">1900 8888</a> - 0912 345 678
+          </p>
+          <p class="mb-0">
+            <i class="fas fa-clock text-primary me-2"></i> Thứ 2–Chủ Nhật: 8:00 – 22:00
+          </p>
+        </div>
+
+        <div class="footer-branch-divider my-2"></div>
+
+        <div class="footer-branch-item pt-2">
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <span class="badge bg-success text-white fw-bold">CHI NHÁNH 2 (TP.HCM)</span>
+            <span class="badge bg-danger text-white">MỚI</span>
+          </div>
+          <p class="mb-1">
+            <i class="fas fa-map-marker-alt text-success me-2"></i> 456 Đường Số 7, Quận 12, TP.HCM
+          </p>
+          <p class="mb-1">
+            <i class="fas fa-phone-alt text-success me-2"></i> Hotline: <a href="tel:19008888">1900 8888</a> - 0988 777 999
+          </p>
+          <p class="mb-0">
+            <i class="fas fa-clock text-success me-2"></i> Thứ 2–Chủ Nhật: 8:00 – 21:00
+          </p>
+        </div>
+      </div>
+
+      <div class="border-top border-secondary pt-3 text-center small text-muted w-100 mt-3" style="flex: 1 1 100% !important; min-width: 100% !important;">
+        <p class="mb-0">&copy; 2026 shopkiet76 Sneaker Store. All rights reserved. Chi nhánh 1: 172 Quang Trung, Quảng Ngãi | Chi nhánh 2: 456 Đường Số 7, Quận 12, TP.HCM.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Quick View Modal -->
+  <div class="modal fade" id="quickViewModal" tabindex="-1" aria-labelledby="quickViewModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content rounded-4 border-0 shadow-lg">
+        <div class="modal-header border-0 pb-0">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4 pt-0">
+          <div class="row align-items-center">
+            <div class="col-md-6 text-center mb-3 mb-md-0">
+              <div class="rounded-4 overflow-hidden bg-light p-2">
+                <img id="qv-product-img" src="" alt="Product" class="img-fluid rounded-3" style="max-height: 320px; object-fit: cover;" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <span id="qv-product-brand" class="badge bg-primary-subtle text-primary fw-bold text-uppercase mb-2">BRAND</span>
+              <h4 id="qv-product-title" class="fw-bold mb-2">Tên sản phẩm</h4>
+              <div class="d-flex align-items-center justify-content-between mb-2 small">
+                <div class="text-warning">
+                  <i class="fas fa-star"></i>
+                  <span id="qv-product-rating" class="text-muted fw-semibold">4.8 (85 đánh giá)</span>
+                </div>
+                <span id="qv-product-sold" class="badge bg-light text-dark border">Đã bán 350</span>
+              </div>
+              <div id="qv-rating-breakdown" class="mb-2"></div>
+              <div class="d-flex align-items-baseline gap-2 mb-3">
+                <span id="qv-product-price" class="fs-4 fw-bold text-primary">0₫</span>
+                <span id="qv-product-old-price" class="text-muted text-decoration-line-through small">0₫</span>
+              </div>
+              <p id="qv-product-desc" class="text-muted small mb-3">Mô tả sản phẩm...</p>
+
+              <div class="mb-3">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="fw-semibold small">Chọn kích thước (Size):</span>
+                </div>
+                <div id="qv-size-chips" class="size-selector-chips"></div>
+              </div>
+
+              <div class="d-flex align-items-center gap-3 mb-4">
+                <span class="fw-semibold small">Số lượng:</span>
+                <div class="qty-control">
+                  <button type="button" class="qty-btn" id="qv-qty-minus"><i class="fas fa-minus small"></i></button>
+                  <input type="number" id="qv-quantity-input" class="qty-input" value="1" min="1" max="99" />
+                  <button type="button" class="qty-btn" id="qv-qty-plus"><i class="fas fa-plus small"></i></button>
+                </div>
+              </div>
+
+              <div class="d-grid gap-2">
+                <button type="button" id="qv-btn-add" class="btn btn-primary py-2 fw-semibold">
+                  <i class="fas fa-shopping-bag me-1"></i> Thêm Vào Giỏ Hàng
+                </button>
+                <a href="/cart" class="btn btn-outline-secondary py-2 small">
+                  Tới Xem Giỏ Hàng &amp; Thanh Toán
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRE-ORDER MODAL (MODAL ĐẶT TRƯỚC GIÀY SẮP MỞ BÁN) -->
+  <div class="modal fade" id="preOrderModal" tabindex="-1" aria-labelledby="preOrderModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content rounded-4 border-0 shadow-lg overflow-hidden">
+        <div class="modal-header bg-dark text-white border-0 py-3">
+          <div class="d-flex align-items-center gap-2">
+            <span class="badge bg-danger rounded-pill px-3 py-1 fw-bold fs-6">
+              <i class="fas fa-fire me-1"></i> MỞ CỔNG ĐẶT TRƯỚC
+            </span>
+            <h5 class="modal-title fw-bold mb-0 text-white" id="preOrderModalLabel">Đặt Trước Siêu Phẩm Giày</h5>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4 bg-light">
+          <div class="row g-4">
+            <!-- Cột trái: Thông tin sản phẩm & Đồng hồ đếm ngược -->
+            <div class="col-lg-5">
+              <div class="bg-white rounded-3 p-3 text-center border shadow-sm h-100 d-flex flex-column justify-content-between">
+                <div>
+                  <div class="position-relative mb-3">
+                    <img id="preorder-modal-img" src="" alt="Giày đặt trước" class="img-fluid rounded-3" style="max-height: 220px; object-fit: contain;">
+                    <span class="badge bg-primary position-absolute top-0 start-0 m-2" id="preorder-modal-brand">Nike</span>
+                    <span class="badge bg-danger position-absolute top-0 end-0 m-2" id="preorder-modal-slots"><i class="fas fa-fire me-1"></i>Chỉ còn 18 suất</span>
+                  </div>
+                  <h5 class="fw-bold text-dark text-start" id="preorder-modal-name">Tên giày</h5>
+                  <div class="d-flex align-items-baseline gap-2 mb-2">
+                    <span class="fs-4 fw-extrabold text-danger" id="preorder-modal-price">4.650.000₫</span>
+                    <span class="text-muted text-decoration-line-through small" id="preorder-modal-orig-price">5.500.000₫</span>
+                    <span class="badge bg-success-subtle text-success small fw-bold">Tiết kiệm VIP</span>
+                  </div>
+                  <div class="alert alert-warning py-2 px-3 small text-start mb-3 border-0 bg-warning-subtle text-dark">
+                    <i class="fas fa-clock text-warning me-1"></i> <strong>Dự kiến phát hành:</strong> <span id="preorder-modal-date">20/10/2026</span>
+                  </div>
+                  <!-- Countdown Box -->
+                  <div class="bg-dark text-white p-2 rounded-3 mb-2">
+                    <div class="small text-white-50 mb-1">MỞ BÁN TRONG VÒNG</div>
+                    <div class="d-flex justify-content-around text-center fw-bold" id="preorder-countdown-timer">
+                      <div><span class="fs-5 text-warning" id="cd-days">15</span><div style="font-size:0.7rem;">NGÀY</div></div>
+                      <div class="fs-5">:</div>
+                      <div><span class="fs-5 text-warning" id="cd-hours">08</span><div style="font-size:0.7rem;">GIỜ</div></div>
+                      <div class="fs-5">:</div>
+                      <div><span class="fs-5 text-warning" id="cd-mins">42</span><div style="font-size:0.7rem;">PHÚT</div></div>
+                      <div class="fs-5">:</div>
+                      <div><span class="fs-5 text-warning" id="cd-secs">19</span><div style="font-size:0.7rem;">GIÂY</div></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Đặc quyền khi đặt trước -->
+                <div class="text-start small text-muted border-top pt-2">
+                  <div class="mb-1"><i class="fas fa-check-circle text-success me-1"></i> Giữ suất size chuẩn 100% không sợ hết hàng</div>
+                  <div class="mb-1"><i class="fas fa-check-circle text-success me-1"></i> Tặng kèm bộ vệ sinh giày cao cấp + vớ chính hãng</div>
+                  <div><i class="fas fa-check-circle text-success me-1"></i> Miễn phí giao hàng hỏa tốc khi có hàng</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cột phải: Form thông tin đặt trước -->
+            <div class="col-lg-7">
+              <div class="bg-white rounded-3 p-4 border shadow-sm">
+                <h6 class="fw-bold text-dark border-bottom pb-2 mb-3">
+                  <i class="fas fa-clipboard-check text-primary me-2"></i>Điền Thông Tin Giữ Suất Đặt Trước
+                </h6>
+
+                <form id="preorder-form" onsubmit="handlePreOrderSubmit(event)">
+                  <input type="hidden" id="preorder-product-id" value="">
+                  
+                  <!-- Chọn Size -->
+                  <div class="mb-3">
+                    <label class="form-label small fw-bold text-dark mb-1">
+                      Chọn kích thước size giày (*):
+                    </label>
+                    <div class="d-flex flex-wrap gap-2" id="preorder-size-selector">
+                      <!-- Dynamic size chips -->
+                    </div>
+                    <input type="hidden" id="preorder-selected-size" required>
+                    <small class="text-muted d-block mt-1">Đổi size miễn phí tận nhà trong vòng 30 ngày nếu không vừa.</small>
+                  </div>
+
+                  <!-- Họ tên & SĐT -->
+                  <div class="row g-2 mb-3">
+                    <div class="col-sm-6">
+                      <label class="form-label small fw-bold text-dark mb-1">Họ và tên (*):</label>
+                      <input type="text" class="form-control form-control-sm" id="preorder-name" placeholder="Nguyễn Văn A" required>
+                    </div>
+                    <div class="col-sm-6">
+                      <label class="form-label small fw-bold text-dark mb-1">Số điện thoại (*):</label>
+                      <input type="tel" class="form-control form-control-sm" id="preorder-phone" placeholder="0909 xxx xxx" required>
+                    </div>
+                  </div>
+
+                  <!-- Email & Địa chỉ -->
+                  <div class="row g-2 mb-3">
+                    <div class="col-sm-6">
+                      <label class="form-label small fw-bold text-dark mb-1">Email nhận tin:</label>
+                      <input type="email" class="form-control form-control-sm" id="preorder-email" placeholder="email@example.com">
+                    </div>
+                    <div class="col-sm-6">
+                      <label class="form-label small fw-bold text-dark mb-1">Địa chỉ nhận hàng:</label>
+                      <input type="text" class="form-control form-control-sm" id="preorder-address" placeholder="Số nhà, đường, quận/huyện...">
+                    </div>
+                  </div>
+
+                  <!-- Tùy chọn đặt cọc -->
+                  <div class="mb-3">
+                    <label class="form-label small fw-bold text-dark mb-1">Hình thức giữ suất:</label>
+                    <div class="form-check p-2 rounded-2 border mb-1 bg-light">
+                      <input class="form-check-input ms-0 me-2" type="radio" name="preorder-deposit" id="deposit-free" value="zero_deposit" checked>
+                      <label class="form-check-label small fw-bold text-dark" for="deposit-free">
+                        Đặt trước 0đ (Thanh toán khi nhận hàng - COD)
+                        <span class="d-block text-muted fw-normal" style="font-size:0.75rem;">Shop sẽ gọi xác nhận khi giày về kho và giao tận nơi.</span>
+                      </label>
+                    </div>
+                    <div class="form-check p-2 rounded-2 border">
+                      <input class="form-check-input ms-0 me-2" type="radio" name="preorder-deposit" id="deposit-200k" value="deposit_200k">
+                      <label class="form-check-label small fw-bold text-dark" for="deposit-200k">
+                        Đặt cọc ưu tiên 200.000₫ <span class="badge bg-warning text-dark ms-1">ĐƯỢC GIAO ĐỢT ĐẦU</span>
+                        <span class="d-block text-muted fw-normal" style="font-size:0.75rem;">Tặng kèm Voucher VIP 200k + Bộ phụ kiện giày cao cấp.</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <!-- Ghi chú -->
+                  <div class="mb-3">
+                    <label class="form-label small fw-bold text-dark mb-1">Ghi chú thêm:</label>
+                    <input type="text" class="form-control form-control-sm" id="preorder-note" placeholder="Yêu cầu giờ gọi, hộp bảo vệ double box...">
+                  </div>
+
+                  <!-- Submit Button -->
+                  <button type="submit" class="btn btn-danger w-100 py-2 fw-bold d-flex align-items-center justify-content-center gap-2 shadow" id="btn-submit-preorder">
+                    <i class="fas fa-check-circle fs-5"></i>
+                    <span>XÁC NHẬN ĐẶT TRƯỚC (GIỮ SUẤT ƯU TIÊN)</span>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. THANH ĐIỀU HƯỚNG DƯỚI ĐÁY CHO MOBILE (BOTTOM NAVIGATION BAR) - ĐỦ 5 MỤC THEO YÊU CẦU:
+       🏠 Trang Chủ | 👟 Sản Phẩm | 🎁 Khuyến Mãi | 👑 Trung Tâm Hội Viên | 🛒 Giỏ Hàng -->
+  <nav class="mobile-bottom-nav" aria-label="Điều hướng di động">
+    <a href="/" class="bottom-nav-item active">
+      <i class="fas fa-home"></i>
+      <span>Trang Chủ</span>
+    </a>
+    <a href="/#products-section" class="bottom-nav-item" onclick="if(document.getElementById('products-section')){document.getElementById('products-section').scrollIntoView({behavior:'smooth'});}">
+      <i class="fas fa-shoe-prints"></i>
+      <span>Sản Phẩm</span>
+    </a>
+    <a href="javascript:void(0)" onclick="openPromoModal(event)" class="bottom-nav-item">
+      <i class="fas fa-gift text-warning"></i>
+      <span>Khuyến Mãi</span>
+    </a>
+    <a href="/member" class="bottom-nav-item">
+      <i class="fas fa-crown text-warning"></i>
+      <span>Hội Viên</span>
+    </a>
+    <a href="/cart" class="bottom-nav-item position-relative">
+      <i class="fas fa-shopping-cart"></i>
+      <span class="bottom-nav-badge cart-count-badge">0</span>
+      <span>Giỏ Hàng</span>
+    </a>
+  </nav>
+
+  <!-- ======================================================== -->
+  <!-- HÌNH MÃ GIẢM GIÁ NỔI CỐ ĐỊNH Ở GÓC TRÁI GIỮA MÀN HÌNH -->
+  <!-- ======================================================== -->
+  <div class="shopkiet-floating-voucher-img" onclick="openPromoModal(event)" role="button" tabindex="0" title="Nhấn xem mã giảm giá 1.000.000đ GIAY76VIPP" aria-label="Mã giảm giá GIAY76VIPP">
+    <img src="/images/voucher_coupon_icon.jpg" alt="Mã Giảm Giá GIAY76VIPP Shopkiet76" class="floating-voucher-pic" onerror="this.onerror=null; this.src='https://cdn-icons-png.flaticon.com/512/879/879757.png';" />
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL QUẢNG CÁO MÃ GIẢM GIÁ (CĂN GIỮA, NỀN TỐI NHẸ) -->
+  <!-- ======================================================== -->
+  <div id="shopkietPromoModal" class="shopkiet-promo-modal-backdrop" onclick="handlePromoModalBackdropClick(event)">
+    <div class="shopkiet-promo-modal-dialog" onclick="event.stopPropagation()">
+      <!-- Nút đóng X góc trên bên phải -->
+      <button type="button" class="promo-modal-close-btn" onclick="closePromoModal(event)" aria-label="Đóng" title="Đóng">&times;</button>
+      
+      <!-- Nội dung modal: Nền trắng, bo góc 16px, bóng nhẹ -->
+      <div class="promo-modal-content">
+        <!-- Huy hiệu & Tiêu đề -->
+        <div class="promo-modal-header text-center mb-3">
+          <div class="promo-modal-badge">
+            <span>⚡ KHÁCH HÀNG MỚI</span>
+          </div>
+          <h4 class="promo-modal-title">
+            GIẢM THÊM <span class="highlight-discount">1 TRIỆU</span>
+          </h4>
+          <p class="promo-modal-subtitle mb-0">Ưu đãi chào mừng thành viên mới shopkiet76</p>
+        </div>
+
+        <!-- Khung hiển thị mã GIAY76VIPP to nhất, nổi bật -->
+        <div class="promo-code-card">
+          <div class="promo-code-label">MÃ GIẢM GIÁ ĐỘC QUYỀN</div>
+          <div class="promo-code-box">
+            <span class="promo-code-text" id="voucherCodeVal">GIAY76VIPP</span>
+          </div>
+          <div class="promo-condition-text">
+            <i class="fas fa-check-circle text-success me-1"></i> Áp dụng cho đơn hàng từ <strong>5.000.000đ</strong>
+          </div>
+        </div>
+
+        <!-- Nút: [📋 Sao chép mã] & [Mua Sắm Ngay] -->
+        <div class="promo-modal-actions">
+          <button type="button" id="copyVoucherBtn" class="btn-copy-promo-voucher" onclick="copyVoucherCode(event)">
+            <i class="fas fa-copy"></i>
+            <span id="copyBtnLabel">Sao chép mã</span>
+          </button>
+          <a href="#products-section" class="btn-use-promo-now" onclick="closePromoModal(event)">
+            <span>Mua Sắm Ngay</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Ghi chú chân modal -->
+        <div class="promo-modal-footer text-center">
+          <small class="text-muted">
+            <i class="fas fa-shield-alt text-primary me-1"></i> Giảm trực tiếp 1.000.000đ khi điền mã tại trang Thanh Toán.
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast-container" class="toast-container-custom"></div>
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Core Script -->
+  <script src="/js/script.js"></script>
+  <script>
+    function setCategoryFilter(category) {
+      const pills = document.querySelectorAll('.category-pill');
+      pills.forEach(p => {
+        if (p.getAttribute('data-category') === category) {
+          p.click();
+        }
+      });
+      const navbarCollapse = document.getElementById('navbarContent');
+      if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+        const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse) || new bootstrap.Collapse(navbarCollapse);
+        bsCollapse.hide();
+      }
+      const target = document.getElementById('products-section');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // Mở / đóng Modal quảng cáo ưu đãi
+    function openPromoModal(event) {
+      if (event) event.preventDefault();
+      const modal = document.getElementById('shopkietPromoModal');
+      if (modal) {
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closePromoModal(event) {
+      if (event) event.stopPropagation();
+      const modal = document.getElementById('shopkietPromoModal');
+      if (modal) {
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function handlePromoModalBackdropClick(event) {
+      if (event.target === document.getElementById('shopkietPromoModal')) {
+        closePromoModal(event);
+      }
+    }
+
+    // Xử lý sự kiện nhấn vào banner quảng cáo góc trái
+    function handlePromoClick(event) {
+      openPromoModal(event);
+    }
+
+    // Xử lý sao chép mã giảm giá GIAY76VIPP
+    function copyVoucherCode(event) {
+      if (event) event.stopPropagation();
+      const code = "GIAY76VIPP";
+      const btn = document.getElementById("copyVoucherBtn");
+      const label = document.getElementById("copyBtnLabel");
+
+      function onSuccess() {
+        if (btn) {
+          btn.innerHTML = '<i class="fas fa-check"></i> <span>Đã sao chép ✅</span>';
+          btn.classList.add("copied");
+          setTimeout(() => {
+            btn.innerHTML = '<i class="fas fa-copy"></i> <span id="copyBtnLabel">Sao chép mã</span>';
+            btn.classList.remove("copied");
+          }, 2000);
+        }
+        if (typeof showToast === 'function') {
+          showToast("Đã sao chép mã GIAY76VIPP!", "Mã giảm 1.000.000đ cho đơn từ 5.000.000đ đã lưu vào bộ nhớ tạm.", "success");
+        }
+      }
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(code).then(onSuccess).catch(() => {
+          fallbackCopyText(code, onSuccess);
+        });
+      } else {
+        fallbackCopyText(code, onSuccess);
+      }
+    }
+
+    function fallbackCopyText(text, cb) {
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      textArea.style.position = "fixed";
+      textArea.style.left = "-9999px";
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        if (cb) cb();
+      } catch (err) {
+        console.error('Fallback copy error', err);
+      }
+      document.body.removeChild(textArea);
+    }
+
+    // Xử lý sự kiện nhấn nút đóng X
+    function closePromoBadge(event) {
+      if (event) event.stopPropagation();
+      const wrapper = document.getElementById('shopkietPromoWrapper');
+      const badge = document.getElementById('shopkietPromoBadge') || document.getElementById('leftTopPromoBadge');
+      if (badge) {
+        badge.style.opacity = '0';
+        badge.style.transform = 'scale(0.9)';
+        badge.style.transition = 'all 0.25s ease';
+      }
+      if (wrapper) {
+        wrapper.style.opacity = '0';
+        wrapper.style.maxHeight = '0';
+        wrapper.style.padding = '0';
+        wrapper.style.margin = '0';
+        wrapper.style.transition = 'all 0.3s ease';
+        setTimeout(() => {
+          wrapper.style.display = 'none';
+        }, 300);
+      } else if (badge) {
+        setTimeout(() => {
+          badge.style.display = 'none';
+        }, 250);
+      }
+    }
+
+    // ========================================================
+    // CẶP 2 NÚT HỘI VIÊN & QUẢN TRỊ (DROPDOWN MENU CONTROLLER)
+    // - Nhấn nút nào -> hiện menu tương ứng ngay bên dưới
+    // - Nhấn nút khác -> menu cũ đóng, menu mới mở
+    // - Nhấn ra ngoài -> đóng tất cả menu
+    // - Nhấn lại nút đang mở -> đóng menu đó
+    // ========================================================
+    function toggleShopkietAuthMenu(type, btnEl, event) {
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+
+      const group = btnEl.closest('.shopkiet-auth-btn-group');
+      if (!group) return;
+
+      const memberMenu = group.querySelector('.shopkiet-auth-dropdown.dropdown-member');
+      const adminMenu = group.querySelector('.shopkiet-auth-dropdown.dropdown-admin');
+      const memberBtn = group.querySelector('.btn-auth-member');
+      const adminBtn = group.querySelector('.btn-auth-admin');
+
+      // Đóng tất cả các nhóm menu khác trên trang nếu có
+      document.querySelectorAll('.shopkiet-auth-btn-group').forEach(otherGroup => {
+        if (otherGroup !== group) {
+          otherGroup.querySelectorAll('.shopkiet-auth-dropdown').forEach(d => d.classList.remove('show'));
+          otherGroup.querySelectorAll('.btn-shopkiet-auth').forEach(b => b.classList.remove('active'));
+        }
+      });
+
+      if (type === 'member') {
+        const isAlreadyOpen = memberMenu && memberMenu.classList.contains('show');
+        if (adminMenu) adminMenu.classList.remove('show');
+        if (adminBtn) adminBtn.classList.remove('active');
+
+        if (isAlreadyOpen) {
+          memberMenu.classList.remove('show');
+          if (memberBtn) memberBtn.classList.remove('active');
+        } else if (memberMenu) {
+          memberMenu.classList.add('show');
+          if (memberBtn) memberBtn.classList.add('active');
+        }
+      } else if (type === 'admin') {
+        const isAlreadyOpen = adminMenu && adminMenu.classList.contains('show');
+        if (memberMenu) memberMenu.classList.remove('show');
+        if (memberBtn) memberBtn.classList.remove('active');
+
+        if (isAlreadyOpen) {
+          adminMenu.classList.remove('show');
+          if (adminBtn) adminBtn.classList.remove('active');
+        } else if (adminMenu) {
+          adminMenu.classList.add('show');
+          if (adminBtn) adminBtn.classList.add('active');
+          const userInput = adminMenu.querySelector('.quick-admin-user');
+          if (userInput) setTimeout(() => userInput.focus(), 120);
+        }
+      }
+    }
+
+    function closeAllShopkietAuthMenus() {
+      document.querySelectorAll('.shopkiet-auth-dropdown').forEach(d => d.classList.remove('show'));
+      document.querySelectorAll('.btn-shopkiet-auth').forEach(b => b.classList.remove('active'));
+    }
+
+    // Nhấn ra ngoài -> đóng tất cả menu
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.shopkiet-auth-btn-group') && !e.target.closest('.shopkiet-auth-dropdown')) {
+        closeAllShopkietAuthMenus();
+      }
+    });
+
+    // Nhấn phím Escape -> đóng tất cả menu
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeAllShopkietAuthMenus();
+      }
+    });
+
+    // Hiện / ẩn mật khẩu form quản trị
+    function togglePassView(el) {
+      const form = el.closest('form');
+      if (!form) return;
+      const passInput = form.querySelector('.quick-admin-pass');
+      if (passInput) {
+        if (passInput.type === 'password') {
+          passInput.type = 'text';
+          el.innerHTML = '<i class="fas fa-eye-slash"></i> Ẩn';
+        } else {
+          passInput.type = 'password';
+          el.innerHTML = '<i class="fas fa-eye"></i> Hiện';
+        }
+      }
+    }
+
+    // Xử lý đăng nhập Quản Trị nhanh
+    function handleQuickAdminLogin(e, form) {
+      e.preventDefault();
+      const user = form.querySelector('.quick-admin-user')?.value.trim();
+      const pass = form.querySelector('.quick-admin-pass')?.value.trim();
+
+      if (!user || !pass) {
+        if (typeof showToast === 'function') {
+          showToast('Thông báo', 'Vui lòng nhập tài khoản và mật khẩu!', 'error');
+        } else {
+          alert('Vui lòng nhập tài khoản và mật khẩu!');
+        }
+        return;
+      }
+
+      try {
+        sessionStorage.setItem('shopkiet_admin_logged', 'true');
+        sessionStorage.setItem('shopkiet_admin_user', user);
+      } catch (err) {}
+
+      if (typeof showToast === 'function') {
+        showToast('Đăng Nhập Thành Công!', 'Đang chuyển hướng tới trang Quản Trị...', 'success');
+      }
+
+      setTimeout(() => {
+        window.location.href = '/admin';
+      }, 500);
+    }
+  </script>
+</body>
+</html>

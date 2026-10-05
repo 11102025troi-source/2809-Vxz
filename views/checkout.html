@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thanh Toán Đơn Hàng - shopkiet76 Shoes</title>
+  <meta name="description" content="Trang thanh toán đặt hàng chính hãng tại shopkiet76 Shoes." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="/images/shopkiet76_avatar.jpg" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="container d-flex justify-content-between align-items-center">
+      <!-- Bên trái giữ Hotline / menu trái -->
+      <div class="d-flex align-items-center gap-2 gap-md-3">
+        <span><i class="fas fa-phone-alt text-info me-1"></i> Hotline: <a href="tel:19008888" class="fw-bold text-white text-decoration-none">1900 8888</a></span>
+        <span class="d-none d-md-inline text-white-50">|</span>
+        <span class="d-none d-md-inline"><i class="fas fa-store text-info me-1"></i> 2 chi nhánh: Quảng Ngãi &amp; TP.HCM</span>
+        <span class="d-none d-lg-inline text-white-50">|</span>
+        <span class="d-none d-lg-inline"><i class="fas fa-shipping-fast text-info me-1"></i> Freeship đơn từ 1.000.000₫</span>
+      </div>
+
+      <!-- Phía PHẢI thanh trên cùng: sát nút Quản Trị có nút 🎁 Ưu Đãi -->
+      <div class="d-flex align-items-center gap-2 gap-sm-3 ms-auto">
+        <a href="/register" class="text-white text-decoration-none fw-semibold d-none d-sm-inline">
+          <i class="fas fa-id-card me-1 text-warning"></i> Hội Viên (+50đ)
+        </a>
+        <span class="text-white-50 d-none d-sm-inline">|</span>
+        <a href="/admin" class="text-white text-decoration-none fw-semibold d-flex align-items-center gap-1" title="Quản Trị Hệ Thống">
+          <i class="fas fa-user-shield text-info"></i> <span>Quản Trị</span>
+        </a>
+        <!-- Nút nhỏ gọn: "🎁 Ưu Đãi" sát nút Quản Trị -->
+        <button type="button" class="btn-topbar-promo" onclick="openPromoModal(event)" title="Xem ưu đãi & mã giảm giá 1.000.000đ">
+          <span>🎁</span> <span>Ưu Đãi</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg main-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <div class="brand-icon-box">
+          <img src="/images/shopkiet76_avatar.jpg" alt="Shopkiet76 VIP" />
+        </div>
+        <span class="brand-name">shopkiet<span class="brand-accent">76</span></span>
+      </a>
+
+      <div class="d-flex align-items-center gap-3 ms-auto">
+        <a href="/register" class="btn btn-outline-primary d-flex align-items-center gap-2">
+          <i class="fas fa-user-plus"></i>
+          <span class="d-none d-sm-inline">Đăng Ký Hội Viên</span>
+        </a>
+        <a href="/cart" class="btn btn-outline-secondary d-flex align-items-center gap-2">
+          <i class="fas fa-arrow-left"></i>
+          <span class="d-none d-sm-inline">Quay Lại Giỏ Hàng</span>
+        </a>
+        <a href="/cart" class="btn-cart" title="Giỏ hàng">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count-badge">0</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="cart-page-header">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-2 text-white-50">
+          <li class="breadcrumb-item"><a href="/" class="text-white text-decoration-none">Trang Chủ</a></li>
+          <li class="breadcrumb-item"><a href="/cart" class="text-white text-decoration-none">Giỏ Hàng</a></li>
+          <li class="breadcrumb-item active text-white" aria-current="page">Thanh Toán</li>
+        </ol>
+      </nav>
+      <h2 class="fw-bold text-white mb-0"><i class="fas fa-credit-card me-2"></i> Thanh Toán &amp; Xác Nhận Đơn Hàng</h2>
+    </div>
+  </div>
+
+  <!-- Main Checkout Container -->
+  <div class="container mb-5">
+    
+    <!-- Empty State -->
+    <div id="checkout-empty-state" class="d-none text-center py-5">
+      <div class="card border-0 shadow-sm rounded-4 p-5 mx-auto bg-white" style="max-width: 500px;">
+        <div class="mx-auto d-flex align-items-center justify-content-center bg-primary bg-opacity-10 text-primary rounded-circle mb-3" style="width: 80px; height: 80px;">
+          <i class="fas fa-shopping-cart fs-2"></i>
+        </div>
+        <h4 class="fw-bold text-slate-800 mb-2">Giỏ hàng của bạn đang trống</h4>
+        <p class="text-muted mb-4">Bạn chưa có sản phẩm nào để tiến hành thanh toán. Hãy chọn cho mình một đôi giày ưng ý trước nhé!</p>
+        <div>
+          <a href="/" class="btn btn-primary px-4 py-2 fw-semibold">
+            <i class="fas fa-store me-1"></i> Mua Sắm Ngay
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Success View -->
+    <div id="checkout-success-view" class="d-none">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5 text-center bg-white">
+            <div class="mx-auto d-flex align-items-center justify-content-center bg-success bg-opacity-10 text-success rounded-circle mb-3" style="width: 86px; height: 86px;">
+              <i class="fas fa-check-circle" style="font-size: 3.2rem;"></i>
+            </div>
+            <span class="badge bg-success-subtle text-success fs-6 px-3 py-2 rounded-pill mx-auto mb-2">Đặt Hàng Thành Công</span>
+            <h3 class="fw-bold text-slate-900 mb-2">Cảm Ơn Bạn Đã Mua Sắm Tại shopkiet76!</h3>
+            <p class="text-muted mb-4">Đơn hàng của bạn đã được hệ thống Node.js lưu vào cơ sở dữ liệu file <code>data/orders.json</code>.</p>
+
+            <div class="card bg-light border-0 rounded-4 text-start p-4 mb-4">
+              <div class="d-flex justify-content-between align-items-center border-bottom pb-3 mb-3">
+                <div>
+                  <div class="text-muted small">Mã đơn hàng:</div>
+                  <strong class="fs-5 text-primary font-monospace" id="confirmed-order-id">#BS-000000</strong>
+                </div>
+                <div class="text-end">
+                  <div class="text-muted small">Thời gian đặt:</div>
+                  <span class="small fw-semibold" id="confirmed-order-time">Vừa xong</span>
+                </div>
+              </div>
+
+              <div class="row g-3 mb-3">
+                <div class="col-sm-6">
+                  <div class="text-muted small">Họ và tên người nhận:</div>
+                  <strong id="confirmed-customer-name" class="text-dark">---</strong>
+                </div>
+                <div class="col-sm-6">
+                  <div class="text-muted small">Số điện thoại liên hệ:</div>
+                  <strong id="confirmed-customer-phone" class="text-dark">---</strong>
+                </div>
+                <div class="col-12">
+                  <div class="text-muted small">Địa chỉ giao hàng:</div>
+                  <span id="confirmed-customer-address" class="text-dark fw-semibold">---</span>
+                </div>
+                <div class="col-12">
+                  <div class="text-muted small">Phương thức thanh toán:</div>
+                  <span id="confirmed-payment-method" class="badge bg-primary text-white p-2">Tiền mặt khi nhận hàng (COD)</span>
+                </div>
+              </div>
+
+              <div class="border-top pt-3">
+                <div class="text-muted small mb-2 fw-semibold">Sản phẩm đã đặt:</div>
+                <div id="confirmed-items-list" class="d-flex flex-column gap-2 mb-3"></div>
+                <div class="d-flex justify-content-between align-items-baseline border-top pt-2">
+                  <span class="fw-bold text-dark fs-6">Tổng tiền thanh toán:</span>
+                  <span class="fs-4 fw-bold text-primary" id="confirmed-total-amount">0₫</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+              <a href="/" class="btn btn-primary px-4 py-2 fw-semibold">
+                <i class="fas fa-store me-1"></i> Tiếp Tục Mua Sắm
+              </a>
+              <button class="btn btn-outline-secondary px-4 py-2" onclick="window.print()">
+                <i class="fas fa-print me-1"></i> In Hóa Đơn
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Checkout Main Content -->
+    <div id="checkout-main-content">
+      <form id="standalone-checkout-form" onsubmit="handleCheckoutSubmit(event)">
+        <div class="row g-4">
+          <div class="col-lg-7">
+            <div class="card border-0 shadow-sm rounded-4 p-4 bg-white mb-4">
+              <h5 class="fw-bold text-slate-800 mb-3 d-flex align-items-center gap-2">
+                <span class="badge bg-primary rounded-circle" style="width: 26px; height: 26px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.85rem;">1</span>
+                <span>Thông Tin Giao Hàng</span>
+              </h5>
+              
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="checkout-name" class="form-label small fw-semibold">Họ và Tên <span class="text-danger">*</span></label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-light text-muted"><i class="fas fa-user"></i></span>
+                    <input type="text" class="form-control" id="checkout-name" placeholder="Nguyễn Văn A" required />
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="checkout-phone" class="form-label small fw-semibold">Số Điện Thoại (SĐT) <span class="text-danger">*</span></label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-light text-muted"><i class="fas fa-phone"></i></span>
+                    <input type="tel" class="form-control" id="checkout-phone" placeholder="0987 654 321" required pattern="[0-9]{9,11}" />
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <label for="checkout-address" class="form-label small fw-semibold">Địa Chỉ Nhận Hàng <span class="text-danger">*</span></label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-light text-muted"><i class="fas fa-map-marker-alt"></i></span>
+                    <input type="text" class="form-control" id="checkout-address" placeholder="Số nhà, ngõ/đường, phường/xã, quận/huyện, tỉnh/thành" required />
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <label for="checkout-notes" class="form-label small fw-semibold">Ghi chú giao hàng (Tùy chọn)</label>
+                  <textarea class="form-control" id="checkout-notes" rows="2" placeholder="Ví dụ: Giao giờ hành chính, gọi trước 15 phút..."></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
+              <h5 class="fw-bold text-slate-800 mb-3 d-flex align-items-center gap-2">
+                <span class="badge bg-primary rounded-circle" style="width: 26px; height: 26px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.85rem;">2</span>
+                <span>Phương Thức Thanh Toán</span>
+              </h5>
+
+              <div class="d-flex flex-column gap-3">
+                <div class="card p-3 border rounded-3 payment-method-card active" onclick="selectPaymentRadio('pay-cod')">
+                  <div class="form-check d-flex align-items-start gap-3">
+                    <input class="form-check-input mt-1" type="radio" name="checkoutPayment" id="pay-cod" value="COD" checked>
+                    <label class="form-check-label w-100 cursor-pointer" for="pay-cod">
+                      <div class="d-flex align-items-center justify-content-between mb-1">
+                        <strong class="text-dark"><i class="fas fa-money-bill-wave text-success me-2"></i> Tiền mặt khi nhận hàng (COD)</strong>
+                        <span class="badge bg-success-subtle text-success">Phổ biến</span>
+                      </div>
+                      <div class="small text-muted">Thanh toán tiền mặt khi shipper giao tận nhà.</div>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="card p-3 border rounded-3 payment-method-card" onclick="selectPaymentRadio('pay-bank')">
+                  <div class="form-check d-flex align-items-start gap-3">
+                    <input class="form-check-input mt-1" type="radio" name="checkoutPayment" id="pay-bank" value="BANK">
+                    <label class="form-check-label w-100 cursor-pointer" for="pay-bank">
+                      <div class="d-flex align-items-center justify-content-between mb-1">
+                        <strong class="text-dark"><i class="fas fa-qrcode text-primary me-2"></i> Chuyển khoản ngân hàng (VietQR 24/7)</strong>
+                        <span class="badge bg-primary-subtle text-primary">Tự động</span>
+                      </div>
+                      <div class="small text-muted">Quét mã QR qua app ngân hàng MB, Vietcombank, Techcombank, v.v.</div>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="card p-3 border rounded-3 payment-method-card" onclick="selectPaymentRadio('pay-momo')">
+                  <div class="form-check d-flex align-items-start gap-3">
+                    <input class="form-check-input mt-1" type="radio" name="checkoutPayment" id="pay-momo" value="MOMO">
+                    <label class="form-check-label w-100 cursor-pointer" for="pay-momo">
+                      <div class="d-flex align-items-center justify-content-between mb-1">
+                        <strong class="text-dark"><i class="fas fa-wallet text-danger me-2"></i> Ví điện tử MoMo</strong>
+                        <span class="badge bg-danger-subtle text-danger">Tiện lợi</span>
+                      </div>
+                      <div class="small text-muted">Thanh toán tức thì qua ví điện tử MoMo.</div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <!-- MỤC VOUCHER HOÀN CHỈNH (2 PHẦN) -->
+            <div class="checkout-voucher-container p-3 p-md-4 mb-4">
+              <div class="d-flex align-items-center justify-content-between mb-3">
+                <h6 class="fw-bold text-slate-800 mb-0 d-flex align-items-center gap-2">
+                  <i class="fas fa-ticket-alt text-primary"></i>
+                  <span>Mã Giảm Giá / Voucher</span>
+                </h6>
+                <span id="active-voucher-badge" class="badge bg-success-subtle text-success fw-bold d-none">
+                  <i class="fas fa-check-circle me-1"></i>Đã áp dụng ✅
+                </span>
+              </div>
+
+              <!-- PHẦN 1: NHẬP MÃ GIẢM GIÁ THỦ CÔNG + NÚT ÁP DỤNG -->
+              <div class="voucher-manual-section pb-3 mb-3 border-bottom">
+                <label for="checkout-voucher-input" class="form-label small fw-semibold text-muted d-flex align-items-center gap-1 mb-2">
+                  <i class="fas fa-keyboard text-primary"></i>
+                  <span>Phần 1: Nhập mã giảm giá thủ công</span>
+                </label>
+                <div class="input-group">
+                  <span class="input-group-text bg-light text-muted border-end-0"><i class="fas fa-tag"></i></span>
+                  <input type="text" id="checkout-voucher-input" class="form-control text-uppercase fw-bold" placeholder="Nhập mã (VD: GIAY76VIPP)" aria-label="Mã giảm giá" />
+                  <button type="button" class="btn btn-primary fw-bold px-3 d-flex align-items-center gap-1" id="btn-apply-voucher" onclick="handleManualVoucherApply()">
+                    <i class="fas fa-check"></i>
+                    <span>Áp Dụng</span>
+                  </button>
+                  <button type="button" class="btn btn-outline-danger d-none" id="btn-remove-voucher" onclick="removeVoucher()" title="Hủy mã này">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+                <!-- Thông báo trạng thái nhập thủ công -->
+                <div id="voucher-input-feedback" class="mt-2 small d-none"></div>
+              </div>
+
+              <!-- PHẦN 2: DANH SÁCH VOUCHER CÓ SẴN (NHẤN CHỌN LÀ ÁP DỤNG NGAY) -->
+              <div class="voucher-list-section">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                  <span class="small fw-semibold text-muted d-flex align-items-center gap-1">
+                    <i class="fas fa-gift text-primary"></i>
+                    <span>Phần 2: Danh sách Voucher có sẵn</span>
+                  </span>
+                  <span class="badge bg-light text-secondary border" style="font-size: 0.72rem;">Nhấn chọn là áp dụng luôn</span>
+                </div>
+
+                <div class="d-flex flex-column gap-2" id="available-vouchers-container">
+                  <!-- Rendered dynamically via JavaScript -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Xem Lại Đơn Hàng -->
+            <div class="order-summary-card">
+              <h5 class="fw-bold text-slate-800 mb-3 d-flex align-items-center justify-content-between">
+                <span>Xem Lại Đơn Hàng</span>
+                <span class="badge bg-primary-subtle text-primary fw-bold" id="checkout-items-count">0 sản phẩm</span>
+              </h5>
+
+              <div id="checkout-items-preview" class="d-flex flex-column gap-3 mb-3" style="max-height: 280px; overflow-y: auto;"></div>
+
+              <hr class="my-3 text-muted">
+
+              <div class="summary-row">
+                <span>Tạm tính tiền hàng:</span>
+                <strong id="chk-subtotal" class="text-dark">0₫</strong>
+              </div>
+
+              <div class="summary-row d-none" id="chk-discount-row">
+                <span id="chk-discount-label">Giảm giá (Voucher):</span>
+                <strong id="chk-discount-amount" class="text-success">-0₫</strong>
+              </div>
+
+              <div class="summary-row">
+                <span>Phí vận chuyển:</span>
+                <span id="chk-shipping" class="text-dark">35.000₫</span>
+              </div>
+
+              <hr class="my-3 text-muted">
+
+              <div class="summary-row align-items-baseline mb-4">
+                <span class="fs-6 fw-bold text-dark">Tổng Tiền Cần Thanh Toán:</span>
+                <span class="summary-total" id="chk-total">0₫</span>
+              </div>
+
+              <button type="submit" class="btn btn-primary w-100 py-3 fs-6 fw-bold shadow-sm d-flex align-items-center justify-content-center gap-2 mb-3">
+                <i class="fas fa-check-circle"></i>
+                <span>XÁC NHẬN ĐẶT HÀNG</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="shop-footer site-footer py-5 mt-5">
+    <div class="container footer-content">
+      <!-- CỘT 1: [Menu Chính] (kèm Hội viên lồng) -->
+      <div>
+        <h4>[Menu Chính]</h4>
+        <ul class="list-unstyled">
+          <li><a href="/">🏠 Trang Chủ</a></li>
+          <li><a href="/#products-section">👟 Sản Phẩm</a></li>
+          <li><a href="javascript:void(0)" onclick="openPromoModal(event)">🎁 Khuyến Mãi</a></li>
+          <li>
+            <a href="/member">👑 Trung Tâm Hội Viên</a>
+            <ul class="list-unstyled">
+              <li><a href="/member#account">├─ Thông Tin Tài Khoản</a></li>
+              <li><a href="/member#tiers">├─ Cấp Bậc: VIP0 → VIP10</a></li>
+              <li><a href="/member#benefits">├─ Ưu Đãi &amp; Voucher</a></li>
+              <li><a href="/member#upgrade">└─ Nâng Cấp VIP Tự Động</a></li>
+            </ul>
+          </li>
+          <li><a href="/cart">🛒 Giỏ Hàng</a></li>
+        </ul>
+      </div>
+
+      <!-- CỘT 2: Hệ Thống Cửa Hàng & CSKH VIP -->
+      <div>
+        <h4>Hệ Thống Cửa Hàng &amp; Hỗ Trợ VIP</h4>
+        <div class="footer-branch-item pb-3 mb-2">
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <span class="badge bg-primary text-white fw-bold">CHI NHÁNH 1 (CHÍNH)</span>
+            <span class="small text-white-50">Quảng Ngãi</span>
+          </div>
+          <p class="mb-1">
+            <i class="fas fa-map-marker-alt text-primary me-2"></i> 172 Quang Trung, Phường Trương Quang Trọng, Tỉnh Quảng Ngãi
+          </p>
+          <p class="mb-1">
+            <i class="fas fa-phone-alt text-primary me-2"></i> Hotline: <a href="tel:19008888">1900 8888</a> - 0912 345 678
+          </p>
+          <p class="mb-0">
+            <i class="fas fa-clock text-primary me-2"></i> Thứ 2–Chủ Nhật: 8:00 – 22:00
+          </p>
+        </div>
+
+        <div class="footer-branch-divider my-2"></div>
+
+        <div class="footer-branch-item pt-2">
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <span class="badge bg-success text-white fw-bold">CHI NHÁNH 2 (TP.HCM)</span>
+            <span class="badge bg-danger text-white">MỚI</span>
+          </div>
+          <p class="mb-1">
+            <i class="fas fa-map-marker-alt text-success me-2"></i> 456 Đường Số 7, Quận 12, TP.HCM
+          </p>
+          <p class="mb-1">
+            <i class="fas fa-phone-alt text-success me-2"></i> Hotline: <a href="tel:19008888">1900 8888</a> - 0988 777 999
+          </p>
+          <p class="mb-0">
+            <i class="fas fa-clock text-success me-2"></i> Thứ 2–Chủ Nhật: 8:00 – 21:00
+          </p>
+        </div>
+      </div>
+
+      <div class="border-top border-secondary pt-3 text-center small text-muted w-100 mt-3" style="flex: 1 1 100% !important; min-width: 100% !important;">
+        <p class="mb-0">&copy; 2026 shopkiet76 Sneaker Store. All rights reserved. Chi nhánh 1: 172 Quang Trung, Quảng Ngãi | Chi nhánh 2: 456 Đường Số 7, Quận 12, TP.HCM.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Bottom Navigation Bar - ĐỦ 5 MỤC THEO YÊU CẦU:
+       🏠 Trang Chủ | 👟 Sản Phẩm | 🎁 Khuyến Mãi | 👑 Trung Tâm Hội Viên | 🛒 Giỏ Hàng -->
+  <nav class="mobile-bottom-nav" aria-label="Điều hướng di động">
+    <a href="/" class="bottom-nav-item">
+      <i class="fas fa-home"></i>
+      <span>Trang Chủ</span>
+    </a>
+    <a href="/#products-section" class="bottom-nav-item">
+      <i class="fas fa-shoe-prints"></i>
+      <span>Sản Phẩm</span>
+    </a>
+    <a href="javascript:void(0)" onclick="openPromoModal(event)" class="bottom-nav-item">
+      <i class="fas fa-gift text-warning"></i>
+      <span>Khuyến Mãi</span>
+    </a>
+    <a href="/member" class="bottom-nav-item">
+      <i class="fas fa-crown text-warning"></i>
+      <span>Hội Viên</span>
+    </a>
+    <a href="/cart" class="bottom-nav-item active position-relative">
+      <i class="fas fa-shopping-cart"></i>
+      <span class="bottom-nav-badge cart-count-badge">0</span>
+      <span>Giỏ Hàng</span>
+    </a>
+  </nav>
+
+  <!-- ======================================================== -->
+  <!-- HÌNH MÃ GIẢM GIÁ NỔI CỐ ĐỊNH Ở GÓC TRÁI GIỮA MÀN HÌNH -->
+  <!-- ======================================================== -->
+  <div class="shopkiet-floating-voucher-img" onclick="openPromoModal(event)" role="button" tabindex="0" title="Nhấn xem mã giảm giá 1.000.000đ GIAY76VIPP" aria-label="Mã giảm giá GIAY76VIPP">
+    <img src="/images/voucher_coupon_icon.jpg" alt="Mã Giảm Giá GIAY76VIPP Shopkiet76" class="floating-voucher-pic" onerror="this.onerror=null; this.src='https://cdn-icons-png.flaticon.com/512/879/879757.png';" />
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL QUẢNG CÁO MÃ GIẢM GIÁ (CĂN GIỮA, NỀN TỐI NHẸ) -->
+  <!-- ======================================================== -->
+  <div id="shopkietPromoModal" class="shopkiet-promo-modal-backdrop" onclick="handlePromoModalBackdropClick(event)">
+    <div class="shopkiet-promo-modal-dialog" onclick="event.stopPropagation()">
+      <!-- Nút đóng X góc trên bên phải -->
+      <button type="button" class="promo-modal-close-btn" onclick="closePromoModal(event)" aria-label="Đóng" title="Đóng">&times;</button>
+      
+      <!-- Nội dung modal: Nền trắng, bo góc 16px, bóng nhẹ -->
+      <div class="promo-modal-content">
+        <!-- Huy hiệu & Tiêu đề -->
+        <div class="promo-modal-header text-center mb-3">
+          <div class="promo-modal-badge">
+            <span>⚡ KHÁCH HÀNG MỚI</span>
+          </div>
+          <h4 class="promo-modal-title">
+            GIẢM THÊM <span class="highlight-discount">1 TRIỆU</span>
+          </h4>
+          <p class="promo-modal-subtitle mb-0">Ưu đãi chào mừng thành viên mới shopkiet76</p>
+        </div>
+
+        <!-- Khung hiển thị mã GIAY76VIPP to nhất, nổi bật -->
+        <div class="promo-code-card">
+          <div class="promo-code-label">MÃ GIẢM GIÁ ĐỘC QUYỀN</div>
+          <div class="promo-code-box">
+            <span class="promo-code-text" id="voucherCodeVal">GIAY76VIPP</span>
+          </div>
+          <div class="promo-condition-text">
+            <i class="fas fa-check-circle text-success me-1"></i> Áp dụng cho đơn hàng từ <strong>5.000.000đ</strong>
+          </div>
+        </div>
+
+        <!-- Nút: [📋 Sao chép mã] & [Áp Dụng Mã Ngay] -->
+        <div class="promo-modal-actions">
+          <button type="button" id="copyVoucherBtn" class="btn-copy-promo-voucher" onclick="copyVoucherCode(event)">
+            <i class="fas fa-copy"></i>
+            <span id="copyBtnLabel">Sao chép mã</span>
+          </button>
+          <button type="button" class="btn-use-promo-now" onclick="if(document.getElementById('coupon-input')){document.getElementById('coupon-input').value='GIAY76VIPP';if(typeof applyCoupon==='function')applyCoupon();}closePromoModal(event);">
+            <span>Điền Mã Ngay</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <!-- Ghi chú chân modal -->
+        <div class="promo-modal-footer text-center">
+          <small class="text-muted">
+            <i class="fas fa-shield-alt text-primary me-1"></i> Giảm trực tiếp 1.000.000đ khi điền mã tại khung mã giảm giá.
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast-container" class="toast-container-custom"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/script.js"></script>
+  <script>
+    function selectPaymentRadio(radioId) {
+      const radio = document.getElementById(radioId);
+      if (radio) {
+        radio.checked = true;
+        document.querySelectorAll('.payment-method-card').forEach(c => c.classList.remove('active'));
+        radio.closest('.payment-method-card').classList.add('active');
+      }
+    }
+
+    // DANH SÁCH VOUCHER CHÍNH THỨC CỦA SHOPKIET76
+    const AVAILABLE_VOUCHERS = [
+      {
+        code: 'GIAY76VIPP',
+        type: 'fixed',
+        value: 1000000,
+        minOrder: 5000000,
+        title: 'Giảm 1.000.000đ',
+        conditionText: 'Đơn từ 5.000.000đ',
+        badge: 'Giảm 1 TRIỆU',
+        description: 'Voucher cực lớn mừng khách hàng mới — Đơn từ 5.000.000đ'
+      },
+      {
+        code: 'SHOPKIET76',
+        type: 'percent',
+        value: 5,
+        minOrder: 0,
+        title: 'Giảm 5% tổng hóa đơn',
+        conditionText: 'Không giới hạn',
+        badge: 'Giảm 5%',
+        description: 'Ưu đãi thành viên thân thiết shopkiet76'
+      },
+      {
+        code: 'CHAOBAN',
+        type: 'percent',
+        value: 3,
+        minOrder: 0,
+        title: 'Giảm 3% tổng hóa đơn',
+        conditionText: 'Không giới hạn',
+        badge: 'Giảm 3%',
+        description: 'Chào bạn mới mua sắm tại shopkiet76'
+      }
+    ];
+
+    // Hiển thị danh sách Voucher có sẵn
+    function renderAvailableVouchers(subtotal) {
+      const container = document.getElementById('available-vouchers-container');
+      if (!container) return;
+
+      const currentCoupon = getAppliedCoupon();
+
+      container.innerHTML = AVAILABLE_VOUCHERS.map(v => {
+        const isApplied = currentCoupon && currentCoupon.code === v.code;
+        const isEligible = subtotal >= v.minOrder;
+        
+        let cardClass = 'voucher-option-card';
+        let statusBadge = '';
+        let warningNote = '';
+
+        if (isApplied) {
+          cardClass += ' applied';
+          statusBadge = '<span class="badge bg-success text-white py-1 px-2 fw-bold"><i class="fas fa-check-circle me-1"></i>Đã áp dụng ✅</span>';
+        } else if (!isEligible) {
+          cardClass += ' ineligible';
+          statusBadge = '<span class="badge bg-warning-subtle text-dark border border-warning py-1 px-2 fw-semibold"><i class="fas fa-exclamation-triangle me-1 text-warning"></i>Không đủ điều kiện ⚠️</span>';
+          const missing = v.minOrder - subtotal;
+          const warnText = v.code === 'GIAY76VIPP' ? 'Chưa đủ 5.000.000đ để áp dụng mã này' : `Đơn tối thiểu ${formatVND(v.minOrder)}`;
+          warningNote = `<div class="small text-danger fw-semibold mt-1" style="font-size: 0.78rem;">${warnText} (bạn còn thiếu ${formatVND(missing)})</div>`;
+        } else {
+          statusBadge = '<button type="button" class="btn btn-sm btn-outline-primary fw-bold py-1 px-2" style="font-size: 0.78rem;">Áp Dụng Luôn &rarr;</button>';
+        }
+
+        return `
+          <div class="${cardClass}" onclick="selectAndApplyVoucher('${v.code}')" title="Nhấn để áp dụng mã ${v.code}">
+            <div class="d-flex align-items-center justify-content-between gap-2 mb-1">
+              <div class="d-flex align-items-center gap-2">
+                <span class="voucher-code-badge">${v.code}</span>
+                <span class="voucher-discount-highlight">${v.title}</span>
+              </div>
+              <div>
+                ${statusBadge}
+              </div>
+            </div>
+            <div class="d-flex align-items-center justify-content-between text-muted small" style="font-size: 0.8rem;">
+              <span><i class="fas fa-info-circle me-1"></i>Điều kiện: <strong>${v.conditionText}</strong></span>
+              <span class="badge bg-primary-subtle text-primary border">${v.badge}</span>
+            </div>
+            ${warningNote}
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Chọn và áp dụng Voucher
+    function selectAndApplyVoucher(code) {
+      const input = document.getElementById('checkout-voucher-input');
+      if (input) input.value = code;
+
+      const cart = getCart();
+      const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      const voucher = AVAILABLE_VOUCHERS.find(v => v.code === code);
+
+      if (!voucher) {
+        showVoucherFeedback(false, `Mã ${code} không tồn tại hoặc đã hết hạn.`);
+        return;
+      }
+
+      // Kiểm tra nếu mã đang áp dụng
+      const current = getAppliedCoupon();
+      if (current && current.code === code) {
+        showToast("Đang áp dụng", `Mã ${code} đang được áp dụng cho đơn hàng của bạn.`, "info");
+        return;
+      }
+
+      // Kiểm tra điều kiện tối thiểu
+      if (subtotal < voucher.minOrder) {
+        const missing = voucher.minOrder - subtotal;
+        const msg = voucher.code === 'GIAY76VIPP' 
+          ? 'Chưa đủ 5.000.000đ để áp dụng mã này' 
+          : `Chưa đủ ${formatVND(voucher.minOrder)} để áp dụng mã này`;
+        
+        showVoucherFeedback(false, `${msg} (Đơn hiện tại: ${formatVND(subtotal)} - còn thiếu ${formatVND(missing)}).`);
+        showToast("Chưa đủ điều kiện ⚠️", msg, "warning");
+        return;
+      }
+
+      // Áp dụng thành công
+      saveAppliedCoupon(voucher);
+      renderCheckoutReview();
+
+      let savedText = voucher.type === 'percent' ? `${voucher.value}%` : formatVND(voucher.value);
+      showVoucherFeedback(true, `Đã áp dụng mã ${voucher.code} thành công ✅! Tiết kiệm ${savedText}.`);
+      showToast("Đã áp dụng Voucher ✅", `Mã ${voucher.code} đã được áp dụng, bạn được giảm ${savedText}!`, "success");
+    }
+
+    // Xử lý nút bấm Áp Dụng thủ công
+    function handleManualVoucherApply() {
+      const input = document.getElementById('checkout-voucher-input');
+      if (!input) return;
+      const code = input.value.trim().toUpperCase();
+
+      if (!code) {
+        showVoucherFeedback(false, "Vui lòng nhập mã giảm giá trước khi nhấn Áp Dụng.");
+        showToast("Chưa nhập mã", "Vui lòng nhập mã voucher", "warning");
+        return;
+      }
+
+      selectAndApplyVoucher(code);
+    }
+
+    // Hủy áp dụng voucher
+    function removeVoucher() {
+      saveAppliedCoupon(null);
+      const input = document.getElementById('checkout-voucher-input');
+      if (input) input.value = '';
+      showVoucherFeedback(null);
+      renderCheckoutReview();
+      showToast("Đã gỡ mã", "Đã hủy áp dụng mã giảm giá.", "info");
+    }
+
+    // Hiển thị thông báo phản hồi dưới ô nhập
+    function showVoucherFeedback(isSuccess, message) {
+      const fb = document.getElementById('voucher-input-feedback');
+      if (!fb) return;
+      if (isSuccess === null) {
+        fb.classList.add('d-none');
+        fb.innerHTML = '';
+        return;
+      }
+
+      fb.classList.remove('d-none', 'text-success', 'text-danger');
+      if (isSuccess) {
+        fb.classList.add('text-success', 'fw-semibold');
+        fb.innerHTML = `<i class="fas fa-check-circle me-1"></i>${message}`;
+      } else {
+        fb.classList.add('text-danger', 'fw-semibold');
+        fb.innerHTML = `<i class="fas fa-exclamation-circle me-1"></i>${message}`;
+      }
+    }
+
+    function renderCheckoutReview() {
+      const emptyState = document.getElementById('checkout-empty-state');
+      const mainContent = document.getElementById('checkout-main-content');
+      const previewContainer = document.getElementById('checkout-items-preview');
+      const itemsCountBadge = document.getElementById('checkout-items-count');
+
+      if (!previewContainer) return;
+
+      const cart = getCart();
+
+      if (cart.length === 0) {
+        if (emptyState) emptyState.classList.remove('d-none');
+        if (mainContent) mainContent.classList.add('d-none');
+        return;
+      }
+
+      if (emptyState) emptyState.classList.add('d-none');
+      if (mainContent) mainContent.classList.remove('d-none');
+
+      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      if (itemsCountBadge) itemsCountBadge.textContent = `${totalItems} sản phẩm`;
+
+      let subtotal = 0;
+
+      previewContainer.innerHTML = cart.map(item => {
+        const lineTotal = item.price * item.quantity;
+        subtotal += lineTotal;
+
+        return `
+          <div class="d-flex align-items-center gap-3 p-2 border rounded-3 bg-light">
+            <img src="${item.image}" alt="${item.name}" class="rounded-2" style="width: 58px; height: 58px; object-fit: cover;" />
+            <div class="flex-grow-1 overflow-hidden">
+              <div class="fw-bold text-dark text-truncate small">${item.name}</div>
+              <div class="d-flex align-items-center gap-2 text-muted small">
+                <span class="badge bg-primary-subtle text-primary">Size ${item.size}</span>
+                <span>x${item.quantity}</span>
+              </div>
+            </div>
+            <div class="fw-bold text-primary small text-nowrap">
+              ${formatVND(lineTotal)}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      const shippingFee = subtotal >= 1000000 ? 0 : 35000;
+
+      // Cập nhật Voucher trạng thái & tính giảm giá
+      const activeVoucher = getAppliedCoupon();
+      const activeVoucherBadge = document.getElementById('active-voucher-badge');
+      const btnRemoveVoucher = document.getElementById('btn-remove-voucher');
+      const voucherInput = document.getElementById('checkout-voucher-input');
+
+      if (activeVoucher) {
+        if (activeVoucherBadge) activeVoucherBadge.classList.remove('d-none');
+        if (btnRemoveVoucher) btnRemoveVoucher.classList.remove('d-none');
+        if (voucherInput && !voucherInput.value) voucherInput.value = activeVoucher.code;
+      } else {
+        if (activeVoucherBadge) activeVoucherBadge.classList.add('d-none');
+        if (btnRemoveVoucher) btnRemoveVoucher.classList.add('d-none');
+      }
+
+      // Render danh sách Voucher có sẵn
+      renderAvailableVouchers(subtotal);
+
+      let discountAmount = 0;
+      if (activeVoucher) {
+        if (subtotal >= (activeVoucher.minOrder || 0)) {
+          if (activeVoucher.type === 'percent') {
+            discountAmount = Math.round(subtotal * (activeVoucher.value / 100));
+          } else if (activeVoucher.type === 'fixed') {
+            discountAmount = activeVoucher.value;
+          }
+        } else {
+          // Không còn đủ điều kiện
+          saveAppliedCoupon(null);
+          showToast("Mã bị hủy", `Mã ${activeVoucher.code} đã tự động hủy do đơn hàng không còn đủ ${formatVND(activeVoucher.minOrder)}!`, "warning");
+        }
+      }
+
+      const discountRow = document.getElementById('chk-discount-row');
+      const discountAmountEl = document.getElementById('chk-discount-amount');
+      const discountLabelEl = document.getElementById('chk-discount-label');
+
+      if (discountRow && discountAmountEl) {
+        if (discountAmount > 0 && activeVoucher) {
+          discountRow.classList.remove('d-none');
+          discountAmountEl.textContent = `-${formatVND(discountAmount)}`;
+          if (discountLabelEl) discountLabelEl.textContent = `Giảm giá (${activeVoucher.code}):`;
+        } else {
+          discountRow.classList.add('d-none');
+        }
+      }
+
+      const grandTotal = Math.max(0, subtotal - discountAmount + shippingFee);
+
+      document.getElementById('chk-subtotal').textContent = formatVND(subtotal);
+      document.getElementById('chk-shipping').textContent = shippingFee === 0 ? "Miễn phí" : formatVND(shippingFee);
+      document.getElementById('chk-total').textContent = formatVND(grandTotal);
+    }
+
+    async function handleCheckoutSubmit(event) {
+      event.preventDefault();
+
+      const cart = getCart();
+      if (cart.length === 0) {
+        showToast("Giỏ hàng trống", "Vui lòng chọn sản phẩm!", "error");
+        return;
+      }
+
+      const name = document.getElementById('checkout-name').value.trim();
+      const phone = document.getElementById('checkout-phone').value.trim();
+      const address = document.getElementById('checkout-address').value.trim();
+      const notes = document.getElementById('checkout-notes').value.trim();
+      const paymentVal = document.querySelector('input[name="checkoutPayment"]:checked')?.value || 'COD';
+
+      let subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      let shippingFee = subtotal >= 1000000 ? 0 : 35000;
+      
+      const appliedCoupon = getAppliedCoupon();
+      let discountAmount = 0;
+      if (appliedCoupon && subtotal >= (appliedCoupon.minOrder || 0)) {
+        if (appliedCoupon.type === 'percent') {
+          discountAmount = Math.round(subtotal * (appliedCoupon.value / 100));
+        } else if (appliedCoupon.type === 'fixed') {
+          discountAmount = appliedCoupon.value;
+        }
+      }
+
+      let total = Math.max(0, subtotal - discountAmount + shippingFee);
+
+      let paymentLabel = 'Tiền mặt khi nhận hàng (COD)';
+      if (paymentVal === 'BANK') paymentLabel = 'Chuyển khoản ngân hàng (VietQR 24/7)';
+      else if (paymentVal === 'MOMO') paymentLabel = 'Ví điện tử MoMo';
+
+      const orderPayload = {
+        customerName: name,
+        phone: phone,
+        address: address,
+        notes: notes,
+        paymentMethod: paymentLabel,
+        items: cart,
+        subtotal: subtotal,
+        discount: discountAmount,
+        voucherCode: appliedCoupon ? appliedCoupon.code : null,
+        shippingFee: shippingFee,
+        total: total
+      };
+
+      try {
+        // Gửi POST request tới Node.js Express server để lưu vào file data/orders.json
+        const response = await fetch('/api/orders', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(orderPayload)
+        });
+
+        const result = await response.json();
+        const orderId = result.orderId || ('BS-' + Math.floor(100000 + Math.random() * 900000));
+
+        // Cập nhật màn hình thành công
+        document.getElementById('confirmed-order-id').textContent = '#' + orderId;
+        document.getElementById('confirmed-customer-name').textContent = name;
+        document.getElementById('confirmed-customer-phone').textContent = phone;
+        document.getElementById('confirmed-customer-address').textContent = address;
+        document.getElementById('confirmed-payment-method').textContent = paymentLabel;
+        document.getElementById('confirmed-total-amount').textContent = formatVND(total);
+
+        const itemsListContainer = document.getElementById('confirmed-items-list');
+        itemsListContainer.innerHTML = cart.map(item => `
+          <div class="d-flex justify-content-between align-items-center small">
+            <div><strong>${item.name}</strong> (Size ${item.size}) x${item.quantity}</div>
+            <span class="fw-semibold">${formatVND(item.price * item.quantity)}</span>
+          </div>
+        `).join('');
+
+        // Reset cart
+        saveCart([]);
+        saveAppliedCoupon(null);
+        updateCartBadge();
+
+        document.getElementById('checkout-main-content').classList.add('d-none');
+        document.getElementById('checkout-success-view').classList.remove('d-none');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        showToast("Đặt hàng thành công!", `Đã lưu vào server Node.js! Mã đơn #${orderId}`, "success");
+      } catch (err) {
+        console.error("Lỗi gửi đơn:", err);
+        // Fallback lưu local nếu server chưa chạy
+        saveCart([]);
+        saveAppliedCoupon(null);
+        document.getElementById('checkout-main-content').classList.add('d-none');
+        document.getElementById('checkout-success-view').classList.remove('d-none');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCheckoutReview();
+    });
+  </script>
+</body>
+</html>

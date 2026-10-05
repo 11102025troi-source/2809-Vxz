@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trang Quản Trị Hệ Thống - shopkiet76 Admin</title>
+  <meta name="description" content="Trang quản trị bán hàng shopkiet76: Quản lý danh sách đơn hàng, thêm/sửa/xóa sản phẩm, đổi trạng thái vận chuyển." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="/images/shopkiet76_avatar.jpg" />
+
+  <!-- Custom Blue Theme Stylesheet -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <style>
+    .admin-sidebar {
+      background: #0f172a;
+      min-height: 100vh;
+      color: #94a3b8;
+    }
+    .admin-nav-item {
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0.85rem 1.25rem;
+      border-radius: 10px;
+      margin-bottom: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-weight: 600;
+    }
+    .admin-nav-item:hover, .admin-nav-item.active {
+      color: #ffffff;
+      background: #1d4ed8;
+    }
+    .status-badge-waiting {
+      background-color: #fef3c7;
+      color: #b45309;
+      border: 1px solid #fde68a;
+    }
+    .status-badge-shipping {
+      background-color: #e0f2fe;
+      color: #0369a1;
+      border: 1px solid #bae6fd;
+    }
+    .status-badge-delivered {
+      background-color: #dcfce7;
+      color: #15803d;
+      border: 1px solid #bbf7d0;
+    }
+    .table-admin th {
+      background-color: #f8fafc;
+      color: #475569;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 700;
+      padding: 0.9rem 1rem;
+    }
+    .table-admin td {
+      padding: 1rem;
+      vertical-align: middle;
+      font-size: 0.92rem;
+    }
+  </style>
+</head>
+<body class="bg-light">
+
+  <!-- 1. MÀN HÌNH ĐĂNG NHẬP ĐƠN GIẢN -->
+  <div id="login-screen" class="d-flex align-items-center justify-content-center min-vh-100 p-3">
+    <div class="card border-0 shadow-lg rounded-4 p-4 p-md-5 bg-white" style="width: 100%; max-width: 420px;">
+      <div class="text-center mb-4">
+        <div class="brand-icon-box mx-auto mb-3" style="width: 52px; height: 52px; font-size: 1.4rem;">
+          <i class="fas fa-lock"></i>
+        </div>
+        <h4 class="fw-bold text-slate-900 mb-1">shopkiet76 Admin</h4>
+        <p class="text-muted small">Đăng nhập quyền quản trị hệ thống bán giày</p>
+      </div>
+
+      <div id="login-alert" class="alert alert-danger py-2 small d-none">
+        <i class="fas fa-exclamation-triangle me-1"></i> Tên đăng nhập hoặc mật khẩu không chính xác!
+      </div>
+
+      <form onsubmit="handleAdminLogin(event)">
+        <div class="mb-3">
+          <label class="form-label small fw-semibold text-muted">Tài khoản quản trị:</label>
+          <div class="input-group">
+            <span class="input-group-text bg-light text-muted"><i class="fas fa-user"></i></span>
+            <input type="text" id="admin-username" class="form-control" placeholder="admin" value="admin" required />
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label small fw-semibold text-muted">Mật khẩu:</label>
+          <div class="input-group">
+            <span class="input-group-text bg-light text-muted"><i class="fas fa-key"></i></span>
+            <input type="password" id="admin-password" class="form-control" placeholder="123456" value="123456" required />
+          </div>
+          <div class="small text-muted mt-1">
+            Gợi ý mặc định: <code>admin</code> / <code>123456</code>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold">
+          <i class="fas fa-sign-in-alt me-1"></i> Đăng Nhập Quản Trị
+        </button>
+      </form>
+
+      <div class="text-center mt-4">
+        <a href="/" class="small text-muted text-decoration-none">
+          <i class="fas fa-arrow-left me-1"></i> Trở về cửa hàng
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. BẢNG ĐIỀU KHIỂN QUẢN TRỊ -->
+  <div id="admin-dashboard" class="d-none">
+    <div class="container-fluid p-0">
+      <div class="row g-0">
+        
+        <!-- Sidebar Navigation -->
+        <div class="col-lg-2 admin-sidebar p-3 d-flex flex-column">
+          <div class="d-flex align-items-center gap-2 mb-4 px-2 pt-2">
+            <div class="brand-icon-box" style="width: 38px; height: 38px; font-size: 1.1rem;">
+              <i class="fas fa-shoe-prints"></i>
+            </div>
+            <div>
+              <div class="fw-bold text-white fs-5 leading-none">shopkiet<span class="text-primary">76</span></div>
+              <small class="text-white-50" style="font-size: 0.75rem;">Trang Quản Trị</small>
+            </div>
+          </div>
+
+          <div class="flex-grow-1">
+            <div class="admin-nav-item active" id="nav-orders" onclick="switchAdminTab('orders')">
+              <i class="fas fa-clipboard-list"></i>
+              <span>Quản Lý Đơn Hàng</span>
+            </div>
+            <div class="admin-nav-item" id="nav-products" onclick="switchAdminTab('products')">
+              <i class="fas fa-boxes"></i>
+              <span>Quản Lý Sản Phẩm</span>
+            </div>
+            <div class="admin-nav-item" id="nav-members" onclick="switchAdminTab('members')">
+              <i class="fas fa-users-cog"></i>
+              <span>Quản Lý Hội Viên</span>
+              <span class="badge bg-warning text-dark ms-auto" id="nav-member-badge">0</span>
+            </div>
+            <a href="/" class="admin-nav-item text-decoration-none" target="_blank">
+              <i class="fas fa-external-link-alt"></i>
+              <span>Xem Cửa Hàng</span>
+            </a>
+          </div>
+
+          <div class="border-top border-secondary pt-3 mt-auto px-2">
+            <div class="d-flex align-items-center justify-content-between text-white-50 small mb-2">
+              <span>Admin: <strong>Quản Trị Viên</strong></span>
+            </div>
+            <button class="btn btn-outline-danger btn-sm w-100 fw-semibold" onclick="handleAdminLogout()">
+              <i class="fas fa-sign-out-alt me-1"></i> Đăng Xuất
+            </button>
+          </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="col-lg-10 p-4">
+          
+          <!-- Top Header -->
+          <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 pb-3 border-bottom">
+            <div>
+              <h3 class="fw-bold text-slate-800 mb-1" id="tab-title">Quản Lý Đơn Hàng</h3>
+              <p class="text-muted small mb-0">Theo dõi, xử lý giao hàng và cập nhật danh mục giày thể thao (dữ liệu lưu tại JSON / Backend)</p>
+            </div>
+            <div class="d-flex align-items-center gap-2 mt-3 mt-md-0">
+              <span class="badge bg-white text-dark border p-2 shadow-sm">
+                <i class="fas fa-calendar-day text-primary me-1"></i> Hôm nay: <strong id="current-date">--/--/----</strong>
+              </span>
+            </div>
+          </div>
+
+          <!-- TAB 1: QUẢN LÝ ĐƠN HÀNG -->
+          <div id="tab-content-orders">
+            <!-- Thống kê nhanh đơn hàng -->
+            <div class="row g-3 mb-4">
+              <div class="col-sm-4">
+                <div class="card border-0 shadow-sm rounded-4 p-3 bg-white">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div>
+                      <div class="text-muted small fw-semibold">Tổng Đơn Hàng</div>
+                      <h3 class="fw-bold text-slate-900 mb-0 mt-1" id="stat-total-orders">0</h3>
+                    </div>
+                    <div class="bg-primary bg-opacity-10 text-primary rounded-3 p-3 fs-4">
+                      <i class="fas fa-shopping-bag"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="card border-0 shadow-sm rounded-4 p-3 bg-white">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div>
+                      <div class="text-muted small fw-semibold">Đơn Chờ Xác Nhận</div>
+                      <h3 class="fw-bold text-warning mb-0 mt-1" id="stat-pending-orders">0</h3>
+                    </div>
+                    <div class="bg-warning bg-opacity-10 text-warning rounded-3 p-3 fs-4">
+                      <i class="fas fa-clock"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="card border-0 shadow-sm rounded-4 p-3 bg-white">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div>
+                      <div class="text-muted small fw-semibold">Doanh Thu Dự Kiến</div>
+                      <h3 class="fw-bold text-success mb-0 mt-1" id="stat-total-revenue">0₫</h3>
+                    </div>
+                    <div class="bg-success bg-opacity-10 text-success rounded-3 p-3 fs-4">
+                      <i class="fas fa-coins"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bảng danh sách đơn hàng -->
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-white">
+              <div class="card-header bg-white border-bottom p-3 d-flex flex-wrap justify-content-between align-items-center gap-2">
+                <h5 class="fw-bold text-slate-800 mb-0">Danh Sách Đơn Đặt Hàng</h5>
+                <div class="d-flex gap-2">
+                  <button class="btn btn-sm btn-outline-success" onclick="openSheetsConfigModal()">
+                    <i class="fas fa-file-excel me-1"></i> Kết Nối Google Sheets
+                  </button>
+                  <select id="order-status-filter" class="form-select form-select-sm" onchange="renderAdminOrders()" style="width: 170px;">
+                    <option value="all">Tất cả trạng thái</option>
+                    <option value="Chờ xác nhận">Chờ xác nhận</option>
+                    <option value="Đang giao">Đang giao</option>
+                    <option value="Đã giao">Đã giao</option>
+                  </select>
+                  <button class="btn btn-sm btn-outline-danger" onclick="clearAllOrders()">
+                    <i class="fas fa-trash-alt me-1"></i> Xóa Hết Đơn
+                  </button>
+                </div>
+              </div>
+
+              <div class="table-responsive">
+                <table class="table table-admin table-hover mb-0">
+                  <thead>
+                    <tr>
+                      <th>Mã Đơn</th>
+                      <th>Khách Hàng &amp; SĐT</th>
+                      <th>Địa Chỉ Giao</th>
+                      <th>Sản Phẩm</th>
+                      <th>Tổng Tiền</th>
+                      <th>Phương Thức</th>
+                      <th>Trạng Thái Vận Chuyển</th>
+                      <th class="text-center">Thao Tác</th>
+                    </tr>
+                  </thead>
+                  <tbody id="orders-table-body">
+                    <!-- Rendered dynamically -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 2: QUẢN LÝ SẢN PHẨM -->
+          <div id="tab-content-products" class="d-none">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h5 class="fw-bold text-slate-800 mb-0">Danh Sách Sản Phẩm Trong Cửa Hàng</h5>
+              <button class="btn btn-primary btn-sm px-3 py-2 fw-semibold" onclick="openAddProductModal()">
+                <i class="fas fa-plus-circle me-1"></i> Thêm Sản Phẩm Mới
+              </button>
+            </div>
+
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-white">
+              <div class="table-responsive">
+                <table class="table table-admin table-hover mb-0">
+                  <thead>
+                    <tr>
+                      <th>Ảnh</th>
+                      <th>Tên Sản Phẩm</th>
+                      <th>Hãng</th>
+                      <th>Danh Mục</th>
+                      <th>Giá Bán</th>
+                      <th>Size Có Sẵn</th>
+                      <th class="text-center">Hành Động</th>
+                    </tr>
+                  </thead>
+                  <tbody id="products-table-body">
+                    <!-- Rendered dynamically -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 3: QUẢN LÝ HỘI VIÊN (ĐÃ ĐĂNG KÝ) -->
+          <div id="tab-content-members" class="d-none">
+            <!-- Thống kê nhanh hội viên -->
+            <div class="row g-3 mb-4">
+              <div class="col-sm-4">
+                <div class="card border-0 shadow-sm rounded-4 p-3 bg-white">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div>
+                      <div class="text-muted small fw-semibold">Tổng Hội Viên Đã Đăng Ký</div>
+                      <h3 class="fw-bold text-slate-900 mb-0 mt-1" id="stat-total-members">0</h3>
+                    </div>
+                    <div class="bg-primary bg-opacity-10 text-primary rounded-3 p-3 fs-4">
+                      <i class="fas fa-users"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="card border-0 shadow-sm rounded-4 p-3 bg-white">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div>
+                      <div class="text-muted small fw-semibold">Hạng VIP & Thân Thiết</div>
+                      <h3 class="fw-bold text-warning mb-0 mt-1" id="stat-vip-members">0</h3>
+                    </div>
+                    <div class="bg-warning bg-opacity-10 text-warning rounded-3 p-3 fs-4">
+                      <i class="fas fa-crown"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="card border-0 shadow-sm rounded-4 p-3 bg-white">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div>
+                      <div class="text-muted small fw-semibold">Điểm Thưởng Tích Lũy</div>
+                      <h3 class="fw-bold text-success mb-0 mt-1" id="stat-total-points">0 pts</h3>
+                    </div>
+                    <div class="bg-success bg-opacity-10 text-success rounded-3 p-3 fs-4">
+                      <i class="fas fa-coins"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Thanh tìm kiếm và bộ lọc hội viên -->
+            <div class="card border-0 shadow-sm rounded-4 p-3 mb-4 bg-white">
+              <div class="row g-2 align-items-center">
+                <div class="col-md-6">
+                  <div class="input-group">
+                    <span class="input-group-text bg-light border-end-0"><i class="fas fa-search text-muted"></i></span>
+                    <input type="text" id="member-search-input" class="form-control border-start-0" placeholder="Tìm theo Tên, SĐT, Email hoặc Tên đăng nhập..." oninput="filterAdminMembers()" />
+                  </div>
+                </div>
+                <div class="col-md-6 text-md-end d-flex gap-2 justify-content-md-end">
+                  <button class="btn btn-outline-secondary btn-sm" onclick="loadAdminMembers(true)" title="Tải lại từ data/members.json">
+                    <i class="fas fa-sync-alt me-1"></i> Làm Mới Dữ Liệu
+                  </button>
+                  <a href="/register" target="_blank" class="btn btn-primary btn-sm fw-semibold">
+                    <i class="fas fa-user-plus me-1"></i> Trang Đăng Ký Mới
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bảng danh sách hội viên chi tiết -->
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-white">
+              <div class="table-responsive">
+                <table class="table table-admin table-hover mb-0">
+                  <thead>
+                    <tr>
+                      <th>Mã TV</th>
+                      <th>Họ và Tên</th>
+                      <th>Tên Đăng Nhập</th>
+                      <th>Liên Hệ (SĐT / Email)</th>
+                      <th>Ngày Sinh / Giới Tính</th>
+                      <th>Địa Chỉ Thường Trú</th>
+                      <th>Hạng & Điểm</th>
+                      <th>Ngày ĐK</th>
+                      <th class="text-center">Thao Tác</th>
+                    </tr>
+                  </thead>
+                  <tbody id="members-table-body">
+                    <!-- Rendered dynamically -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. MODAL THÊM / CHỈNH SỬA SẢN PHẨM -->
+  <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content rounded-4 border-0 shadow-lg">
+        <div class="modal-header bg-primary text-white py-3 px-4 rounded-top-4">
+          <h5 class="modal-title fw-bold" id="productModalLabel">Thêm Sản Phẩm Mới</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        
+        <form id="product-form" onsubmit="saveProduct(event)">
+          <input type="hidden" id="prod-id" />
+          <div class="modal-body p-4">
+            <div class="row g-3">
+              <div class="col-md-8">
+                <label class="form-label small fw-semibold">Tên sản phẩm <span class="text-danger">*</span></label>
+                <input type="text" id="prod-name" class="form-control" required placeholder="VD: Nike Pegasus 40 Electric Blue" />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label small fw-semibold">Thương hiệu <span class="text-danger">*</span></label>
+                <select id="prod-brand" class="form-select" required>
+                  <option value="Nike">Nike</option>
+                  <option value="Adidas">Adidas</option>
+                  <option value="New Balance">New Balance</option>
+                  <option value="Vans">Vans</option>
+                  <option value="Khác">Khác</option>
+                </select>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label small fw-semibold">Danh mục</label>
+                <select id="prod-category" class="form-select">
+                  <option value="running">Giày Chạy Bộ</option>
+                  <option value="sneaker">Sneaker Dạo Phố</option>
+                  <option value="lifestyle">Thời Trang</option>
+                </select>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label small fw-semibold">Nhãn nổi bật (Badge)</label>
+                <input type="text" id="prod-badge" class="form-control" placeholder="VD: Bán chạy, Mới về, Giảm 20%" />
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label small fw-semibold">Giá bán (VNĐ) <span class="text-danger">*</span></label>
+                <input type="number" id="prod-price" class="form-control" required placeholder="2850000" min="1000" />
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label small fw-semibold">Giá gốc (VNĐ)</label>
+                <input type="number" id="prod-original-price" class="form-control" placeholder="3500000" />
+              </div>
+
+              <div class="col-12">
+                <label class="form-label small fw-semibold">Link ảnh sản phẩm (URL) <span class="text-danger">*</span></label>
+                <input type="url" id="prod-image" class="form-control" required placeholder="https://images.unsplash.com/..." />
+              </div>
+
+              <div class="col-12">
+                <label class="form-label small fw-semibold">Các kích thước có sẵn (ngăn cách bằng dấu phẩy)</label>
+                <input type="text" id="prod-sizes" class="form-control" value="38, 39, 40, 41, 42, 43, 44" required />
+                <div class="small text-muted mt-1">Ví dụ: 38, 39, 40, 41, 42, 43</div>
+              </div>
+
+              <div class="col-12">
+                <label class="form-label small fw-semibold">Mô tả sản phẩm</label>
+                <textarea id="prod-desc" class="form-control" rows="3" placeholder="Mô tả công nghệ đệm, chất liệu da, độ bám..."></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer bg-light px-4 py-3">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Hủy</button>
+            <button type="submit" class="btn btn-primary px-4 fw-semibold">
+              <i class="fas fa-save me-1"></i> Lưu Sản Phẩm
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. MODAL CẤU HÌNH GOOGLE SHEETS API -->
+  <div class="modal fade" id="sheetsConfigModal" tabindex="-1" aria-labelledby="sheetsConfigModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-4 border-0 shadow-lg">
+        <div class="modal-header bg-success text-white py-3 px-4 rounded-top-4">
+          <h5 class="modal-title fw-bold" id="sheetsConfigModalLabel">
+            <i class="fas fa-file-excel me-2"></i> Kết Nối Google Sheets
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form onsubmit="saveSheetsConfig(event)">
+          <div class="modal-body p-4">
+            <p class="small text-muted mb-3">
+              Dán URL Web App triển khai từ Google Apps Script vào đây. Khi có khách đặt hàng mới tại <code>checkout.html</code>, hệ thống sẽ tự động đồng bộ một dòng mới vào trang tính Google Sheets của bạn.
+            </p>
+            <div class="mb-3">
+              <label class="form-label small fw-semibold">Google Apps Script Web App URL:</label>
+              <input type="url" id="sheets-url-input" class="form-control" placeholder="https://script.google.com/macros/s/.../exec" required />
+            </div>
+            <div class="alert alert-info py-2 small mb-0">
+              <i class="fas fa-info-circle me-1"></i> Để trống hoặc xóa link nếu chỉ muốn lưu đơn trong file JSON / LocalStorage.
+            </div>
+          </div>
+          <div class="modal-footer bg-light px-4 py-3">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Đóng</button>
+            <button type="submit" class="btn btn-success px-4 fw-semibold">
+              <i class="fas fa-check me-1"></i> Lưu Cấu Hình
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Bottom Navigation Bar -->
+  <nav class="mobile-bottom-nav" aria-label="Điều hướng di động">
+    <a href="/" class="bottom-nav-item">
+      <i class="fas fa-home"></i>
+      <span>Trang Chủ</span>
+    </a>
+    <a href="/#products-section" class="bottom-nav-item">
+      <i class="fas fa-th-large"></i>
+      <span>Sản Phẩm</span>
+    </a>
+    <a href="/cart" class="bottom-nav-item">
+      <i class="fas fa-shopping-bag"></i>
+      <span class="bottom-nav-badge cart-count-badge">0</span>
+      <span>Giỏ Hàng</span>
+    </a>
+    <a href="/admin" class="bottom-nav-item active">
+      <i class="fas fa-user-shield"></i>
+      <span>Quản Trị</span>
+    </a>
+  </nav>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container-custom"></div>
+
+  <!-- Bootstrap 5 Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core JavaScript -->
+  <script src="/js/script.js"></script>
+
+  <!-- Admin Logic Script -->
+  <script>
+    const ADMIN_AUTH_KEY = 'bluestep_admin_authenticated';
+    const ORDERS_STORAGE_KEY = 'bluestep_orders_list';
+
+    // Đơn hàng mẫu ban đầu nếu hệ thống chưa có đơn nào
+    const SAMPLE_ORDERS = [
+      {
+        id: 'BS-849201',
+        customerName: 'Nguyễn Văn Hùng',
+        phone: '0912 345 678',
+        address: '15 Lê Duẩn, Q. Hoàn Kiếm, Hà Nội',
+        paymentMethod: 'Tiền mặt khi nhận hàng (COD)',
+        items: [
+          { name: 'Nike Air Zoom Pegasus 40 Electric Blue', size: 42, quantity: 1, price: 2850000 }
+        ],
+        total: 2850000,
+        status: 'Chờ xác nhận',
+        createdAt: '27/09/2026 14:30'
+      },
+      {
+        id: 'BS-592810',
+        customerName: 'Trần Thị Mai',
+        phone: '0988 777 999',
+        address: '240 Nguyễn Thị Minh Khai, Quận 3, TP.HCM',
+        paymentMethod: 'Chuyển khoản ngân hàng (VietQR 24/7)',
+        items: [
+          { name: 'Adidas Ultraboost Light Royal Cyan', size: 39, quantity: 1, price: 3200000 },
+          { name: 'Vans Old Skool Classic Navy Blue', size: 39, quantity: 1, price: 1750000 }
+        ],
+        total: 4950000,
+        status: 'Đang giao',
+        createdAt: '27/09/2026 10:15'
+      }
+    ];
+
+    let cachedOrders = null;
+
+    async function loadOrdersFromBackend() {
+      try {
+        const res = await fetch('/api/orders');
+        const json = await res.json();
+        if (json.success && Array.isArray(json.data) && json.data.length > 0) {
+          cachedOrders = json.data;
+          localStorage.setItem(ORDERS_STORAGE_KEY, JSON.stringify(cachedOrders));
+          renderAdminOrders();
+          return;
+        }
+      } catch (e) {
+        console.warn("Không kết nối được API /api/orders, dùng LocalStorage fallback");
+      }
+    }
+
+    function getAdminOrders() {
+      if (cachedOrders) return cachedOrders;
+      try {
+        const raw = localStorage.getItem(ORDERS_STORAGE_KEY);
+        if (!raw) {
+          localStorage.setItem(ORDERS_STORAGE_KEY, JSON.stringify(SAMPLE_ORDERS));
+          return SAMPLE_ORDERS;
+        }
+        return JSON.parse(raw);
+      } catch (e) {
+        return SAMPLE_ORDERS;
+      }
+    }
+
+    function saveAdminOrders(orders) {
+      cachedOrders = orders;
+      localStorage.setItem(ORDERS_STORAGE_KEY, JSON.stringify(orders));
+      renderAdminOrders();
+    }
+
+    // 1. Authentication
+    function checkAuth() {
+      const isAuth = sessionStorage.getItem(ADMIN_AUTH_KEY) === 'true';
+      const loginScreen = document.getElementById('login-screen');
+      const dashboard = document.getElementById('admin-dashboard');
+
+      if (isAuth) {
+        loginScreen.classList.add('d-none');
+        dashboard.classList.remove('d-none');
+        initDashboard();
+      } else {
+        loginScreen.classList.remove('d-none');
+        dashboard.classList.add('d-none');
+      }
+    }
+
+    function handleAdminLogin(e) {
+      e.preventDefault();
+      const u = document.getElementById('admin-username').value.trim();
+      const p = document.getElementById('admin-password').value.trim();
+      const alertEl = document.getElementById('login-alert');
+
+      if (u === 'admin' && p === '123456') {
+        sessionStorage.setItem(ADMIN_AUTH_KEY, 'true');
+        alertEl.classList.add('d-none');
+        checkAuth();
+        showToast("Thành công", "Đăng nhập trang quản trị thành công!", "success");
+      } else {
+        alertEl.classList.remove('d-none');
+      }
+    }
+
+    function handleAdminLogout() {
+      if (confirm("Bạn có chắc chắn muốn đăng xuất tài khoản quản trị?")) {
+        sessionStorage.removeItem(ADMIN_AUTH_KEY);
+        checkAuth();
+      }
+    }
+
+    // 2. Switch Tab
+    function switchAdminTab(tabName) {
+      const ordersTab = document.getElementById('tab-content-orders');
+      const productsTab = document.getElementById('tab-content-products');
+      const membersTab = document.getElementById('tab-content-members');
+      const navOrders = document.getElementById('nav-orders');
+      const navProducts = document.getElementById('nav-products');
+      const navMembers = document.getElementById('nav-members');
+      const title = document.getElementById('tab-title');
+
+      // Hide all tabs
+      ordersTab.classList.add('d-none');
+      productsTab.classList.add('d-none');
+      if (membersTab) membersTab.classList.add('d-none');
+
+      navOrders.classList.remove('active');
+      navProducts.classList.remove('active');
+      if (navMembers) navMembers.classList.remove('active');
+
+      if (tabName === 'orders') {
+        ordersTab.classList.remove('d-none');
+        navOrders.classList.add('active');
+        title.textContent = 'Quản Lý Đơn Hàng';
+        renderAdminOrders();
+      } else if (tabName === 'products') {
+        productsTab.classList.remove('d-none');
+        navProducts.classList.add('active');
+        title.textContent = 'Quản Lý Sản Phẩm (Thêm / Sửa / Xóa)';
+        renderAdminProducts();
+      } else if (tabName === 'members') {
+        if (membersTab) membersTab.classList.remove('d-none');
+        if (navMembers) navMembers.classList.add('active');
+        title.textContent = 'Quản Lý Hội Viên Đã Đăng Ký (data/members.json)';
+        loadAdminMembers();
+      }
+    }
+
+    // 3. Render Orders
+    function renderAdminOrders() {
+      const tbody = document.getElementById('orders-table-body');
+      if (!tbody) return;
+
+      const filterStatus = document.getElementById('order-status-filter')?.value || 'all';
+      let orders = getAdminOrders();
+
+      // Stats
+      const totalCount = orders.length;
+      const pendingCount = orders.filter(o => o.status === 'Chờ xác nhận').length;
+      const totalRev = orders.reduce((sum, o) => sum + (o.total || 0), 0);
+
+      document.getElementById('stat-total-orders').textContent = totalCount;
+      document.getElementById('stat-pending-orders').textContent = pendingCount;
+      document.getElementById('stat-total-revenue').textContent = formatVND(totalRev);
+
+      if (filterStatus !== 'all') {
+        orders = orders.filter(o => o.status === filterStatus);
+      }
+
+      if (orders.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="8" class="text-center py-4 text-muted">
+              <i class="fas fa-inbox fs-3 mb-2 d-block"></i>
+              Chưa có đơn hàng nào trong trạng thái này.
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = orders.map((order) => {
+        let statusBadgeClass = 'status-badge-waiting';
+        if (order.status === 'Đang giao') statusBadgeClass = 'status-badge-shipping';
+        else if (order.status === 'Đã giao') statusBadgeClass = 'status-badge-delivered';
+
+        const itemsSummary = (order.items || []).map(i => `
+          <div><strong class="text-dark">${i.name}</strong> (Size ${i.size}) x${i.quantity}</div>
+        `).join('');
+
+        return `
+          <tr>
+            <td>
+              <strong class="font-monospace text-primary">#${order.id}</strong>
+              <div class="text-muted small" style="font-size: 0.75rem;">${order.createdAt || ''}</div>
+            </td>
+            <td>
+              <div class="fw-bold text-dark">${order.customerName}</div>
+              <div class="text-muted small"><i class="fas fa-phone me-1"></i>${order.phone}</div>
+            </td>
+            <td>
+              <div class="small" style="max-width: 220px;">${order.address}</div>
+            </td>
+            <td>
+              <div class="small" style="max-width: 260px;">${itemsSummary}</div>
+            </td>
+            <td>
+              <strong class="text-primary">${formatVND(order.total)}</strong>
+            </td>
+            <td>
+              <span class="badge bg-light text-dark border small">${order.paymentMethod}</span>
+            </td>
+            <td>
+              <!-- Thay đổi trạng thái: Chờ xác nhận → Đang giao → Đã giao -->
+              <select class="form-select form-select-sm fw-semibold ${statusBadgeClass}" onchange="changeOrderStatus('${order.id}', this.value)">
+                <option value="Chờ xác nhận" ${order.status === 'Chờ xác nhận' ? 'selected' : ''}>⏳ Chờ xác nhận</option>
+                <option value="Đang giao" ${order.status === 'Đang giao' ? 'selected' : ''}>🚚 Đang giao</option>
+                <option value="Đã giao" ${order.status === 'Đã giao' ? 'selected' : ''}>✅ Đã giao</option>
+              </select>
+            </td>
+            <td class="text-center">
+              <button class="btn btn-outline-danger btn-sm" onclick="deleteOrder('${order.id}')" title="Xóa đơn này">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    async function changeOrderStatus(orderId, newStatus) {
+      const orders = getAdminOrders();
+      const order = orders.find(o => o.id === orderId);
+      if (order) {
+        order.status = newStatus;
+        saveAdminOrders(orders);
+        showToast("Đã cập nhật", `Đơn hàng #${orderId} chuyển sang: ${newStatus}`, "success");
+      }
+
+      // Sync with Express backend
+      try {
+        await fetch(`/api/orders/${orderId}/status`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ status: newStatus })
+        });
+      } catch (e) {}
+    }
+
+    async function deleteOrder(orderId) {
+      if (confirm(`Bạn có chắc chắn muốn xóa đơn hàng #${orderId}?`)) {
+        let orders = getAdminOrders();
+        orders = orders.filter(o => o.id !== orderId);
+        saveAdminOrders(orders);
+        showToast("Đã xóa", `Đã xóa đơn hàng #${orderId}`, "info");
+
+        try {
+          await fetch(`/api/orders/${orderId}`, { method: 'DELETE' });
+        } catch (e) {}
+      }
+    }
+
+    function clearAllOrders() {
+      if (confirm("Cảnh báo: Bạn có chắc chắn muốn xóa toàn bộ danh sách đơn hàng?")) {
+        saveAdminOrders([]);
+        showToast("Đã dọn dẹp", "Đã xóa toàn bộ đơn hàng.", "info");
+      }
+    }
+
+    // 4. Render Products (CRUD)
+    function renderAdminProducts() {
+      const tbody = document.getElementById('products-table-body');
+      if (!tbody) return;
+
+      const products = getStoredProducts();
+
+      tbody.innerHTML = products.map(product => {
+        const sizesFormatted = (product.sizes || []).map(s => `<span class="badge bg-light text-primary border me-1">${s}</span>`).join('');
+
+        return `
+          <tr>
+            <td>
+              <img src="${product.image}" alt="${product.name}" class="rounded-2" style="width: 50px; height: 50px; object-fit: cover;" />
+            </td>
+            <td>
+              <div class="fw-bold text-dark">${product.name}</div>
+              <small class="text-muted">Mã: #${product.id}</small>
+            </td>
+            <td><span class="badge bg-primary-subtle text-primary">${product.brand}</span></td>
+            <td><span class="text-muted small">${product.categoryName || product.category}</span></td>
+            <td><strong class="text-primary">${formatVND(product.price)}</strong></td>
+            <td>${sizesFormatted}</td>
+            <td class="text-center">
+              <button class="btn btn-outline-primary btn-sm me-1" onclick="openEditProductModal(${product.id})" title="Chỉnh sửa">
+                <i class="fas fa-edit"></i>
+              </button>
+              <button class="btn btn-outline-danger btn-sm" onclick="deleteProduct(${product.id})" title="Xóa">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function openAddProductModal() {
+      document.getElementById('productModalLabel').textContent = 'Thêm Sản Phẩm Mới';
+      document.getElementById('prod-id').value = '';
+      document.getElementById('prod-name').value = '';
+      document.getElementById('prod-brand').value = 'Nike';
+      document.getElementById('prod-category').value = 'sneaker';
+      document.getElementById('prod-badge').value = 'Mới về';
+      document.getElementById('prod-price').value = '';
+      document.getElementById('prod-original-price').value = '';
+      document.getElementById('prod-image').value = 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80';
+      document.getElementById('prod-sizes').value = '38, 39, 40, 41, 42, 43, 44';
+      document.getElementById('prod-desc').value = '';
+
+      const modal = new bootstrap.Modal(document.getElementById('productModal'));
+      modal.show();
+    }
+
+    function openEditProductModal(productId) {
+      const products = getStoredProducts();
+      const p = products.find(item => item.id === Number(productId));
+      if (!p) return;
+
+      document.getElementById('productModalLabel').textContent = `Chỉnh Sửa Sản Phẩm #${p.id}`;
+      document.getElementById('prod-id').value = p.id;
+      document.getElementById('prod-name').value = p.name;
+      document.getElementById('prod-brand').value = p.brand;
+      document.getElementById('prod-category').value = p.category;
+      document.getElementById('prod-badge').value = p.badge || '';
+      document.getElementById('prod-price').value = p.price;
+      document.getElementById('prod-original-price').value = p.originalPrice || '';
+      document.getElementById('prod-image').value = p.image;
+      document.getElementById('prod-sizes').value = (p.sizes || []).join(', ');
+      document.getElementById('prod-desc').value = p.description || '';
+
+      const modal = new bootstrap.Modal(document.getElementById('productModal'));
+      modal.show();
+    }
+
+    async function saveProduct(e) {
+      e.preventDefault();
+      const idVal = document.getElementById('prod-id').value;
+      const name = document.getElementById('prod-name').value.trim();
+      const brand = document.getElementById('prod-brand').value;
+      const category = document.getElementById('prod-category').value;
+      const badge = document.getElementById('prod-badge').value.trim();
+      const price = Number(document.getElementById('prod-price').value);
+      const originalPrice = Number(document.getElementById('prod-original-price').value) || null;
+      const image = document.getElementById('prod-image').value.trim();
+      const sizesStr = document.getElementById('prod-sizes').value;
+      const description = document.getElementById('prod-desc').value.trim();
+
+      const sizes = sizesStr.split(',').map(s => Number(s.trim())).filter(n => !isNaN(n) && n > 0);
+
+      let catName = 'Thời trang';
+      if (category === 'running') catName = 'Chạy bộ';
+      else if (category === 'sneaker') catName = 'Sneaker dạo phố';
+
+      let products = getStoredProducts();
+
+      if (idVal) {
+        // Edit existing
+        const index = products.findIndex(p => p.id === Number(idVal));
+        if (index > -1) {
+          products[index] = {
+            ...products[index],
+            name, brand, category, categoryName: catName, badge, price, originalPrice, image, sizes, description
+          };
+          showToast("Đã lưu", `Đã cập nhật sản phẩm ${name}`, "success");
+        }
+      } else {
+        // Add new
+        const newId = products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1;
+        products.push({
+          id: newId,
+          name, brand, category, categoryName: catName, badge, price, originalPrice, image, sizes, description,
+          rating: 5.0,
+          reviews: 1
+        });
+        showToast("Đã thêm", `Đã thêm mới sản phẩm ${name}`, "success");
+      }
+
+      saveStoredProducts(products);
+      renderAdminProducts();
+
+      const modalEl = document.getElementById('productModal');
+      const bsModal = bootstrap.Modal.getInstance(modalEl);
+      if (bsModal) bsModal.hide();
+    }
+
+    function deleteProduct(productId) {
+      if (confirm(`Bạn có chắc chắn muốn xóa sản phẩm #${productId}?`)) {
+        let products = getStoredProducts();
+        products = products.filter(p => p.id !== Number(productId));
+        saveStoredProducts(products);
+        renderAdminProducts();
+        showToast("Đã xóa", `Đã xóa sản phẩm #${productId}`, "info");
+      }
+    }
+
+    // Google Sheets Config Modal
+    function openSheetsConfigModal() {
+      const currentUrl = localStorage.getItem('bluestep_sheets_api_url') || '';
+      document.getElementById('sheets-url-input').value = currentUrl;
+      const modal = new bootstrap.Modal(document.getElementById('sheetsConfigModal'));
+      modal.show();
+    }
+
+    function saveSheetsConfig(e) {
+      e.preventDefault();
+      const url = document.getElementById('sheets-url-input').value.trim();
+      localStorage.setItem('bluestep_sheets_api_url', url);
+      showToast("Đã lưu!", "Đã cập nhật Web App URL Google Sheets thành công.", "success");
+      const modalEl = document.getElementById('sheetsConfigModal');
+      const bsModal = bootstrap.Modal.getInstance(modalEl);
+      if (bsModal) bsModal.hide();
+    }
+
+    // ==========================================
+    // 5. MEMBER MANAGEMENT LOGIC (data/members.json)
+    // ==========================================
+    let cachedMembers = [];
+
+    async function loadAdminMembers(showFeedback = false) {
+      try {
+        const res = await fetch('/api/members');
+        const data = await res.json();
+        if (res.ok && data.success) {
+          cachedMembers = data.data || [];
+          document.getElementById('nav-member-badge').textContent = cachedMembers.length;
+          renderAdminMembers(cachedMembers);
+          if (showFeedback) {
+            showToast("Thành công", `Đã tải ${cachedMembers.length} thành viên từ data/members.json`, "success");
+          }
+        } else {
+          fallbackLocalMembers();
+        }
+      } catch (err) {
+        console.warn("Lỗi gọi /api/members, dùng fallback localStorage:", err);
+        fallbackLocalMembers();
+      }
+    }
+
+    function fallbackLocalMembers() {
+      const local = JSON.parse(localStorage.getItem('shopkiet76_members') || '[]');
+      cachedMembers = local;
+      document.getElementById('nav-member-badge').textContent = cachedMembers.length;
+      renderAdminMembers(cachedMembers);
+    }
+
+    function renderAdminMembers(members) {
+      const tbody = document.getElementById('members-table-body');
+      if (!tbody) return;
+
+      // Cập nhật thống kê
+      const totalMembers = cachedMembers.length;
+      const vipCount = cachedMembers.filter(m => (m.membershipLevel || '').includes('VIP') || (m.membershipLevel || '').includes('Thân thiết')).length;
+      const totalPoints = cachedMembers.reduce((sum, m) => sum + (Number(m.rewardPoints) || 0), 0);
+
+      document.getElementById('stat-total-members').textContent = totalMembers;
+      document.getElementById('stat-vip-members').textContent = vipCount;
+      document.getElementById('stat-total-points').textContent = totalPoints + ' pts';
+
+      if (!members || members.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="9" class="text-center py-5 text-muted">
+              <i class="fas fa-users-slash fa-2x mb-2 d-block"></i>
+              Chưa có thành viên nào hoặc không tìm thấy kết quả phù hợp!
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = members.map(m => `
+        <tr>
+          <td>
+            <span class="badge bg-primary-subtle text-primary fw-bold font-monospace">${m.id}</span>
+          </td>
+          <td>
+            <div class="fw-bold text-slate-900">${m.fullName}</div>
+            <small class="text-muted"><i class="fas fa-check-circle text-success me-1"></i>${m.status || 'Hoạt động'}</small>
+          </td>
+          <td>
+            <span class="text-primary fw-bold">@${m.username}</span>
+          </td>
+          <td>
+            <div><i class="fas fa-phone-alt text-muted me-1 small"></i><strong>${m.phone}</strong></div>
+            <div class="small text-muted"><i class="fas fa-envelope text-muted me-1"></i>${m.email}</div>
+          </td>
+          <td>
+            <div><i class="fas fa-calendar-alt text-muted me-1 small"></i>${m.dob || '--/--/----'}</div>
+            <small class="badge ${m.gender === 'Nam' ? 'bg-info-subtle text-info' : m.gender === 'Nữ' ? 'bg-danger-subtle text-danger' : 'bg-secondary-subtle text-secondary'}">${m.gender || 'Khác'}</small>
+          </td>
+          <td>
+            <div class="text-truncate" style="max-width: 220px;" title="${m.address}">${m.address}</div>
+          </td>
+          <td>
+            <div class="small fw-bold text-slate-800">${m.membershipLevel || 'Hội viên'}</div>
+            <span class="badge bg-warning text-dark"><i class="fas fa-coins me-1"></i>${m.rewardPoints || 50} pts</span>
+          </td>
+          <td>
+            <small class="text-muted">${m.createdAt || 'N/A'}</small>
+          </td>
+          <td class="text-center">
+            <button class="btn btn-outline-danger btn-sm p-1 px-2" onclick="deleteAdminMember('${m.id}', '${m.fullName}')" title="Xóa thành viên">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function filterAdminMembers() {
+      const q = (document.getElementById('member-search-input')?.value || '').toLowerCase().trim();
+      if (!q) {
+        renderAdminMembers(cachedMembers);
+        return;
+      }
+      const filtered = cachedMembers.filter(m => 
+        (m.fullName && m.fullName.toLowerCase().includes(q)) ||
+        (m.phone && m.phone.includes(q)) ||
+        (m.email && m.email.toLowerCase().includes(q)) ||
+        (m.username && m.username.toLowerCase().includes(q)) ||
+        (m.id && m.id.toLowerCase().includes(q)) ||
+        (m.address && m.address.toLowerCase().includes(q))
+      );
+      renderAdminMembers(filtered);
+    }
+
+    async function deleteAdminMember(id, name) {
+      if (!confirm(`Bạn có chắc chắn muốn xóa thành viên "${name}" (${id}) khỏi hệ thống?`)) {
+        return;
+      }
+
+      try {
+        const res = await fetch(`/api/members/${id}`, { method: 'DELETE' });
+        const data = await res.json();
+        if (res.ok && data.success) {
+          showToast("Đã xóa", `Đã xóa thành công thành viên ${name}`, "success");
+          cachedMembers = cachedMembers.filter(m => m.id !== id);
+          document.getElementById('nav-member-badge').textContent = cachedMembers.length;
+          renderAdminMembers(cachedMembers);
+        } else {
+          showToast("Lỗi", data.message || "Không thể xóa thành viên", "danger");
+        }
+      } catch (err) {
+        showToast("Lỗi", "Không kết nối được API", "danger");
+      }
+    }
+
+    function initDashboard() {
+      const today = new Date();
+      document.getElementById('current-date').textContent = today.toLocaleDateString('vi-VN');
+      renderAdminOrders();
+      loadOrdersFromBackend();
+      loadAdminMembers();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      checkAuth();
+    });
+  </script>
+</body>
+</html>

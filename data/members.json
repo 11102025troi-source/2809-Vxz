@@ -1,0 +1,47 @@
+[
+  {
+    "id": "SK76-M-7355",
+    "fullName": "Võ Xuân Kiên",
+    "dob": "1999-08-15",
+    "gender": "Nam",
+    "phone": "0988665544",
+    "email": "kienvo@gmail.com",
+    "address": "76 Nguyễn Trãi, Quận 1, TP.HCM",
+    "username": "kienvo76",
+    "passwordHash": "••••••••",
+    "membershipLevel": "Thành viên Bạc (Mới)",
+    "rewardPoints": 50,
+    "status": "Hoạt động",
+    "createdAt": "1/10/2026 08:32"
+  },
+  {
+    "id": "SK76-M-1001",
+    "fullName": "Nguyễn Hoàng Nam",
+    "dob": "1998-05-18",
+    "gender": "Nam",
+    "phone": "0987654321",
+    "email": "hoangnam98@gmail.com",
+    "address": "Số 125 Đường Nguyễn Trãi, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh",
+    "username": "hoangnam98",
+    "passwordHash": "******",
+    "membershipLevel": "Thành viên VIP",
+    "rewardPoints": 150,
+    "status": "Hoạt động",
+    "createdAt": "01/10/2026 09:30"
+  },
+  {
+    "id": "SK76-M-1002",
+    "fullName": "Lê Thị Thu Thảo",
+    "dob": "2001-11-24",
+    "gender": "Nữ",
+    "phone": "0912345679",
+    "email": "thuthao.le@gmail.com",
+    "address": "Tầng 5, Chung cư Green Star, 234 Phạm Văn Đồng, Bắc Từ Liêm, Hà Nội",
+    "username": "thuthao2001",
+    "passwordHash": "******",
+    "membershipLevel": "Thành viên Thân thiết",
+    "rewardPoints": 80,
+    "status": "Hoạt động",
+    "createdAt": "01/10/2026 10:15"
+  }
+]

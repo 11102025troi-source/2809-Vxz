@@ -1,0 +1,1832 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>ĐĂNG KÝ THÀNH VIÊN | shopkiet76 - Giày Thể Thao Cao Cấp</title>
+  <meta name="description" content="Đăng ký tài khoản thành viên shopkiet76 nhận ngay 50 điểm thưởng chào mừng, ưu đãi freeship, bảo hành chính hãng 12 tháng và đổi size 30 ngày.">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Đăng Ký Thành Viên | shopkiet76 Sneaker Store">
+  <meta property="og:description" content="Gia nhập hội viên shopkiet76 để nhận ưu đãi độc quyền, tích điểm thưởng và mua sắm giày thể thao chính hãng.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="/images/shopkiet76_avatar.jpg" />
+
+  <!-- Custom Blue Theme Stylesheet -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <style>
+    :root {
+      --primary-blue: #1d4ed8;
+      --primary-dark: #0f172a;
+      --secondary-blue: #2563eb;
+      --light-blue: #eff6ff;
+    }
+
+    body {
+      background-color: #f1f5f9;
+      min-height: 100vh;
+    }
+
+    .register-hero {
+      background: linear-gradient(135deg, #07192f 0%, #0A2342 50%, #1E40AF 100%);
+      color: #fff;
+      padding: 3rem 0 4.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .register-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30px;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: #f1f5f9;
+      border-radius: 50% 50% 0 0;
+    }
+
+    .lang-switcher-btn {
+      padding: 0.35rem 0.85rem;
+      font-size: 0.85rem;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .lang-switcher-btn:hover, .lang-switcher-btn.active {
+      background: #fff;
+      color: #1d4ed8;
+      font-weight: 700;
+      border-color: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .form-card {
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px -5px rgba(15, 23, 42, 0.08), 0 5px 15px rgba(29, 78, 216, 0.04);
+      border: 1px solid #e2e8f0;
+      overflow: hidden;
+      margin-top: -2.5rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .form-section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #e2e8f0;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .form-section-header::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 60px;
+      height: 2px;
+      background: #1d4ed8;
+    }
+
+    .form-section-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .form-floating-custom {
+      position: relative;
+    }
+
+    .form-control-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #94a3b8;
+      font-size: 1.05rem;
+      transition: color 0.2s ease;
+      z-index: 5;
+    }
+
+    .form-control-input {
+      padding-left: 46px !important;
+      padding-right: 44px;
+      height: 52px;
+      border-radius: 12px;
+      border: 1.5px solid #cbd5e1;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+      background-color: #f8fafc;
+    }
+
+    .form-control-input:focus {
+      background-color: #ffffff;
+      border-color: #1d4ed8;
+      box-shadow: 0 0 0 4px rgba(29, 78, 216, 0.12);
+    }
+
+    .form-control-input:focus ~ .form-control-icon {
+      color: #1d4ed8;
+    }
+
+    .toggle-password-btn {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: #94a3b8;
+      cursor: pointer;
+      padding: 6px;
+      z-index: 6;
+    }
+
+    .toggle-password-btn:hover {
+      color: #1d4ed8;
+    }
+
+    .gender-radio-card {
+      border: 1.5px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 10px 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      background: #f8fafc;
+      font-weight: 500;
+    }
+
+    .gender-radio-card:hover {
+      border-color: #93c5fd;
+      background: #eff6ff;
+    }
+
+    .gender-radio-card.active {
+      border-color: #1d4ed8;
+      background: #eff6ff;
+      color: #1d4ed8;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(29, 78, 216, 0.15);
+    }
+
+    .password-strength-meter {
+      height: 5px;
+      border-radius: 3px;
+      background: #e2e8f0;
+      overflow: hidden;
+      margin-top: 6px;
+    }
+
+    .password-strength-bar {
+      height: 100%;
+      width: 0%;
+      transition: width 0.3s ease, background-color 0.3s ease;
+    }
+
+    .table-spec th {
+      background-color: #f8fafc;
+      color: #334155;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 700;
+      border-bottom: 2px solid #cbd5e1;
+      padding: 0.85rem 1rem;
+    }
+
+    .table-spec td {
+      vertical-align: middle;
+      padding: 0.85rem 1rem;
+      font-size: 0.92rem;
+    }
+
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      margin-bottom: 10px;
+      transition: all 0.2s ease;
+    }
+
+    .benefit-item:hover {
+      background: #eff6ff;
+      border-color: #bfdbfe;
+      transform: translateY(-2px);
+    }
+
+    .benefit-icon-box {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.95rem;
+    }
+
+    /* VIP Card Badge Preview */
+    .vip-card-preview {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #1d4ed8 100%);
+      border-radius: 16px;
+      padding: 1.5rem;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(15, 23, 42, 0.25);
+    }
+
+    .vip-card-preview::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 140px;
+      height: 140px;
+      background: radial-gradient(circle, rgba(251, 191, 36, 0.25) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="container d-flex justify-content-between align-items-center">
+      <!-- Bên trái giữ Hotline / menu trái -->
+      <div class="d-flex align-items-center gap-2 gap-md-3">
+        <span><i class="fas fa-phone-alt text-info me-1"></i> Hotline: <a href="tel:19008888" class="fw-bold text-white text-decoration-none">1900 8888</a></span>
+        <span class="d-none d-md-inline text-white-50">|</span>
+        <span class="d-none d-md-inline"><i class="fas fa-gift text-info me-1"></i> Tặng 50 điểm thưởng hội viên</span>
+        <span class="d-none d-lg-inline text-white-50">|</span>
+        <span class="d-none d-lg-inline"><i class="fas fa-shipping-fast text-info me-1"></i> Freeship đơn từ 1.000.000₫</span>
+      </div>
+
+      <!-- Phía PHẢI thanh trên cùng: sát nút Quản Trị có nút 🎁 Ưu Đãi -->
+      <div class="d-flex align-items-center gap-2 gap-sm-3 ms-auto">
+        <a href="/admin" class="text-white text-decoration-none fw-semibold d-flex align-items-center gap-1" title="Quản Trị Hệ Thống">
+          <i class="fas fa-user-shield text-info"></i> <span>Quản Trị</span>
+        </a>
+        <!-- Nút nhỏ gọn: "🎁 Ưu Đãi" sát nút Quản Trị -->
+        <button type="button" class="btn-topbar-promo" onclick="openPromoModal(event)" title="Xem ưu đãi & mã giảm giá 1.000.000đ">
+          <span>🎁</span> <span>Ưu Đãi</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navbar -->
+  <nav class="navbar navbar-expand-lg main-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <div class="brand-icon-box">
+          <img src="/images/shopkiet76_avatar.jpg" alt="Shopkiet76 VIP" />
+        </div>
+        <span class="brand-name">shopkiet<span class="brand-accent">76</span></span>
+      </a>
+
+      <div class="d-flex align-items-center gap-3 ms-auto">
+        <a href="/" class="btn btn-outline-primary d-flex align-items-center gap-2">
+          <i class="fas fa-home"></i>
+          <span class="d-none d-sm-inline" data-i18n="back_home_btn">Quay Lại Trang Chủ</span>
+        </a>
+        <a href="/cart" class="btn-cart" title="Xem giỏ hàng">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count-badge">0</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 1. HERO HEADER VỚI CHUYỂN ĐỔI NGÔN NGỮ (VI, EN, TH, ZH) -->
+  <section class="register-hero">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-8">
+          <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill bg-white bg-opacity-15 mb-3 border border-white border-opacity-25">
+            <i class="fas fa-crown text-warning"></i>
+            <span class="fw-bold text-white small" data-i18n="hero_badge">ĐẶC QUYỀN HỘI VIÊN SHOPKIET76</span>
+          </div>
+          <h1 class="display-5 fw-extrabold text-white mb-2" data-i18n="page_title">ĐĂNG KÝ THÀNH VIÊN</h1>
+          <p class="text-white text-opacity-85 fs-5 mb-0" data-i18n="page_subtitle">
+            Gia nhập cộng đồng yêu giày thể thao chính hãng. Nhận ngay 50 điểm tích lũy, ưu đãi sinh nhật và đặc quyền mua sắm VIP.
+          </p>
+        </div>
+
+        <!-- Language Switcher Bar -->
+        <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+          <div class="d-inline-block bg-white bg-opacity-10 p-2 rounded-4 border border-white border-opacity-20">
+            <div class="small text-white-50 mb-1 fw-bold text-start px-2"><i class="fas fa-globe me-1"></i> Ngôn ngữ / Language:</div>
+            <div class="d-flex flex-wrap gap-2">
+              <button class="lang-switcher-btn active" onclick="switchLanguage('vi')" id="lang-vi">
+                <span>🇻🇳</span> <span>Tiếng Việt</span>
+              </button>
+              <button class="lang-switcher-btn" onclick="switchLanguage('en')" id="lang-en">
+                <span>🇬🇧</span> <span>English</span>
+              </button>
+              <button class="lang-switcher-btn" onclick="switchLanguage('th')" id="lang-th">
+                <span>🇹🇭</span> <span>ไทย</span>
+              </button>
+              <button class="lang-switcher-btn" onclick="switchLanguage('zh')" id="lang-zh">
+                <span>🇨🇳</span> <span>中文</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. NỘI DUNG CHÍNH (FORM ĐĂNG KÝ + DANH SÁCH QUYỀN LỢI + BẢNG QUY CÁCH DỮ LIỆU) -->
+  <div class="container pb-5">
+    
+    <!-- Nav Tabs: Form Đăng Ký vs Bảng Hướng Dẫn Quy Cách Trường Dữ Liệu -->
+    <div class="d-flex justify-content-center mb-4 position-relative" style="z-index: 15;">
+      <div class="bg-white p-1 rounded-pill shadow-sm border d-inline-flex">
+        <button class="btn btn-sm rounded-pill px-4 fw-bold active btn-primary" id="tab-btn-form" onclick="switchTab('form')">
+          <i class="fas fa-user-edit me-1"></i> <span data-i18n="tab_form">Biểu Mẫu Đăng Ký</span>
+        </button>
+        <button class="btn btn-sm rounded-pill px-4 fw-bold text-muted btn-light" id="tab-btn-specs" onclick="switchTab('specs')">
+          <i class="fas fa-table-list me-1"></i> <span data-i18n="tab_specs">Bảng Quy Cách &amp; Danh Sách Mục</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- TAB 1: BIỂU MẪU ĐĂNG KÝ CHÍNH THỨC -->
+    <div id="view-form">
+      <div class="row g-4 justify-content-center">
+        
+        <!-- Cột Form Điền Thông Tin (8 Cột) -->
+        <div class="col-lg-8">
+          <div class="form-card p-4 p-md-5">
+            
+            <div id="register-alert" class="alert alert-danger d-none mb-4 rounded-3 d-flex align-items-center gap-2">
+              <i class="fas fa-exclamation-circle fs-5 flex-shrink-0"></i>
+              <div id="register-alert-msg"></div>
+            </div>
+
+            <!-- Form Đăng Ký -->
+            <form id="membership-register-form" novalidate onsubmit="handleMemberRegistration(event)">
+              
+              <!-- NHÓM 1: THÔNG TIN CÁ NHÂN -->
+              <div class="mb-4">
+                <div class="form-section-header">
+                  <div class="form-section-icon">
+                    <i class="fas fa-user"></i>
+                  </div>
+                  <div>
+                    <h5 class="fw-bold text-slate-900 mb-0" data-i18n="sec1_title">1. Thông Tin Cá Nhân</h5>
+                    <small class="text-muted" data-i18n="sec1_desc">Vui lòng cung cấp đúng thông tin để nhận quà sinh nhật và tích điểm</small>
+                  </div>
+                </div>
+
+                <div class="row g-3">
+                  <!-- Họ và tên -->
+                  <div class="col-12">
+                    <label class="form-label fw-bold small text-slate-700" for="fullName">
+                      <span data-i18n="label_fullname">Họ và tên</span> <span class="text-danger">*</span>
+                    </label>
+                    <div class="form-floating-custom">
+                      <input type="text" class="form-control form-control-input" id="fullName" placeholder="Ví dụ: Nguyễn Văn An" required>
+                      <i class="fas fa-id-badge form-control-icon"></i>
+                    </div>
+                    <div class="form-text small" data-i18n="hint_fullname">Nhập đầy đủ cả họ và tên đệm của bạn</div>
+                  </div>
+
+                  <!-- Ngày sinh -->
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold small text-slate-700" for="dob">
+                      <span data-i18n="label_dob">Ngày sinh</span> <span class="text-danger">*</span>
+                    </label>
+                    <div class="form-floating-custom">
+                      <input type="date" class="form-control form-control-input" id="dob" required>
+                      <i class="fas fa-calendar-alt form-control-icon"></i>
+                    </div>
+                    <div class="form-text small" data-i18n="hint_dob">Tặng voucher ưu đãi 15% trong tháng sinh nhật</div>
+                  </div>
+
+                  <!-- Giới tính -->
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold small text-slate-700">
+                      <span data-i18n="label_gender">Giới tính</span> <span class="text-danger">*</span>
+                    </label>
+                    <div class="d-flex gap-2">
+                      <label class="gender-radio-card flex-fill active" id="gender-male-label" onclick="selectGender('Nam')">
+                        <input type="radio" name="gender" value="Nam" id="gender-male" checked class="d-none">
+                        <i class="fas fa-mars text-primary"></i>
+                        <span data-i18n="gender_male">Nam</span>
+                      </label>
+
+                      <label class="gender-radio-card flex-fill" id="gender-female-label" onclick="selectGender('Nữ')">
+                        <input type="radio" name="gender" value="Nữ" id="gender-female" class="d-none">
+                        <i class="fas fa-venus text-danger"></i>
+                        <span data-i18n="gender_female">Nữ</span>
+                      </label>
+
+                      <label class="gender-radio-card flex-fill" id="gender-other-label" onclick="selectGender('Khác')">
+                        <input type="radio" name="gender" value="Khác" id="gender-other" class="d-none">
+                        <i class="fas fa-genderless text-secondary"></i>
+                        <span data-i18n="gender_other">Khác</span>
+                      </label>
+                    </div>
+                    <div class="form-text small" data-i18n="hint_gender">Để shopkiet76 gợi ý bộ sưu tập giày phù hợp</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- NHÓM 2: THÔNG TIN LIÊN HỆ & ĐỊA CHỈ THƯỜNG TRÚ -->
+              <div class="mb-4 pt-2">
+                <div class="form-section-header">
+                  <div class="form-section-icon">
+                    <i class="fas fa-map-marked-alt"></i>
+                  </div>
+                  <div>
+                    <h5 class="fw-bold text-slate-900 mb-0" data-i18n="sec2_title">2. Thông Tin Liên Hệ &amp; Địa Chỉ Thường Trú</h5>
+                    <small class="text-muted" data-i18n="sec2_desc">Dùng để giao giày, đổi size tại nhà và bảo hành chính hãng</small>
+                  </div>
+                </div>
+
+                <div class="row g-3">
+                  <!-- Số điện thoại -->
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold small text-slate-700" for="phone">
+                      <span data-i18n="label_phone">Số điện thoại</span> <span class="text-danger">*</span>
+                    </label>
+                    <div class="form-floating-custom">
+                      <input type="tel" class="form-control form-control-input" id="phone" placeholder="0912 345 678" required>
+                      <i class="fas fa-phone-alt form-control-icon"></i>
+                    </div>
+                    <div class="form-text small" data-i18n="hint_phone">Dùng để tra cứu điểm tích lũy và mã đơn hàng</div>
+                  </div>
+
+                  <!-- Địa chỉ email -->
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold small text-slate-700" for="email">
+                      <span data-i18n="label_email">Địa chỉ Email</span> <span class="text-danger">*</span>
+                    </label>
+                    <div class="form-floating-custom">
+                      <input type="email" class="form-control form-control-input" id="email" placeholder="tenban@gmail.com" required>
+                      <i class="fas fa-envelope form-control-icon"></i>
+                    </div>
+                    <div class="form-text small" data-i18n="hint_email">Nhận hóa đơn điện tử và mã giảm giá VIP độc quyền</div>
+                  </div>
+
+                  <!-- Địa chỉ thường trú -->
+                  <div class="col-12">
+                    <label class="form-label fw-bold small text-slate-700" for="address">
+                      <span data-i18n="label_address">Địa chỉ thường trú</span> <span class="text-danger">*</span>
+                    </label>
+                    <div class="form-floating-custom">
+                      <input type="text" class="form-control form-control-input" id="address" placeholder="Số nhà, tên đường, Phường/Xã, Quận/Huyện, Tỉnh/TP" required>
+                      <i class="fas fa-map-marker-alt form-control-icon"></i>
+                    </div>
+                    <div class="form-text small" data-i18n="hint_address">Địa chỉ nhận giày và đổi size miễn phí tận nhà</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- NHÓM 3: TÀI KHOẢN & BẢO MẬT -->
+              <div class="mb-4 pt-2">
+                <div class="form-section-header">
+                  <div class="form-section-icon">
+                    <i class="fas fa-shield-alt"></i>
+                  </div>
+                  <div>
+                    <h5 class="fw-bold text-slate-900 mb-0" data-i18n="sec3_title">3. Thông Tin Tài Khoản &amp; Bảo Mật</h5>
+                    <small class="text-muted" data-i18n="sec3_desc">Tạo tên đăng nhập và mật khẩu an toàn để quản lý tài khoản</small>
+                  </div>
+                </div>
+
+                <div class="row g-3">
+                  <!-- Tên đăng nhập -->
+                  <div class="col-12">
+                    <label class="form-label fw-bold small text-slate-700" for="username">
+                      <span data-i18n="label_username">Tên đăng nhập</span> <span class="text-danger">*</span>
+                    </label>
+                    <div class="form-floating-custom">
+                      <input type="text" class="form-control form-control-input" id="username" placeholder="Ví dụ: kietnguyen76" required autocomplete="username">
+                      <i class="fas fa-user-circle form-control-icon"></i>
+                    </div>
+                    <div class="form-text small" data-i18n="hint_username">Từ 4 đến 20 ký tự (chữ cái, số, không chứa dấu cách)</div>
+                  </div>
+
+                  <!-- Mật khẩu -->
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold small text-slate-700" for="password">
+                      <span data-i18n="label_password">Mật khẩu</span> <span class="text-danger">*</span>
+                    </label>
+                    <div class="form-floating-custom">
+                      <input type="password" class="form-control form-control-input" id="password" placeholder="Tối thiểu 6 ký tự" required oninput="checkPasswordStrength(this.value)">
+                      <i class="fas fa-lock form-control-icon"></i>
+                      <button type="button" class="toggle-password-btn" onclick="togglePasswordVisibility('password', this)" title="Hiện/ẩn mật khẩu">
+                        <i class="far fa-eye"></i>
+                      </button>
+                    </div>
+                    <div class="password-strength-meter">
+                      <div class="password-strength-bar" id="strength-bar"></div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mt-1">
+                      <span class="text-muted small" style="font-size: 0.78rem;" data-i18n="pwd_strength_label">Độ mạnh mật khẩu:</span>
+                      <span class="fw-bold small" id="strength-text" style="font-size: 0.78rem;">Chưa nhập</span>
+                    </div>
+                  </div>
+
+                  <!-- Xác nhận lại mật khẩu -->
+                  <div class="col-md-6">
+                    <label class="form-label fw-bold small text-slate-700" for="confirmPassword">
+                      <span data-i18n="label_confirm_password">Xác nhận lại mật khẩu</span> <span class="text-danger">*</span>
+                    </label>
+                    <div class="form-floating-custom">
+                      <input type="password" class="form-control form-control-input" id="confirmPassword" placeholder="Nhập lại chính xác mật khẩu" required oninput="checkPasswordMatch()">
+                      <i class="fas fa-check-double form-control-icon"></i>
+                      <button type="button" class="toggle-password-btn" onclick="togglePasswordVisibility('confirmPassword', this)" title="Hiện/ẩn mật khẩu">
+                        <i class="far fa-eye"></i>
+                      </button>
+                    </div>
+                    <div id="match-feedback" class="small mt-1" style="font-size: 0.8rem; display: none;"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- NHÓM 4: ĐIỀU KHOẢN SỬ DỤNG -->
+              <div class="mb-4 pt-2">
+                <div class="p-3 bg-light rounded-3 border">
+                  <div class="form-check">
+                    <input class="form-check-input mt-1" type="checkbox" id="termsAccepted" required>
+                    <label class="form-check-label small text-slate-800" for="termsAccepted">
+                      <span data-i18n="terms_agree_text">Tôi xác nhận các thông tin trên là chính xác và hoàn toàn đồng ý với</span>
+                      <a href="#termsModal" data-bs-toggle="modal" class="fw-bold text-primary text-decoration-underline" data-i18n="terms_link">Điều khoản sử dụng &amp; Quy chế hội viên</a>
+                      <span data-i18n="terms_suffix">của shopkiet76.</span>
+                      <span class="text-danger">*</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- NÚT BẤM CHÍNH THEO YÊU CẦU: [ĐĂNG KÝ NGAY] | [QUAY LẠI TRANG CHỦ] -->
+              <div class="d-flex flex-column flex-sm-row gap-3 pt-2">
+                <!-- Nút Đăng Ký Ngay -->
+                <button type="submit" class="btn btn-primary flex-fill py-3 fw-bold fs-6 d-flex align-items-center justify-content-center gap-2 shadow-sm" id="submit-btn" style="min-height: 52px; background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);">
+                  <i class="fas fa-user-plus"></i>
+                  <span data-i18n="btn_register_now">ĐĂNG KÝ NGAY</span>
+                </button>
+
+                <!-- Nút Quay Lại Trang Chủ -->
+                <a href="/" class="btn btn-outline-secondary py-3 fw-bold fs-6 d-flex align-items-center justify-content-center gap-2" style="min-height: 52px;">
+                  <i class="fas fa-arrow-left"></i>
+                  <span data-i18n="btn_back_home">Quay Lại Trang Chủ</span>
+                </a>
+              </div>
+
+              <!-- Footer form: Đã có tài khoản? -->
+              <div class="text-center mt-4 pt-3 border-top">
+                <span class="text-muted small" data-i18n="already_have_acc">Bạn đã có tài khoản thành viên?</span>
+                <a href="#loginModal" data-bs-toggle="modal" class="fw-bold text-primary ms-1 small text-decoration-underline" data-i18n="login_now">Đăng nhập ngay</a>
+              </div>
+
+            </form>
+
+            <!-- KẾT QUẢ SAU KHI ĐĂNG KÝ THÀNH CÔNG (HIỂN THỊ DƯỚI DẠNG BẢNG & THẺ THÀNH VIÊN) -->
+            <div id="register-success-box" class="d-none text-center py-4">
+              <div class="mx-auto mb-3 text-success d-flex align-items-center justify-content-center" style="width: 72px; height: 72px; border-radius: 50%; background: #dcfce7;">
+                <i class="fas fa-check-circle fa-3x"></i>
+              </div>
+              <h3 class="fw-bold text-slate-900 mb-2" data-i18n="reg_success_title">Chúc Mừng Bạn Đã Trở Thành Hội Viên!</h3>
+              <p class="text-muted mb-4" data-i18n="reg_success_desc">Tài khoản thành viên đã được lưu trữ thành công vào hệ thống shopkiet76. Bạn đã nhận được 50 điểm thưởng chào mừng!</p>
+
+              <!-- Thẻ Hội Viên Sang Trọng -->
+              <div class="vip-card-preview text-start mb-4 mx-auto" style="max-width: 480px;">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <div class="d-flex align-items-center gap-2">
+                    <img src="/images/shopkiet76_avatar.jpg" alt="shopkiet76" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover; border: 1.5px solid #fff;">
+                    <span class="fw-bold fs-5 tracking-wide">shopkiet<span class="text-warning">76</span></span>
+                  </div>
+                  <span class="badge bg-warning text-dark fw-bold px-3 py-1 rounded-pill">VIP MEMBER</span>
+                </div>
+
+                <div class="mb-3">
+                  <div class="small text-white-50" data-i18n="card_holder_label">Chủ thẻ hội viên</div>
+                  <div class="fs-4 fw-bold text-white" id="success-card-name">NGUYỄN VĂN AN</div>
+                </div>
+
+                <div class="row g-2 pt-2 border-top border-white border-opacity-20">
+                  <div class="col-6">
+                    <div class="small text-white-50" data-i18n="card_id_label">Mã thành viên</div>
+                    <div class="fw-bold font-monospace text-warning fs-5" id="success-card-id">SK76-M-1003</div>
+                  </div>
+                  <div class="col-6 text-end">
+                    <div class="small text-white-50" data-i18n="card_points_label">Điểm thưởng chào mừng</div>
+                    <div class="fw-bold text-white fs-5"><i class="fas fa-coins text-warning me-1"></i>+50 Điểm</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bảng tóm tắt thông tin thành viên vừa tạo -->
+              <div class="card border rounded-3 mb-4 text-start overflow-hidden">
+                <div class="card-header bg-light py-2 fw-bold text-slate-800 small d-flex align-items-center gap-2">
+                  <i class="fas fa-table text-primary"></i> <span data-i18n="summary_table_title">BẢNG TỔNG HỢP HỒ SƠ THÀNH VIÊN ĐÃ ĐĂNG KÝ</span>
+                </div>
+                <div class="table-responsive">
+                  <table class="table table-bordered mb-0 small">
+                    <tbody>
+                      <tr>
+                        <td class="fw-bold bg-light" style="width: 35%;"><i class="fas fa-id-badge text-primary me-2"></i><span data-i18n="label_fullname">Họ và tên</span></td>
+                        <td id="table-val-name">-</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold bg-light"><i class="fas fa-calendar-alt text-primary me-2"></i><span data-i18n="label_dob">Ngày sinh</span></td>
+                        <td id="table-val-dob">-</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold bg-light"><i class="fas fa-venus-mars text-primary me-2"></i><span data-i18n="label_gender">Giới tính</span></td>
+                        <td id="table-val-gender">-</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold bg-light"><i class="fas fa-phone-alt text-primary me-2"></i><span data-i18n="label_phone">Số điện thoại</span></td>
+                        <td id="table-val-phone">-</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold bg-light"><i class="fas fa-envelope text-primary me-2"></i><span data-i18n="label_email">Địa chỉ Email</span></td>
+                        <td id="table-val-email">-</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold bg-light"><i class="fas fa-map-marker-alt text-primary me-2"></i><span data-i18n="label_address">Địa chỉ thường trú</span></td>
+                        <td id="table-val-address">-</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold bg-light"><i class="fas fa-user-circle text-primary me-2"></i><span data-i18n="label_username">Tên đăng nhập</span></td>
+                        <td id="table-val-username" class="fw-bold text-primary">-</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold bg-light"><i class="fas fa-clock text-primary me-2"></i><span data-i18n="registered_time">Thời gian đăng ký</span></td>
+                        <td id="table-val-time">-</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- Nút hành động sau thành công -->
+              <div class="d-flex flex-wrap gap-2 justify-content-center">
+                <a href="/" class="btn btn-primary px-4 py-2 fw-bold">
+                  <i class="fas fa-shopping-bag me-1"></i> <span data-i18n="btn_shop_now">Tiếp Tục Mua Sắm Ngay</span>
+                </a>
+                <button type="button" class="btn btn-outline-secondary px-4 py-2 fw-bold" onclick="resetFormForNewReg()">
+                  <i class="fas fa-user-plus me-1"></i> <span data-i18n="btn_reg_another">Đăng Ký Thêm Tài Khoản</span>
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Cột Phải: Quyền Lợi Hội Viên & Hỗ Trợ (4 Cột) -->
+        <div class="col-lg-4">
+          
+          <!-- Hộp Danh Sách Quyền Lợi Hội Viên -->
+          <div class="card border-0 shadow-sm rounded-4 p-4 mb-4 bg-white">
+            <h5 class="fw-bold text-slate-900 mb-3 d-flex align-items-center gap-2">
+              <i class="fas fa-gift text-primary"></i>
+              <span data-i18n="benefits_title">Đặc Quyền Hội Viên</span>
+            </h5>
+            
+            <div class="benefit-item">
+              <div class="benefit-icon-box">
+                <i class="fas fa-coins"></i>
+              </div>
+              <div>
+                <strong class="d-block text-slate-800" data-i18n="b1_title">Tặng 50 Điểm Chào Mừng</strong>
+                <small class="text-muted" data-i18n="b1_desc">Tương đương 50.000₫ trừ trực tiếp khi thanh toán đơn giày đầu tiên.</small>
+              </div>
+            </div>
+
+            <div class="benefit-item">
+              <div class="benefit-icon-box">
+                <i class="fas fa-birthday-cake"></i>
+              </div>
+              <div>
+                <strong class="d-block text-slate-800" data-i18n="b2_title">Quà Tặng Sinh Nhật 15%</strong>
+                <small class="text-muted" data-i18n="b2_desc">Nhận voucher giảm 15% toàn bộ sản phẩm trong suốt tháng sinh nhật của bạn.</small>
+              </div>
+            </div>
+
+            <div class="benefit-item">
+              <div class="benefit-icon-box">
+                <i class="fas fa-shipping-fast"></i>
+              </div>
+              <div>
+                <strong class="d-block text-slate-800" data-i18n="b3_title">Miễn Phí Vận Chuyển Toàn Quốc</strong>
+                <small class="text-muted" data-i18n="b3_desc">Áp dụng cho mọi đơn hàng từ 1.000.000₫, giao hỏa tốc 24h nội thành.</small>
+              </div>
+            </div>
+
+            <div class="benefit-item">
+              <div class="benefit-icon-box">
+                <i class="fas fa-sync-alt"></i>
+              </div>
+              <div>
+                <strong class="d-block text-slate-800" data-i18n="b4_title">Đổi Size 30 Ngày Tận Nơi</strong>
+                <small class="text-muted" data-i18n="b4_desc">Shipper mang size giày mới đến tận nhà đổi cho hội viên nếu mang không vừa.</small>
+              </div>
+            </div>
+
+            <div class="benefit-item">
+              <div class="benefit-icon-box">
+                <i class="fas fa-fire"></i>
+              </div>
+              <div>
+                <strong class="d-block text-slate-800" data-i18n="b5_title">Ưu Tiên Săn Giày Hot Limited</strong>
+                <small class="text-muted" data-i18n="b5_desc">Tiếp cận sớm các mẫu giày Vans Old Skool Navy, Nike AF1, Air Jordan trước mở bán.</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hộp Tổng Đài Tư Vấn -->
+          <div class="card border-0 shadow-sm rounded-4 p-4 text-center text-white" style="background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%);">
+            <div class="mx-auto mb-2" style="width: 50px; height: 50px; background: rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+              <i class="fas fa-headset fa-lg"></i>
+            </div>
+            <h6 class="fw-bold mb-1" data-i18n="support_title">Cần Trợ Giúp Đăng Ký?</h6>
+            <p class="small text-white-50 mb-3" data-i18n="support_desc">Gọi hotline miễn phí hoặc trò chuyện cùng Trợ lý Shopkiet76</p>
+            <a href="tel:19008888" class="btn btn-warning fw-bold py-2 px-3 rounded-pill text-dark d-inline-flex align-items-center justify-content-center gap-2 mb-3">
+              <i class="fas fa-phone-alt"></i> 1900 8888 (24/7)
+            </a>
+            <div class="border-top border-white border-opacity-10 pt-2 text-start small text-white-50">
+              <div class="d-flex align-items-start gap-2">
+                <i class="fas fa-map-marker-alt text-warning mt-1"></i>
+                <span><strong>Cửa hàng:</strong> 172 Quang Trung Phường Trương Quang Trọng Tỉnh Quảng Ngãi</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TAB 2: BẢNG QUY CÁCH DỮ LIỆU & DANH SÁCH MỤC (TABLE & SPECIFICATIONS) -->
+    <div id="view-specs" class="d-none">
+      <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5 bg-white">
+        
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-4 pb-3 border-bottom">
+          <div>
+            <h4 class="fw-bold text-slate-900 mb-1" data-i18n="specs_heading">BẢNG QUY CÁCH CÁC TRƯỜNG THÔNG TIN ĐĂNG KÝ HỘI VIÊN</h4>
+            <p class="text-muted small mb-0" data-i18n="specs_subheading">Chi tiết 10 mục thông tin bắt buộc, kiểu dữ liệu và mục đích sử dụng trên hệ thống website/app shopkiet76</p>
+          </div>
+          <button class="btn btn-outline-primary btn-sm rounded-pill px-3" onclick="switchTab('form')">
+            <i class="fas fa-arrow-left me-1"></i> <span data-i18n="btn_switch_to_form">Chuyển Sang Biểu Mẫu Điền</span>
+          </button>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table table-hover table-spec align-middle border">
+            <thead>
+              <tr>
+                <th style="width: 5%;">STT</th>
+                <th style="width: 20%;" data-i18n="th_field">Mục Thông Tin</th>
+                <th style="width: 8%; text-align: center;" data-i18n="th_icon">Biểu Tượng</th>
+                <th style="width: 15%;" data-i18n="th_type">Loại Dữ Liệu</th>
+                <th style="width: 12%; text-align: center;" data-i18n="th_required">Yêu Cầu</th>
+                <th style="width: 40%;" data-i18n="th_purpose">Mục Đích &amp; Quyền Lợi Hội Viên</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="fw-bold text-muted">1</td>
+                <td><strong class="text-slate-900" data-i18n="f1_name">Họ và tên</strong></td>
+                <td class="text-center"><i class="fas fa-id-badge text-primary fs-5"></i></td>
+                <td><code>String (Văn bản)</code></td>
+                <td class="text-center"><span class="badge bg-danger rounded-pill">Bắt buộc</span></td>
+                <td data-i18n="f1_desc">In tên trên thẻ thành viên điện tử và gửi lời chào cá nhân hóa khi mua sắm.</td>
+              </tr>
+              <tr>
+                <td class="fw-bold text-muted">2</td>
+                <td><strong class="text-slate-900" data-i18n="f2_name">Ngày sinh</strong></td>
+                <td class="text-center"><i class="fas fa-calendar-alt text-primary fs-5"></i></td>
+                <td><code>Date (YYYY-MM-DD)</code></td>
+                <td class="text-center"><span class="badge bg-danger rounded-pill">Bắt buộc</span></td>
+                <td data-i18n="f2_desc">Tự động kích hoạt voucher sinh nhật 15% và thông báo quà tặng sinh nhật hàng năm.</td>
+              </tr>
+              <tr>
+                <td class="fw-bold text-muted">3</td>
+                <td><strong class="text-slate-900" data-i18n="f3_name">Giới tính</strong></td>
+                <td class="text-center"><i class="fas fa-venus-mars text-primary fs-5"></i></td>
+                <td><code>Enum (Nam / Nữ / Khác)</code></td>
+                <td class="text-center"><span class="badge bg-danger rounded-pill">Bắt buộc</span></td>
+                <td data-i18n="f3_desc">Gợi ý kích thước form giày và bộ sưu tập giày thể thao phù hợp nhất.</td>
+              </tr>
+              <tr>
+                <td class="fw-bold text-muted">4</td>
+                <td><strong class="text-slate-900" data-i18n="f4_name">Số điện thoại</strong></td>
+                <td class="text-center"><i class="fas fa-phone-alt text-primary fs-5"></i></td>
+                <td><code>Tel (10 số Việt Nam)</code></td>
+                <td class="text-center"><span class="badge bg-danger rounded-pill">Bắt buộc &amp; Duy nhất</span></td>
+                <td data-i18n="f4_desc">Tra cứu điểm thưởng tại quầy và nhận cuộc gọi xác nhận khi đổi size miễn phí tận nhà.</td>
+              </tr>
+              <tr>
+                <td class="fw-bold text-muted">5</td>
+                <td><strong class="text-slate-900" data-i18n="f5_name">Địa chỉ email</strong></td>
+                <td class="text-center"><i class="fas fa-envelope text-primary fs-5"></i></td>
+                <td><code>Email (Chuẩn RFC)</code></td>
+                <td class="text-center"><span class="badge bg-danger rounded-pill">Bắt buộc &amp; Duy nhất</span></td>
+                <td data-i18n="f5_desc">Gửi thông báo mã giảm giá VIP, hóa đơn VAT điện tử và khôi phục mật khẩu khi quên.</td>
+              </tr>
+              <tr>
+                <td class="fw-bold text-muted">6</td>
+                <td><strong class="text-slate-900" data-i18n="f6_name">Địa chỉ thường trú</strong></td>
+                <td class="text-center"><i class="fas fa-map-marker-alt text-primary fs-5"></i></td>
+                <td><code>String (Địa chỉ chi tiết)</code></td>
+                <td class="text-center"><span class="badge bg-danger rounded-pill">Bắt buộc</span></td>
+                <td data-i18n="f6_desc">Tự động điền khi thanh toán đơn hàng, giao hàng hỏa tốc và hỗ trợ bảo hành chính hãng.</td>
+              </tr>
+              <tr>
+                <td class="fw-bold text-muted">7</td>
+                <td><strong class="text-slate-900" data-i18n="f7_name">Tên đăng nhập</strong></td>
+                <td class="text-center"><i class="fas fa-user-circle text-primary fs-5"></i></td>
+                <td><code>Alphanumeric (4-20 ký tự)</code></td>
+                <td class="text-center"><span class="badge bg-danger rounded-pill">Bắt buộc &amp; Duy nhất</span></td>
+                <td data-i18n="f7_desc">Dùng để đăng nhập vào tài khoản trên website và ứng dụng di động shopkiet76.</td>
+              </tr>
+              <tr>
+                <td class="fw-bold text-muted">8</td>
+                <td><strong class="text-slate-900" data-i18n="f8_name">Mật khẩu</strong></td>
+                <td class="text-center"><i class="fas fa-lock text-primary fs-5"></i></td>
+                <td><code>Password (>= 6 ký tự)</code></td>
+                <td class="text-center"><span class="badge bg-danger rounded-pill">Bắt buộc</span></td>
+                <td data-i18n="f8_desc">Bảo mật tài khoản, điểm thưởng tích lũy và thông tin đơn hàng cá nhân.</td>
+              </tr>
+              <tr>
+                <td class="fw-bold text-muted">9</td>
+                <td><strong class="text-slate-900" data-i18n="f9_name">Xác nhận lại mật khẩu</strong></td>
+                <td class="text-center"><i class="fas fa-shield-alt text-primary fs-5"></i></td>
+                <td><code>Password (Khớp mật khẩu)</code></td>
+                <td class="text-center"><span class="badge bg-danger rounded-pill">Bắt buộc</span></td>
+                <td data-i18n="f9_desc">Tránh gõ nhầm ký tự trong quá trình tạo tài khoản mới.</td>
+              </tr>
+              <tr>
+                <td class="fw-bold text-muted">10</td>
+                <td><strong class="text-slate-900" data-i18n="f10_name">Đồng ý điều khoản sử dụng</strong></td>
+                <td class="text-center"><i class="fas fa-check-square text-primary fs-5"></i></td>
+                <td><code>Boolean (true/false)</code></td>
+                <td class="text-center"><span class="badge bg-danger rounded-pill">Bắt buộc tick</span></td>
+                <td data-i18n="f10_desc">Đảm bảo quyền lợi khách hàng và tuân thủ chính sách bảo mật thông tin người dùng.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mt-4 pt-3 border-top d-flex justify-content-between align-items-center flex-wrap gap-2">
+          <span class="text-muted small"><i class="fas fa-database me-1 text-primary"></i> Dữ liệu thành viên được lưu an toàn tại máy chủ: <code>data/members.json</code></span>
+          <button class="btn btn-primary px-4 py-2 rounded-pill fw-bold" onclick="switchTab('form')">
+            <i class="fas fa-user-plus me-1"></i> <span data-i18n="btn_register_now">Đăng Ký Ngay</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MODAL: ĐIỀU KHOẢN SỬ DỤNG & QUY CHẾ HỘI VIÊN -->
+  <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+      <div class="modal-content rounded-4 border-0 shadow">
+        <div class="modal-header bg-light">
+          <h5 class="modal-title fw-bold text-slate-900" id="termsModalLabel">
+            <i class="fas fa-file-contract text-primary me-2"></i>Điều Khoản Sử Dụng &amp; Quy Chế Hội Viên shopkiet76
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4" style="line-height: 1.7; font-size: 0.95rem;">
+          <h6 class="fw-bold text-primary">1. Điều Kiện Trở Thành Hội Viên</h6>
+          <p>Mọi công dân từ đủ 15 tuổi có nhu cầu mua sắm giày thể thao chính hãng đều có thể đăng ký tài khoản thành viên miễn phí tại shopkiet76. Mỗi cá nhân sở hữu 01 tài khoản gắn liền với Số điện thoại và Email chính chủ.</p>
+
+          <h6 class="fw-bold text-primary">2. Quy Định Về Tích Lũy Điểm Thưởng</h6>
+          <p>Mỗi đơn hàng thành công, thành viên được tích lũy 5% giá trị đơn hàng thành điểm thưởng (1 điểm = 1.000 VNĐ). Điểm thưởng có thể sử dụng để trừ tiền trực tiếp vào các lần thanh toán tiếp theo.</p>
+
+          <h6 class="fw-bold text-primary">3. Chính Sách Bảo Mật Thông Tin</h6>
+          <p>shopkiet76 cam kết bảo mật 100% thông tin cá nhân gồm Họ tên, Số điện thoại, Email, Địa chỉ thường trú. Chúng tôi không bao giờ chia sẻ dữ liệu cho bên thứ ba vì mục đích thương mại.</p>
+
+          <h6 class="fw-bold text-primary">4. Quyền Lợi Đổi Trả &amp; Thử Giày Tại Nhà</h6>
+          <p>Hội viên có quyền kiểm tra, đi thử giày trước khi nhận hàng. Trong vòng 30 ngày kể từ ngày nhận giày, nếu mang không vừa size, shopkiet76 hỗ trợ shipper mang size mới đến tận nhà đổi hoàn toàn miễn phí.</p>
+        </div>
+        <div class="modal-footer bg-light">
+          <button type="button" class="btn btn-primary px-4 fw-bold" data-bs-dismiss="modal" onclick="document.getElementById('termsAccepted').checked = true;">
+            <i class="fas fa-check me-1"></i> Tôi Đã Đọc &amp; Đồng Ý
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: ĐĂNG NHẬP NHANH CHO HỘI VIÊN ĐÃ CÓ TÀI KHOẢN -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-4 border-0 shadow">
+        <div class="modal-header border-0 pb-0">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4 pt-0">
+          <div class="text-center mb-4">
+            <div class="brand-icon-box mx-auto mb-2" style="width: 48px; height: 48px;">
+              <img src="/images/shopkiet76_avatar.jpg" alt="shopkiet76" style="width: 100%; height: 100%; border-radius: 50%;">
+            </div>
+            <h5 class="fw-bold text-slate-900 mb-1">Đăng Nhập Hội Viên</h5>
+            <small class="text-muted">Nhập thông tin tài khoản để quản lý đơn hàng &amp; tích điểm</small>
+          </div>
+
+          <div id="login-modal-alert" class="alert alert-danger py-2 small d-none"></div>
+
+          <form onsubmit="handleMemberLogin(event)">
+            <div class="mb-3">
+              <label class="form-label fw-bold small text-slate-700">Tên đăng nhập / Email / SĐT</label>
+              <input type="text" class="form-control form-control-input" id="login-account" placeholder="Nhập tên đăng nhập hoặc email" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-bold small text-slate-700">Mật khẩu</label>
+              <input type="password" class="form-control form-control-input" id="login-password" placeholder="Nhập mật khẩu" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100 py-2 fw-bold" id="login-btn-submit">
+              <i class="fas fa-sign-in-alt me-1"></i> Đăng Nhập
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="shop-footer site-footer py-5 mt-5">
+    <div class="container footer-content">
+      <!-- CỘT 1: [Menu Chính] (kèm Hội viên lồng) -->
+      <div>
+        <h4>[Menu Chính]</h4>
+        <ul class="list-unstyled">
+          <li><a href="/">🏠 Trang Chủ</a></li>
+          <li><a href="/#products-section">👟 Sản Phẩm</a></li>
+          <li><a href="javascript:void(0)" onclick="openPromoModal(event)">🎁 Khuyến Mãi</a></li>
+          <li>
+            <a href="/member">👑 Trung Tâm Hội Viên</a>
+            <ul class="list-unstyled">
+              <li><a href="/member#account">├─ Thông Tin Tài Khoản</a></li>
+              <li><a href="/member#tiers">├─ Cấp Bậc: VIP0 → VIP10</a></li>
+              <li><a href="/member#benefits">├─ Ưu Đãi &amp; Voucher</a></li>
+              <li><a href="/member#upgrade">└─ Nâng Cấp VIP Tự Động</a></li>
+            </ul>
+          </li>
+          <li><a href="/cart">🛒 Giỏ Hàng</a></li>
+        </ul>
+      </div>
+
+      <!-- CỘT 2: Hệ Thống Cửa Hàng & CSKH VIP -->
+      <div>
+        <h4>Hệ Thống Cửa Hàng &amp; Hỗ Trợ VIP</h4>
+        <div class="footer-branch-item pb-3 mb-2">
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <span class="badge bg-primary text-white fw-bold">CHI NHÁNH 1 (CHÍNH)</span>
+            <span class="small text-white-50">Quảng Ngãi</span>
+          </div>
+          <p class="mb-1">
+            <i class="fas fa-map-marker-alt text-primary me-2"></i> 172 Quang Trung, Phường Trương Quang Trọng, Tỉnh Quảng Ngãi
+          </p>
+          <p class="mb-1">
+            <i class="fas fa-phone-alt text-primary me-2"></i> Hotline: <a href="tel:19008888">1900 8888</a> - 0912 345 678
+          </p>
+          <p class="mb-0">
+            <i class="fas fa-clock text-primary me-2"></i> Thứ 2–Chủ Nhật: 8:00 – 22:00
+          </p>
+        </div>
+
+        <div class="footer-branch-divider my-2"></div>
+
+        <div class="footer-branch-item pt-2">
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <span class="badge bg-success text-white fw-bold">CHI NHÁNH 2 (TP.HCM)</span>
+            <span class="badge bg-danger text-white">MỚI</span>
+          </div>
+          <p class="mb-1">
+            <i class="fas fa-map-marker-alt text-success me-2"></i> 456 Đường Số 7, Quận 12, TP.HCM
+          </p>
+          <p class="mb-1">
+            <i class="fas fa-phone-alt text-success me-2"></i> Hotline: <a href="tel:19008888">1900 8888</a> - 0988 777 999
+          </p>
+          <p class="mb-0">
+            <i class="fas fa-clock text-success me-2"></i> Thứ 2–Chủ Nhật: 8:00 – 21:00
+          </p>
+        </div>
+      </div>
+
+      <div class="border-top border-secondary pt-3 text-center small text-muted w-100 mt-3" style="flex: 1 1 100% !important; min-width: 100% !important;">
+        <p class="mb-0">&copy; 2026 shopkiet76 Sneaker Store. All rights reserved. Chi nhánh 1: 172 Quang Trung, Quảng Ngãi | Chi nhánh 2: 456 Đường Số 7, Quận 12, TP.HCM.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- ĐA NGÔN NGỮ & LOGIC XỬ LÝ ĐĂNG KÝ -->
+  <script>
+    // 1. TỪ ĐIỂN ĐA NGÔN NGỮ (VI, EN, TH, ZH)
+    const i18nDictionary = {
+      vi: {
+        page_title: "ĐĂNG KÝ THÀNH VIÊN",
+        page_subtitle: "Gia nhập cộng đồng yêu giày thể thao chính hãng. Nhận ngay 50 điểm tích lũy, ưu đãi sinh nhật và đặc quyền mua sắm VIP.",
+        hero_badge: "ĐẶC QUYỀN HỘI VIÊN SHOPKIET76",
+        back_home_btn: "Quay Lại Trang Chủ",
+        tab_form: "Biểu Mẫu Đăng Ký",
+        tab_specs: "Bảng Quy Cách & Danh Sách Mục",
+        sec1_title: "1. Thông Tin Cá Nhân",
+        sec1_desc: "Vui lòng cung cấp đúng thông tin để nhận quà sinh nhật và tích điểm",
+        label_fullname: "Họ và tên",
+        hint_fullname: "Nhập đầy đủ cả họ và tên đệm của bạn",
+        label_dob: "Ngày sinh",
+        hint_dob: "Tặng voucher ưu đãi 15% trong tháng sinh nhật",
+        label_gender: "Giới tính",
+        gender_male: "Nam",
+        gender_female: "Nữ",
+        gender_other: "Khác",
+        hint_gender: "Để shopkiet76 gợi ý bộ sưu tập giày phù hợp",
+        sec2_title: "2. Thông Tin Liên Hệ & Địa Chỉ Thường Trú",
+        sec2_desc: "Dùng để giao giày, đổi size tại nhà và bảo hành chính hãng",
+        label_phone: "Số điện thoại",
+        hint_phone: "Dùng để tra cứu điểm tích lũy và mã đơn hàng",
+        label_email: "Địa chỉ Email",
+        hint_email: "Nhận hóa đơn điện tử và mã giảm giá VIP độc quyền",
+        label_address: "Địa chỉ thường trú",
+        hint_address: "Địa chỉ nhận giày và đổi size miễn phí tận nhà",
+        sec3_title: "3. Thông Tin Tài Khoản & Bảo Mật",
+        sec3_desc: "Tạo tên đăng nhập và mật khẩu an toàn để quản lý tài khoản",
+        label_username: "Tên đăng nhập",
+        hint_username: "Từ 4 đến 20 ký tự (chữ cái, số, không chứa dấu cách)",
+        label_password: "Mật khẩu",
+        pwd_strength_label: "Độ mạnh mật khẩu:",
+        label_confirm_password: "Xác nhận lại mật khẩu",
+        terms_agree_text: "Tôi xác nhận các thông tin trên là chính xác và hoàn toàn đồng ý với",
+        terms_link: "Điều khoản sử dụng & Quy chế hội viên",
+        terms_suffix: "của shopkiet76.",
+        btn_register_now: "ĐĂNG KÝ NGAY",
+        btn_back_home: "Quay Lại Trang Chủ",
+        already_have_acc: "Bạn đã có tài khoản thành viên?",
+        login_now: "Đăng nhập ngay",
+        reg_success_title: "Chúc Mừng Bạn Đã Trở Thành Hội Viên!",
+        reg_success_desc: "Tài khoản thành viên đã được lưu trữ thành công vào hệ thống shopkiet76. Bạn đã nhận được 50 điểm thưởng chào mừng!",
+        card_holder_label: "Chủ thẻ hội viên",
+        card_id_label: "Mã thành viên",
+        card_points_label: "Điểm thưởng chào mừng",
+        summary_table_title: "BẢNG TỔNG HỢP HỒ SƠ THÀNH VIÊN ĐÃ ĐĂNG KÝ",
+        registered_time: "Thời gian đăng ký",
+        btn_shop_now: "Tiếp Tục Mua Sắm Ngay",
+        btn_reg_another: "Đăng Ký Thêm Tài Khoản",
+        benefits_title: "Đặc Quyền Hội Viên",
+        b1_title: "Tặng 50 Điểm Chào Mừng",
+        b1_desc: "Tương đương 50.000₫ trừ trực tiếp khi thanh toán đơn giày đầu tiên.",
+        b2_title: "Quà Tặng Sinh Nhật 15%",
+        b2_desc: "Nhận voucher giảm 15% toàn bộ sản phẩm trong suốt tháng sinh nhật của bạn.",
+        b3_title: "Miễn Phí Vận Chuyển Toàn Quốc",
+        b3_desc: "Áp dụng cho mọi đơn hàng từ 1.000.000₫, giao hỏa tốc 24h nội thành.",
+        b4_title: "Đổi Size 30 Ngày Tận Nơi",
+        b4_desc: "Shipper mang size giày mới đến tận nhà đổi cho hội viên nếu mang không vừa.",
+        b5_title: "Ưu Tiên Săn Giày Hot Limited",
+        b5_desc: "Tiếp cận sớm các mẫu giày Vans Old Skool Navy, Nike AF1, Air Jordan trước mở bán.",
+        support_title: "Cần Trợ Giúp Đăng Ký?",
+        support_desc: "Gọi hotline miễn phí hoặc trò chuyện cùng Trợ lý Shopkiet76",
+        specs_heading: "BẢNG QUY CÁCH CÁC TRƯỜNG THÔNG TIN ĐĂNG KÝ HỘI VIÊN",
+        specs_subheading: "Chi tiết 10 mục thông tin bắt buộc, kiểu dữ liệu và mục đích sử dụng trên hệ thống website/app shopkiet76",
+        btn_switch_to_form: "Chuyển Sang Biểu Mẫu Điền",
+        th_field: "Mục Thông Tin",
+        th_icon: "Biểu Tượng",
+        th_type: "Loại Dữ Liệu",
+        th_required: "Yêu Cầu",
+        th_purpose: "Mục Đích & Quyền Lợi Hội Viên",
+        f1_name: "Họ và tên",
+        f1_desc: "In tên trên thẻ thành viên điện tử và gửi lời chào cá nhân hóa khi mua sắm.",
+        f2_name: "Ngày sinh",
+        f2_desc: "Tự động kích hoạt voucher sinh nhật 15% và thông báo quà tặng sinh nhật hàng năm.",
+        f3_name: "Giới tính",
+        f3_desc: "Gợi ý kích thước form giày và bộ sưu tập giày thể thao phù hợp nhất.",
+        f4_name: "Số điện thoại",
+        f4_desc: "Tra cứu điểm thưởng tại quầy và nhận cuộc gọi xác nhận khi đổi size miễn phí tận nhà.",
+        f5_name: "Địa chỉ email",
+        f5_desc: "Gửi thông báo mã giảm giá VIP, hóa đơn VAT điện tử và khôi phục mật khẩu khi quên.",
+        f6_name: "Địa chỉ thường trú",
+        f6_desc: "Tự động điền khi thanh toán đơn hàng, giao hàng hỏa tốc và hỗ trợ bảo hành chính hãng.",
+        f7_name: "Tên đăng nhập",
+        f7_desc: "Dùng để đăng nhập vào tài khoản trên website và ứng dụng di động shopkiet76.",
+        f8_name: "Mật khẩu",
+        f8_desc: "Bảo mật tài khoản, điểm thưởng tích lũy và thông tin đơn hàng cá nhân.",
+        f9_name: "Xác nhận lại mật khẩu",
+        f9_desc: "Tránh gõ nhầm ký tự trong quá trình tạo tài khoản mới.",
+        f10_name: "Đồng ý điều khoản sử dụng",
+        f10_desc: "Đảm bảo quyền lợi khách hàng và tuân thủ chính sách bảo mật thông tin người dùng."
+      },
+      en: {
+        page_title: "MEMBER REGISTRATION",
+        page_subtitle: "Join the authentic sneaker community. Get 50 welcome reward points, birthday discounts and exclusive VIP shopping privileges.",
+        hero_badge: "SHOPKIET76 VIP PRIVILEGES",
+        back_home_btn: "Back to Home",
+        tab_form: "Registration Form",
+        tab_specs: "Specifications & Field List",
+        sec1_title: "1. Personal Information",
+        sec1_desc: "Please provide accurate info for birthday gifts and reward points",
+        label_fullname: "Full Name",
+        hint_fullname: "Enter your full first and last name",
+        label_dob: "Date of Birth",
+        hint_dob: "Get a 15% birthday discount voucher during your birth month",
+        label_gender: "Gender",
+        gender_male: "Male",
+        gender_female: "Female",
+        gender_other: "Other",
+        hint_gender: "Helps us recommend the best fitting sneaker collections",
+        sec2_title: "2. Contact Info & Permanent Address",
+        sec2_desc: "Used for shipping, home size exchange and warranty service",
+        label_phone: "Phone Number",
+        hint_phone: "Used to look up points and order tracking",
+        label_email: "Email Address",
+        hint_email: "Receive e-invoices and exclusive VIP discount codes",
+        label_address: "Permanent Address",
+        hint_address: "Address for delivery and free doorstep size exchange",
+        sec3_title: "3. Account & Security",
+        sec3_desc: "Create a secure username and password to manage your account",
+        label_username: "Username",
+        hint_username: "4 to 20 characters (letters, numbers, no spaces)",
+        label_password: "Password",
+        pwd_strength_label: "Password strength:",
+        label_confirm_password: "Confirm Password",
+        terms_agree_text: "I confirm the above info is accurate and agree to the",
+        terms_link: "Terms of Service & Membership Rules",
+        terms_suffix: "of shopkiet76.",
+        btn_register_now: "REGISTER NOW",
+        btn_back_home: "Back to Home",
+        already_have_acc: "Already have a member account?",
+        login_now: "Sign in now",
+        reg_success_title: "Congratulations! You Are Now a VIP Member!",
+        reg_success_desc: "Your member account has been saved to the shopkiet76 database. You received 50 welcome reward points!",
+        card_holder_label: "Cardholder",
+        card_id_label: "Member ID",
+        card_points_label: "Welcome Points",
+        summary_table_title: "REGISTERED MEMBER PROFILE SUMMARY",
+        registered_time: "Registration Time",
+        btn_shop_now: "Continue Shopping",
+        btn_reg_another: "Register Another Account",
+        benefits_title: "Member Privileges",
+        b1_title: "50 Welcome Points Bonus",
+        b1_desc: "Equivalent to 50,000₫ deduction on your first sneaker purchase.",
+        b2_title: "15% Birthday Discount Gift",
+        b2_desc: "Receive a 15% off voucher across all items during your birth month.",
+        b3_title: "Free Nationwide Shipping",
+        b3_desc: "Applied for orders from 1,000,000₫ with 24h express delivery.",
+        b4_title: "30-Day Doorstep Size Exchange",
+        b4_desc: "Couriers deliver a new shoe size directly to your doorstep for free.",
+        b5_title: "Early Access to Hot Releases",
+        b5_desc: "Early access to limited editions like Vans Old Skool Navy and Air Jordan.",
+        support_title: "Need Registration Help?",
+        support_desc: "Call our free hotline or chat with Shopkiet76 Assistant",
+        specs_heading: "MEMBERSHIP REGISTRATION FIELD SPECIFICATIONS",
+        specs_subheading: "Detailed 10 required fields, data formats and purposes on shopkiet76 website/app",
+        btn_switch_to_form: "Switch to Form",
+        th_field: "Field Name",
+        th_icon: "Icon",
+        th_type: "Data Type",
+        th_required: "Required",
+        th_purpose: "Purpose & Member Privilege",
+        f1_name: "Full Name",
+        f1_desc: "Printed on digital VIP card and personalized greeting.",
+        f2_name: "Date of Birth",
+        f2_desc: "Activates 15% birthday voucher every year.",
+        f3_name: "Gender",
+        f3_desc: "Suggests shoe fit and tailored shoe collections.",
+        f4_name: "Phone Number",
+        f4_desc: "Point look-up and courier dispatch call.",
+        f5_name: "Email Address",
+        f5_desc: "Receipts, secret VIP coupons and account recovery.",
+        f6_name: "Permanent Address",
+        f6_desc: "Auto-fill at checkout and doorstep warranty/exchange.",
+        f7_name: "Username",
+        f7_desc: "Unique login identifier for web and mobile app.",
+        f8_name: "Password",
+        f8_desc: "Secures profile, points and order history.",
+        f9_name: "Confirm Password",
+        f9_desc: "Guarantees no accidental typing errors.",
+        f10_name: "Terms Acceptance",
+        f10_desc: "Ensures agreement with privacy policy and member rights."
+      },
+      th: {
+        page_title: "สมัครสมาชิกใหม่",
+        page_subtitle: "เข้าร่วมชุมชนคนรักรองเท้าผ้าใบของแท้ รับทันที 50 คะแนนต้อนรับ ส่วนลดวันเกิด และสิทธิพิเศษระดับ VIP",
+        hero_badge: "สิทธิพิเศษสมาชิก SHOPKIET76",
+        back_home_btn: "กลับสู่หน้าหลัก",
+        tab_form: "แบบฟอร์มลงทะเบียน",
+        tab_specs: "ตารางข้อกำหนดฟิลด์ข้อมูล",
+        sec1_title: "1. ข้อมูลส่วนบุคคล",
+        sec1_desc: "กรุณากรอกข้อมูลที่ถูกต้องเพื่อรับของขวัญวันเกิดและสะสมคะแนน",
+        label_fullname: "ชื่อ - นามสกุล",
+        hint_fullname: "กรอกชื่อและนามสกุลจริงของคุณ",
+        label_dob: "วันเดือนปีเกิด",
+        hint_dob: "รับคูปองส่วนลด 15% ในเดือนเกิดของคุณ",
+        label_gender: "เพศ",
+        gender_male: "ชาย",
+        gender_female: "หญิง",
+        gender_other: "อื่นๆ",
+        hint_gender: "เพื่อแนะนำขนาดรองเท้าและคอลเลกชันที่เหมาะสม",
+        sec2_title: "2. ข้อมูลติดต่อและที่อยู่ถาวร",
+        sec2_desc: "ใช้สำหรับการจัดส่งสินค้า เปลี่ยนไซส์ถึงบ้าน และการรับประกัน",
+        label_phone: "เบอร์โทรศัพท์",
+        hint_phone: "ใช้ตรวจสอบคะแนนสะสมและสถานะคำสั่งซื้อ",
+        label_email: "อีเมล",
+        hint_email: "รับใบเสร็จอิเล็กทรอนิกส์และโค้ดส่วนลด VIP",
+        label_address: "ที่อยู่ตามทะเบียนบ้าน/ที่อยู่จัดส่ง",
+        hint_address: "ที่อยู่สำหรับจัดส่งและเปลี่ยนไซส์ฟรีถึงบ้าน",
+        sec3_title: "3. บัญชีผู้ใช้และความปลอดภัย",
+        sec3_desc: "ตั้งชื่อผู้ใช้และรหัสผ่านเพื่อจัดการบัญชีของคุณ",
+        label_username: "ชื่อผู้ใช้ (Username)",
+        hint_username: "4 ถึง 20 ตัวอักษร (ตัวอักษร, ตัวเลข, ห้ามเว้นวรรค)",
+        label_password: "รหัสผ่าน",
+        pwd_strength_label: "ความปลอดภัยของรหัสผ่าน:",
+        label_confirm_password: "ยืนยันรหัสผ่านอีกครั้ง",
+        terms_agree_text: "ฉันขอยืนยันว่าข้อมูลข้างต้นถูกต้องและยอมรับ",
+        terms_link: "ข้อกำหนดและเงื่อนไขสมาชิก",
+        terms_suffix: "ของ shopkiet76",
+        btn_register_now: "ลงทะเบียนทันที",
+        btn_back_home: "กลับสู่หน้าหลัก",
+        already_have_acc: "มีบัญชีสมาชิกอยู่แล้ว?",
+        login_now: "เข้าสู่ระบบ",
+        reg_success_title: "ยินดีด้วย! คุณเป็นสมาชิก VIP แล้ว",
+        reg_success_desc: "บันทึกข้อมูลสมาชิกเข้าสู่ระบบ shopkiet76 เรียบร้อยแล้ว คุณได้รับ 50 คะแนนต้อนรับ!",
+        card_holder_label: "ผู้ถือบัตรสมาชิก",
+        card_id_label: "รหัสสมาชิก",
+        card_points_label: "คะแนนต้อนรับ",
+        summary_table_title: "สรุปข้อมูลโปรไฟล์สมาชิกที่ลงทะเบียน",
+        registered_time: "เวลาลงทะเบียน",
+        btn_shop_now: "ช้อปปิ้งต่อทันที",
+        btn_reg_another: "ลงทะเบียนเพิ่มอีกบัญชี",
+        benefits_title: "สิทธิประโยชน์สมาชิก",
+        b1_title: "รับฟรี 50 คะแนนต้อนรับ",
+        b1_desc: "ใช้หักเป็นส่วนลดเงินสดได้ทันทีในการสั่งซื้อคู่แรก",
+        b2_title: "ของขวัญวันเกิดลด 15%",
+        b2_desc: "รับคูปองส่วนลด 15% ทุกชิ้นตลอดเดือนเกิดของคุณ",
+        b3_title: "จัดส่งฟรีทั่วประเทศ",
+        b3_desc: "เมื่อสั่งซื้อตั้งแต่ 1,000,000₫ ขึ้นไป จัดส่งด่วน",
+        b4_title: "เปลี่ยนไซส์ได้ใน 30 วัน",
+        b4_desc: "พนักงานส่งของนำไซส์ใหม่ไปเปลี่ยนให้ถึงหน้าบ้านฟรี",
+        b5_title: "สิทธิ์สั่งจองรุ่นพิเศษก่อนใคร",
+        b5_desc: "เข้าถึงรุ่นหายากอย่าง Vans Old Skool Navy ก่อนเปิดขายทั่วไป",
+        support_title: "ต้องการความช่วยเหลือ?",
+        support_desc: "โทรสายด่วนฟรี หรือพูดคุยกับผู้ช่วย Shopkiet76",
+        specs_heading: "ตารางข้อกำหนดฟิลด์ข้อมูลการสมัครสมาชิก",
+        specs_subheading: "รายละเอียด 10 ฟิลด์ที่จำเป็น รูปแบบข้อมูล และวัตถุประสงค์การใช้งาน",
+        btn_switch_to_form: "สลับไปแบบฟอร์ม",
+        th_field: "ฟิลด์ข้อมูล",
+        th_icon: "ไอคอน",
+        th_type: "ชนิดข้อมูล",
+        th_required: "ความจำเป็น",
+        th_purpose: "วัตถุประสงค์และสิทธิประโยชน์",
+        f1_name: "ชื่อ - นามสกุล",
+        f1_desc: "พิมพ์บนบัตรสมาชิกดิจิทัลและใช้ทักทาย",
+        f2_name: "วันเกิด",
+        f2_desc: "เปิดใช้คูปองวันเกิด 15% ทุกปี",
+        f3_name: "เพศ",
+        f3_desc: "แนะนำทรงรองเท้าที่เหมาะกับคุณ",
+        f4_name: "เบอร์โทรศัพท์",
+        f4_desc: "ใช้ค้นหาคะแนนสะสมและติดต่อจัดส่ง",
+        f5_name: "อีเมล",
+        f5_desc: "รับคูปอง VIP และกู้คืนรหัสผ่าน",
+        f6_name: "ที่อยู่ถาวร",
+        f6_desc: "ที่อยู่สำหรับจัดส่งและเปลี่ยนไซส์ฟรี",
+        f7_name: "ชื่อผู้ใช้",
+        f7_desc: "ใช้สำหรับเข้าสู่ระบบเว็บและแอป",
+        f8_name: "รหัสผ่าน",
+        f8_desc: "ปกป้องบัญชีและคะแนนสะสมของคุณ",
+        f9_name: "ยืนยันรหัสผ่าน",
+        f9_desc: "ป้องกันการพิมพ์ผิดพลาด",
+        f10_name: "ยอมรับเงื่อนไข",
+        f10_desc: "ยืนยันความยินยอมตามนโยบายความเป็นส่วนตัว"
+      },
+      zh: {
+        page_title: "会员注册",
+        page_subtitle: "加入正品运动鞋会员俱乐部。立即获赠50欢迎迎新积分、生日专属优惠及VIP尊享购物特权。",
+        hero_badge: "SHOPKIET76 会员特权",
+        back_home_btn: "返回首页",
+        tab_form: "注册表单",
+        tab_specs: "数据规范与项目列表",
+        sec1_title: "1. 个人基本信息",
+        sec1_desc: "请填写真实信息以享受生日礼遇与积分累积",
+        label_fullname: "姓名",
+        hint_fullname: "请输入您的真实姓名",
+        label_dob: "出生日期",
+        hint_dob: "生日当月可获赠15%全场优惠券",
+        label_gender: "性别",
+        gender_male: "男",
+        gender_female: "女",
+        gender_other: "其他",
+        hint_gender: "帮助我们为您推荐最合脚的鞋款与尺码",
+        sec2_title: "2. 联系方式与常住地址",
+        sec2_desc: "用于商品派送、30天免费上门换码及正品保修",
+        label_phone: "手机号码",
+        hint_phone: "用于查询会员积分与订单跟踪",
+        label_email: "电子邮箱",
+        hint_email: "接收电子发票与独家VIP优惠券",
+        label_address: "常住地址",
+        hint_address: "详细收货地址及免费上门调换尺码地址",
+        sec3_title: "3. 账户安全信息",
+        sec3_desc: "创建安全的登录账号与密码以管理个人会员中心",
+        label_username: "登录用户名",
+        hint_username: "4-20个字符（字母、数字，无空格）",
+        label_password: "登录密码",
+        pwd_strength_label: "密码安全强度:",
+        label_confirm_password: "确认登录密码",
+        terms_agree_text: "我确认以上信息准确无误，并完全同意",
+        terms_link: "使用条款与会员章程",
+        terms_suffix: "（shopkiet76）。",
+        btn_register_now: "立即注册",
+        btn_back_home: "返回首页",
+        already_have_acc: "已有会员账号？",
+        login_now: "立即登录",
+        reg_success_title: "恭喜！您已成功成为VIP会员！",
+        reg_success_desc: "会员账号已成功保存至 shopkiet76 系统。您已获得50迎新积分奖励！",
+        card_holder_label: "持卡会员",
+        card_id_label: "会员卡号",
+        card_points_label: "迎新奖励积分",
+        summary_table_title: "注册会员档案总览表",
+        registered_time: "注册时间",
+        btn_shop_now: "立即继续选购",
+        btn_reg_another: "继续注册新账号",
+        benefits_title: "专属会员特权",
+        b1_title: "赠送50迎新积分",
+        b1_desc: "首单购买正品球鞋可直接抵扣50,000₫现金。",
+        b2_title: "15% 生日专属折扣礼",
+        b2_desc: "生日当月可获全场通用的15%特权优惠券。",
+        b3_title: "全国免运费配送",
+        b3_desc: "订单满1,000,000₫即享免邮，核心城区24小时极速送达。",
+        b4_title: "30天免费上门换尺码",
+        b4_desc: "如尺码不合脚，快递员免费携带新码鞋上门调换。",
+        b5_title: "限量爆款优先抢购权",
+        b5_desc: "优先锁定 Vans Old Skool Navy 等重磅热门鞋款。",
+        support_title: "需要注册帮助？",
+        support_desc: "致电24小时客服热线或与 Shopkiet76 智能助理沟通",
+        specs_heading: "会员注册数据项规范表",
+        specs_subheading: "详细列明10大必填字段、数据类型及在网站/App系统中的用途",
+        btn_switch_to_form: "切换至表单",
+        th_field: "信息字段",
+        th_icon: "图标",
+        th_type: "数据类型",
+        th_required: "是否必填",
+        th_purpose: "用途与会员权益",
+        f1_name: "姓名",
+        f1_desc: "印于电子会员卡并在购物时提供个性化问候。",
+        f2_name: "出生日期",
+        f2_desc: "系统每年自动触发15%生日优惠券。",
+        f3_name: "性别",
+        f3_desc: "推荐最佳版型与鞋类精选系列。",
+        f4_name: "手机号码",
+        f4_desc: "门店与线上查分，派件及上门换码联系。",
+        f5_name: "电子邮箱",
+        f5_desc: "接收VIP密令优惠券、电子收据及找回密码。",
+        f6_name: "常住地址",
+        f6_desc: "结账自动填充、极速快递及售后保修服务。",
+        f7_name: "登录用户名",
+        f7_desc: "用于登录网站和移动客户端的专属标识。",
+        f8_name: "登录密码",
+        f8_desc: "保护账户资金、积分及历史订单隐私。",
+        f9_name: "确认密码",
+        f9_desc: "防止注册时键盘输入误触。",
+        f10_name: "同意用户协议",
+        f10_desc: "保障消费者合法权益，遵守数据隐私规范。"
+      }
+    };
+
+    let currentLang = 'vi';
+
+    // Hàm chuyển đổi ngôn ngữ linh hoạt
+    function switchLanguage(lang) {
+      if (!i18nDictionary[lang]) return;
+      currentLang = lang;
+
+      // Cập nhật trạng thái nút bấm
+      document.querySelectorAll('.lang-switcher-btn').forEach(btn => btn.classList.remove('active'));
+      const activeBtn = document.getElementById('lang-' + lang);
+      if (activeBtn) activeBtn.classList.add('active');
+
+      // Cập nhật tất cả text có data-i18n
+      const dict = i18nDictionary[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) {
+          el.textContent = dict[key];
+        }
+      });
+    }
+
+    // Chuyển Tab giữa Form và Bảng Quy Cách
+    function switchTab(tab) {
+      const viewForm = document.getElementById('view-form');
+      const viewSpecs = document.getElementById('view-specs');
+      const btnForm = document.getElementById('tab-btn-form');
+      const btnSpecs = document.getElementById('tab-btn-specs');
+
+      if (tab === 'form') {
+        viewForm.classList.remove('d-none');
+        viewSpecs.classList.add('d-none');
+        btnForm.classList.add('btn-primary', 'active');
+        btnForm.classList.remove('btn-light', 'text-muted');
+        btnSpecs.classList.remove('btn-primary', 'active');
+        btnSpecs.classList.add('btn-light', 'text-muted');
+      } else {
+        viewForm.classList.add('d-none');
+        viewSpecs.classList.remove('d-none');
+        btnSpecs.classList.add('btn-primary', 'active');
+        btnSpecs.classList.remove('btn-light', 'text-muted');
+        btnForm.classList.remove('btn-primary', 'active');
+        btnForm.classList.add('btn-light', 'text-muted');
+      }
+    }
+
+    // Chọn giới tính
+    function selectGender(gender) {
+      document.querySelectorAll('.gender-radio-card').forEach(c => c.classList.remove('active'));
+      if (gender === 'Nam') {
+        document.getElementById('gender-male-label').classList.add('active');
+        document.getElementById('gender-male').checked = true;
+      } else if (gender === 'Nữ') {
+        document.getElementById('gender-female-label').classList.add('active');
+        document.getElementById('gender-female').checked = true;
+      } else {
+        document.getElementById('gender-other-label').classList.add('active');
+        document.getElementById('gender-other').checked = true;
+      }
+    }
+
+    // Ẩn/Hiện mật khẩu
+    function togglePasswordVisibility(fieldId, btnEl) {
+      const field = document.getElementById(fieldId);
+      const icon = btnEl.querySelector('i');
+      if (field.type === 'password') {
+        field.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+      } else {
+        field.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+      }
+    }
+
+    // Đo độ mạnh mật khẩu
+    function checkPasswordStrength(password) {
+      const bar = document.getElementById('strength-bar');
+      const text = document.getElementById('strength-text');
+      if (!password) {
+        bar.style.width = '0%';
+        bar.style.backgroundColor = '#e2e8f0';
+        text.textContent = currentLang === 'en' ? 'Not entered' : 'Chưa nhập';
+        text.className = 'small fw-bold text-muted';
+        return;
+      }
+
+      let score = 0;
+      if (password.length >= 6) score++;
+      if (password.length >= 8) score++;
+      if (/[A-Z]/.test(password)) score++;
+      if (/[0-9]/.test(password)) score++;
+      if (/[^A-Za-z0-9]/.test(password)) score++;
+
+      if (score <= 2) {
+        bar.style.width = '30%';
+        bar.style.backgroundColor = '#ef4444';
+        text.textContent = currentLang === 'en' ? 'Weak' : 'Yếu (Nên thêm số, chữ hoa)';
+        text.className = 'small fw-bold text-danger';
+      } else if (score === 3 || score === 4) {
+        bar.style.width = '65%';
+        bar.style.backgroundColor = '#f59e0b';
+        text.textContent = currentLang === 'en' ? 'Medium' : 'Trung bình (Tốt)';
+        text.className = 'small fw-bold text-warning';
+      } else {
+        bar.style.width = '100%';
+        bar.style.backgroundColor = '#10b981';
+        text.textContent = currentLang === 'en' ? 'Very Strong' : 'Rất mạnh (Tuyệt vời)';
+        text.className = 'small fw-bold text-success';
+      }
+
+      checkPasswordMatch();
+    }
+
+    // Kiểm tra khớp mật khẩu
+    function checkPasswordMatch() {
+      const p1 = document.getElementById('password').value;
+      const p2 = document.getElementById('confirmPassword').value;
+      const feedback = document.getElementById('match-feedback');
+
+      if (!p2) {
+        feedback.style.display = 'none';
+        return;
+      }
+
+      feedback.style.display = 'block';
+      if (p1 === p2) {
+        feedback.className = 'small mt-1 text-success fw-bold';
+        feedback.innerHTML = '<i class="fas fa-check-circle me-1"></i> ' + (currentLang === 'en' ? 'Passwords match' : 'Mật khẩu trùng khớp');
+      } else {
+        feedback.className = 'small mt-1 text-danger fw-bold';
+        feedback.innerHTML = '<i class="fas fa-times-circle me-1"></i> ' + (currentLang === 'en' ? 'Passwords do not match' : 'Mật khẩu chưa khớp');
+      }
+    }
+
+    // Xử lý gửi Form Đăng Ký
+    async function handleMemberRegistration(event) {
+      event.preventDefault();
+      const alertBox = document.getElementById('register-alert');
+      const alertMsg = document.getElementById('register-alert-msg');
+      const submitBtn = document.getElementById('submit-btn');
+
+      alertBox.classList.add('d-none');
+
+      const fullName = document.getElementById('fullName').value.trim();
+      const dob = document.getElementById('dob').value.trim();
+      const gender = document.querySelector('input[name="gender"]:checked')?.value || 'Nam';
+      const phone = document.getElementById('phone').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      const termsAccepted = document.getElementById('termsAccepted').checked;
+
+      // Validate phía client
+      if (!fullName || !dob || !phone || !email || !address || !username || !password) {
+        alertMsg.textContent = currentLang === 'en' 
+          ? 'Please fill in all required fields!' 
+          : 'Vui lòng điền đầy đủ tất cả các trường thông tin bắt buộc!';
+        alertBox.classList.remove('d-none');
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        alertMsg.textContent = currentLang === 'en' 
+          ? 'Passwords do not match. Please re-enter!' 
+          : 'Mật khẩu xác nhận không trùng khớp! Vui lòng nhập lại.';
+        alertBox.classList.remove('d-none');
+        return;
+      }
+
+      if (!termsAccepted) {
+        alertMsg.textContent = currentLang === 'en'
+          ? 'Please accept the Terms of Service to continue!'
+          : 'Bạn cần đồng ý với Điều khoản sử dụng & Quy chế hội viên để tiếp tục!';
+        alertBox.classList.remove('d-none');
+        return;
+      }
+
+      // Trạng thái đang gửi
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> ' + (currentLang === 'en' ? 'Registering...' : 'Đang xử lý đăng ký...');
+
+      try {
+        const response = await fetch('/api/members/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            fullName,
+            dob,
+            gender,
+            phone,
+            email,
+            address,
+            username,
+            password,
+            confirmPassword,
+            termsAccepted
+          })
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          // Lưu vào localStorage để đồng bộ trạng thái đăng nhập
+          const memberData = result.member;
+          localStorage.setItem('shopkiet76_current_member', JSON.stringify(memberData));
+
+          // Ẩn form, hiển thị thẻ thành viên & bảng tóm tắt
+          document.getElementById('membership-register-form').classList.add('d-none');
+          const successBox = document.getElementById('register-success-box');
+          successBox.classList.remove('d-none');
+
+          // Đổ dữ liệu vào Thẻ VIP
+          document.getElementById('success-card-name').textContent = memberData.fullName.toUpperCase();
+          document.getElementById('success-card-id').textContent = memberData.id;
+
+          // Đổ dữ liệu vào Bảng tổng hợp
+          document.getElementById('table-val-name').textContent = memberData.fullName;
+          document.getElementById('table-val-dob').textContent = memberData.dob;
+          document.getElementById('table-val-gender').textContent = memberData.gender;
+          document.getElementById('table-val-phone').textContent = memberData.phone;
+          document.getElementById('table-val-email').textContent = memberData.email;
+          document.getElementById('table-val-address').textContent = memberData.address;
+          document.getElementById('table-val-username').textContent = memberData.username;
+          document.getElementById('table-val-time').textContent = memberData.createdAt;
+
+          // Cuộn mượt lên đầu bảng thành công
+          successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        } else {
+          alertMsg.textContent = result.message || 'Đăng ký không thành công. Vui lòng kiểm tra lại thông tin!';
+          alertBox.classList.remove('d-none');
+          alertBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      } catch (err) {
+        console.error('Lỗi khi gửi form đăng ký:', err);
+        alertMsg.textContent = 'Có lỗi kết nối đến máy chủ. Vui lòng thử lại sau ít phút!';
+        alertBox.classList.remove('d-none');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fas fa-user-plus me-2"></i> <span data-i18n="btn_register_now">' + (currentLang === 'en' ? 'REGISTER NOW' : 'ĐĂNG KÝ NGAY') + '</span>';
+      }
+    }
+
+    // Đăng ký thêm tài khoản mới
+    function resetFormForNewReg() {
+      document.getElementById('membership-register-form').reset();
+      document.getElementById('membership-register-form').classList.remove('d-none');
+      document.getElementById('register-success-box').classList.add('d-none');
+      selectGender('Nam');
+      checkPasswordStrength('');
+      document.getElementById('membership-register-form').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Đăng nhập nhanh
+    async function handleMemberLogin(event) {
+      event.preventDefault();
+      const alertBox = document.getElementById('login-modal-alert');
+      const account = document.getElementById('login-account').value.trim();
+      const password = document.getElementById('login-password').value;
+      const submitBtn = document.getElementById('login-btn-submit');
+
+      alertBox.classList.add('d-none');
+      submitBtn.disabled = true;
+
+      try {
+        const res = await fetch('/api/members/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ account, password })
+        });
+        const data = await res.json();
+        if (res.ok && data.success) {
+          localStorage.setItem('shopkiet76_current_member', JSON.stringify(data.member));
+          alert('Đăng nhập thành công! Chào mừng ' + data.member.fullName);
+          window.location.href = '/';
+        } else {
+          alertBox.textContent = data.message || 'Tài khoản hoặc mật khẩu không chính xác!';
+          alertBox.classList.remove('d-none');
+        }
+      } catch (e) {
+        alertBox.textContent = 'Lỗi kết nối máy chủ!';
+        alertBox.classList.remove('d-none');
+      } finally {
+        submitBtn.disabled = false;
+      }
+    }
+
+    // Khởi tạo giỏ hàng đếm badge
+    document.addEventListener('DOMContentLoaded', () => {
+      try {
+        const cart = JSON.parse(localStorage.getItem('shopkiet76_cart') || '[]');
+        const count = cart.reduce((acc, item) => acc + (item.quantity || 1), 0);
+        document.querySelectorAll('.cart-count-badge').forEach(b => b.textContent = count);
+      } catch (e) {}
+    });
+  </script>
+
+  <!-- Mobile Bottom Navigation Bar - ĐỦ 5 MỤC THEO YÊU CẦU:
+       🏠 Trang Chủ | 👟 Sản Phẩm | 🎁 Khuyến Mãi | 👑 Trung Tâm Hội Viên | 🛒 Giỏ Hàng -->
+  <nav class="mobile-bottom-nav" aria-label="Điều hướng di động">
+    <a href="/" class="bottom-nav-item">
+      <i class="fas fa-home"></i>
+      <span>Trang Chủ</span>
+    </a>
+    <a href="/#products-section" class="bottom-nav-item">
+      <i class="fas fa-shoe-prints"></i>
+      <span>Sản Phẩm</span>
+    </a>
+    <a href="javascript:void(0)" onclick="openPromoModal(event)" class="bottom-nav-item">
+      <i class="fas fa-gift text-warning"></i>
+      <span>Khuyến Mãi</span>
+    </a>
+    <a href="/member" class="bottom-nav-item active">
+      <i class="fas fa-crown text-warning"></i>
+      <span>Hội Viên</span>
+    </a>
+    <a href="/cart" class="bottom-nav-item position-relative">
+      <i class="fas fa-shopping-cart"></i>
+      <span class="bottom-nav-badge cart-count-badge">0</span>
+      <span>Giỏ Hàng</span>
+    </a>
+  </nav>
+
+  <!-- ======================================================== -->
+  <!-- HÌNH MÃ GIẢM GIÁ NỔI CỐ ĐỊNH Ở GÓC TRÁI GIỮA MÀN HÌNH -->
+  <!-- ======================================================== -->
+  <div class="shopkiet-floating-voucher-img" onclick="openPromoModal(event)" role="button" tabindex="0" title="Nhấn xem mã giảm giá 1.000.000đ GIAY76VIPP" aria-label="Mã giảm giá GIAY76VIPP">
+    <img src="/images/voucher_coupon_icon.jpg" alt="Mã Giảm Giá GIAY76VIPP Shopkiet76" class="floating-voucher-pic" onerror="this.onerror=null; this.src='https://cdn-icons-png.flaticon.com/512/879/879757.png';" />
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL QUẢNG CÁO MÃ GIẢM GIÁ (CĂN GIỮA, NỀN TỐI NHẸ) -->
+  <!-- ======================================================== -->
+  <div id="shopkietPromoModal" class="shopkiet-promo-modal-backdrop" onclick="handlePromoModalBackdropClick(event)">
+    <div class="shopkiet-promo-modal-dialog" onclick="event.stopPropagation()">
+      <!-- Nút đóng X góc trên bên phải -->
+      <button type="button" class="promo-modal-close-btn" onclick="closePromoModal(event)" aria-label="Đóng" title="Đóng">&times;</button>
+      
+      <!-- Nội dung modal: Nền trắng, bo góc 16px, bóng nhẹ -->
+      <div class="promo-modal-content">
+        <!-- Huy hiệu & Tiêu đề -->
+        <div class="promo-modal-header text-center mb-3">
+          <div class="promo-modal-badge">
+            <span>⚡ KHÁCH HÀNG MỚI</span>
+          </div>
+          <h4 class="promo-modal-title">
+            GIẢM THÊM <span class="highlight-discount">1 TRIỆU</span>
+          </h4>
+          <p class="promo-modal-subtitle mb-0">Ưu đãi chào mừng thành viên mới shopkiet76</p>
+        </div>
+
+        <!-- Khung hiển thị mã GIAY76VIPP to nhất, nổi bật -->
+        <div class="promo-code-card">
+          <div class="promo-code-label">MÃ GIẢM GIÁ ĐỘC QUYỀN</div>
+          <div class="promo-code-box">
+            <span class="promo-code-text" id="voucherCodeVal">GIAY76VIPP</span>
+          </div>
+          <div class="promo-condition-text">
+            <i class="fas fa-check-circle text-success me-1"></i> Áp dụng cho đơn hàng từ <strong>5.000.000đ</strong>
+          </div>
+        </div>
+
+        <!-- Nút: [📋 Sao chép mã] & [Mua Sắm Ngay] -->
+        <div class="promo-modal-actions">
+          <button type="button" id="copyVoucherBtn" class="btn-copy-promo-voucher" onclick="copyVoucherCode(event)">
+            <i class="fas fa-copy"></i>
+            <span id="copyBtnLabel">Sao chép mã</span>
+          </button>
+          <a href="/#products-section" class="btn-use-promo-now" onclick="closePromoModal(event)">
+            <span>Mua Sắm Ngay</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Ghi chú chân modal -->
+        <div class="promo-modal-footer text-center">
+          <small class="text-muted">
+            <i class="fas fa-shield-alt text-primary me-1"></i> Giảm trực tiếp 1.000.000đ khi điền mã tại trang Thanh Toán.
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast-container" class="toast-container-custom"></div>
+  <script src="/js/script.js"></script>
+</body>
+</html>
